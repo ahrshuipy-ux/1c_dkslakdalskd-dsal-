@@ -1,0 +1,2633 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              2 (sys)
+              STORE_NAME               2 (sys)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Path',))
+              IMPORT_NAME              3 (pathlib)
+              IMPORT_FROM              4 (Path)
+              STORE_NAME               4 (Path)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              5 (threading)
+              STORE_NAME               5 (threading)
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              6 (traceback)
+              STORE_NAME               6 (traceback)
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              7 (queue)
+              STORE_NAME               7 (queue)
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('List', 'Dict', 'Any', 'Tuple'))
+              IMPORT_NAME              8 (typing)
+              IMPORT_FROM              9 (List)
+              STORE_NAME               9 (List)
+              IMPORT_FROM             10 (Dict)
+              STORE_NAME              10 (Dict)
+              IMPORT_FROM             11 (Any)
+              STORE_NAME              11 (Any)
+              IMPORT_FROM             12 (Tuple)
+              STORE_NAME              12 (Tuple)
+              POP_TOP
+
+ 10           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME             13 (tkinter)
+              STORE_NAME              14 (tk)
+
+ 11           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('messagebox', 'ttk'))
+              IMPORT_NAME             13 (tkinter)
+              IMPORT_FROM             15 (messagebox)
+              STORE_NAME              15 (messagebox)
+              IMPORT_FROM             16 (ttk)
+              STORE_NAME              16 (ttk)
+              POP_TOP
+
+ 13           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('Workbook',))
+              IMPORT_NAME             17 (openpyxl)
+              IMPORT_FROM             18 (Workbook)
+              STORE_NAME              18 (Workbook)
+              POP_TOP
+
+ 15           LOAD_SMALL_INT           0
+              LOAD_CONST               7 (('SUPPORTED_EXT', 'SHOP_TO_SECTIONS'))
+              IMPORT_NAME             19 (app.settings)
+              IMPORT_FROM             20 (SUPPORTED_EXT)
+              STORE_NAME              20 (SUPPORTED_EXT)
+              IMPORT_FROM             21 (SHOP_TO_SECTIONS)
+              STORE_NAME              21 (SHOP_TO_SECTIONS)
+              POP_TOP
+
+ 16           LOAD_SMALL_INT           0
+              LOAD_CONST               8 (('safe_sheet_title_from_filename', 'is_equipment_list_file', 'is_tech_cards_or_file', 'is_forecast_file', 'is_normatives_file', 'is_manual_forecast_file', 'is_factual_repairs_file'))
+              IMPORT_NAME             22 (app.text_utils)
+              IMPORT_FROM             23 (safe_sheet_title_from_filename)
+              STORE_NAME              23 (safe_sheet_title_from_filename)
+              IMPORT_FROM             24 (is_equipment_list_file)
+              STORE_NAME              24 (is_equipment_list_file)
+              IMPORT_FROM             25 (is_tech_cards_or_file)
+              STORE_NAME              25 (is_tech_cards_or_file)
+              IMPORT_FROM             26 (is_forecast_file)
+              STORE_NAME              26 (is_forecast_file)
+              IMPORT_FROM             27 (is_normatives_file)
+              STORE_NAME              27 (is_normatives_file)
+              IMPORT_FROM             28 (is_manual_forecast_file)
+              STORE_NAME              28 (is_manual_forecast_file)
+              IMPORT_FROM             29 (is_factual_repairs_file)
+              STORE_NAME              29 (is_factual_repairs_file)
+              POP_TOP
+
+ 25           LOAD_SMALL_INT           0
+              LOAD_CONST               9 (('load_workbook_safe', 'copy_worksheet_values'))
+              IMPORT_NAME             30 (app.excel_utils)
+              IMPORT_FROM             31 (load_workbook_safe)
+              STORE_NAME              31 (load_workbook_safe)
+              IMPORT_FROM             32 (copy_worksheet_values)
+              STORE_NAME              32 (copy_worksheet_values)
+              POP_TOP
+
+ 26           LOAD_SMALL_INT           0
+              LOAD_CONST              10 (('choose_one_shop_gui',))
+              IMPORT_NAME             33 (app.gui)
+              IMPORT_FROM             34 (choose_one_shop_gui)
+              STORE_NAME              34 (choose_one_shop_gui)
+              POP_TOP
+
+ 27           LOAD_SMALL_INT           0
+              LOAD_CONST              11 (('run_processor_for_file',))
+              IMPORT_NAME             35 (app.processors)
+              IMPORT_FROM             36 (run_processor_for_file)
+              STORE_NAME              36 (run_processor_for_file)
+              POP_TOP
+
+ 28           LOAD_SMALL_INT           0
+              LOAD_CONST              12 (('process_master_compare_file',))
+              IMPORT_NAME             37 (app.master_compare_report)
+              IMPORT_FROM             38 (process_master_compare_file)
+              STORE_NAME              38 (process_master_compare_file)
+              POP_TOP
+
+ 29           LOAD_SMALL_INT           0
+              LOAD_CONST              13 (('process_master_compare_stats_file',))
+              IMPORT_NAME             39 (app.master_compare_stats_report)
+              IMPORT_FROM             40 (process_master_compare_stats_file)
+              STORE_NAME              40 (process_master_compare_stats_file)
+              POP_TOP
+
+ 32           LOAD_CONST              14 (<code object __annotate__ at 0x7f55aadf24c0, file "app\loader.py", line 32>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 (<code object _app_base_dir at 0x7f55aad598b0, file "app\loader.py", line 32>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              41 (_app_base_dir)
+
+ 38           LOAD_CONST              16 (<code object __annotate__ at 0x7f55aacadb60, file "app\loader.py", line 38>)
+              MAKE_FUNCTION
+              LOAD_CONST              17 (<code object _classify_file at 0x7f55aad59a70, file "app\loader.py", line 38>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              42 (_classify_file)
+
+ 54           LOAD_CONST              18 (<code object __annotate__ at 0x7f55aaba6100, file "app\loader.py", line 54>)
+              MAKE_FUNCTION
+              LOAD_CONST              19 (<code object _order_key at 0x7f55aabee170, file "app\loader.py", line 54>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              43 (_order_key)
+
+ 66           LOAD_CONST              20 (<code object __annotate__ at 0x7f55aad3a030, file "app\loader.py", line 66>)
+              MAKE_FUNCTION
+              LOAD_CONST              21 (<code object _show_info_dialog at 0x41916910, file "app\loader.py", line 66>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              44 (_show_info_dialog)
+
+105           LOAD_CONST              22 (<code object __annotate__ at 0x7f55aaa84630, file "app\loader.py", line 105>)
+              MAKE_FUNCTION
+              LOAD_CONST              23 (<code object _create_progress_window at 0x419903a0, file "app\loader.py", line 105>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              45 (_create_progress_window)
+
+125           LOAD_CONST              24 (<code object __annotate__ at 0x7f55aabd58a0, file "app\loader.py", line 125>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 (<code object _update_progress at 0x7f55aab9c1c0, file "app\loader.py", line 125>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              46 (_update_progress)
+
+132           LOAD_CONST              26 (<code object __annotate__ at 0x7f55aaa84f30, file "app\loader.py", line 132>)
+              MAKE_FUNCTION
+              LOAD_CONST              27 (<code object _show_load_log_and_validate at 0x41a1a730, file "app\loader.py", line 132>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              47 (_show_load_log_and_validate)
+
+169           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              28 (<code object ProcessingResult at 0x7f55aaa85230, file "app\loader.py", line 169>)
+              MAKE_FUNCTION
+              LOAD_CONST              29 ('ProcessingResult')
+              CALL                     2
+              STORE_NAME              48 (ProcessingResult)
+
+176           LOAD_CONST              30 (<code object __annotate__ at 0x7f55aaa85330, file "app\loader.py", line 176>)
+              MAKE_FUNCTION
+              LOAD_CONST              31 (<code object _process_all_files_worker at 0x41915170, file "app\loader.py", line 176>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              49 (_process_all_files_worker)
+
+285           LOAD_CONST              32 (<code object __annotate__ at 0x7f55aaba66a0, file "app\loader.py", line 285>)
+              MAKE_FUNCTION
+              LOAD_CONST              33 (<code object main at 0x419fd150, file "app\loader.py", line 285>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              50 (main)
+
+407           LOAD_NAME               51 (__name__)
+              LOAD_CONST              34 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       10 (to L1)
+              NOT_TAKEN
+
+408           LOAD_NAME               50 (main)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+407   L1:     LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aadf24c0, file "app\loader.py", line 32>:
+ 32           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object _app_base_dir at 0x7f55aad598b0, file "app\loader.py", line 32>:
+ 32           RESUME                   0
+
+ 33           LOAD_GLOBAL              1 (getattr + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_CONST               0 ('frozen')
+              LOAD_CONST               1 (False)
+              CALL                     3
+              TO_BOOL
+              POP_JUMP_IF_FALSE       50 (to L1)
+              NOT_TAKEN
+
+ 34           LOAD_GLOBAL              5 (Path + NULL)
+              LOAD_GLOBAL              2 (sys)
+              LOAD_ATTR                6 (executable)
+              CALL                     1
+              LOAD_ATTR                9 (resolve + NULL|self)
+              CALL                     0
+              LOAD_ATTR               10 (parent)
+              RETURN_VALUE
+
+ 35   L1:     LOAD_GLOBAL              5 (Path + NULL)
+              LOAD_GLOBAL             12 (__file__)
+              CALL                     1
+              LOAD_ATTR                9 (resolve + NULL|self)
+              CALL                     0
+              LOAD_ATTR               14 (parents)
+              LOAD_SMALL_INT           1
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aacadb60, file "app\loader.py", line 38>:
+ 38           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('file_path')
+              LOAD_CONST               2 ('Path')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object _classify_file at 0x7f55aad59a70, file "app\loader.py", line 38>:
+ 38           RESUME                   0
+
+ 39           LOAD_GLOBAL              1 (is_normatives_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+
+ 40           LOAD_CONST               0 ('Нормативы')
+              RETURN_VALUE
+
+ 41   L1:     LOAD_GLOBAL              3 (is_manual_forecast_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L2)
+              NOT_TAKEN
+
+ 42           LOAD_CONST               1 ('Ручной прогноз')
+              RETURN_VALUE
+
+ 43   L2:     LOAD_GLOBAL              5 (is_tech_cards_or_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L3)
+              NOT_TAKEN
+
+ 44           LOAD_CONST               2 ('Тех. карты ОР')
+              RETURN_VALUE
+
+ 45   L3:     LOAD_GLOBAL              7 (is_factual_repairs_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L4)
+              NOT_TAKEN
+
+ 46           LOAD_CONST               3 ('Фактические ремонты')
+              RETURN_VALUE
+
+ 47   L4:     LOAD_GLOBAL              9 (is_equipment_list_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L5)
+              NOT_TAKEN
+
+ 48           LOAD_CONST               4 ('Список оборудования')
+              RETURN_VALUE
+
+ 49   L5:     LOAD_GLOBAL             11 (is_forecast_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        3 (to L6)
+              NOT_TAKEN
+
+ 50           LOAD_CONST               5 ('Прогноз')
+              RETURN_VALUE
+
+ 51   L6:     LOAD_CONST               6 ('Прочее')
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6100, file "app\loader.py", line 54>:
+ 54           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('file_path')
+              LOAD_CONST               2 ('Path')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('int')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object _order_key at 0x7f55aabee170, file "app\loader.py", line 54>:
+ 54           RESUME                   0
+
+ 55           LOAD_GLOBAL              1 (_classify_file + NULL)
+              LOAD_FAST_BORROW         0 (file_path)
+              CALL                     1
+              STORE_FAST               1 (ftype)
+
+ 57           LOAD_CONST               0 ('Список оборудования')
+              LOAD_SMALL_INT           0
+
+ 58           LOAD_CONST               1 ('Тех. карты ОР')
+              LOAD_SMALL_INT           1
+
+ 59           LOAD_CONST               2 ('Нормативы')
+              LOAD_SMALL_INT           2
+
+ 60           LOAD_CONST               3 ('Фактические ремонты')
+              LOAD_SMALL_INT           3
+
+ 61           LOAD_CONST               4 ('Ручной прогноз')
+              LOAD_SMALL_INT           4
+
+ 62           LOAD_CONST               5 ('Прогноз')
+              LOAD_SMALL_INT           5
+
+ 56           BUILD_MAP                6
+
+ 63           LOAD_ATTR                3 (get + NULL|self)
+              LOAD_FAST_BORROW         1 (ftype)
+              LOAD_SMALL_INT           6
+              CALL                     2
+
+ 56           RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aad3a030, file "app\loader.py", line 66>:
+ 66           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('parent')
+              LOAD_CONST               2 ('tk.Tk')
+              LOAD_CONST               3 ('title')
+              LOAD_CONST               4 ('str')
+              LOAD_CONST               5 ('text')
+              LOAD_CONST               4 ('str')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('None')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object _show_info_dialog at 0x41916910, file "app\loader.py", line 66>:
+  --           MAKE_CELL                0 (parent)
+               MAKE_CELL                9 (win)
+
+  66           RESUME                   0
+
+  67           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR                2 (Toplevel)
+               PUSH_NULL
+               LOAD_DEREF               0 (parent)
+               CALL                     1
+               STORE_DEREF              9 (win)
+
+  68           LOAD_DEREF               9 (win)
+               LOAD_ATTR                5 (title + NULL|self)
+               LOAD_FAST_BORROW         1 (title)
+               CALL                     1
+               POP_TOP
+
+  69           LOAD_DEREF               9 (win)
+               LOAD_ATTR                7 (geometry + NULL|self)
+               LOAD_CONST               0 ('700x520')
+               CALL                     1
+               POP_TOP
+
+  70           LOAD_DEREF               9 (win)
+               LOAD_ATTR                9 (resizable + NULL|self)
+               LOAD_CONST               1 (True)
+               LOAD_CONST               1 (True)
+               CALL                     2
+               POP_TOP
+
+  71           LOAD_DEREF               9 (win)
+               LOAD_ATTR               11 (transient + NULL|self)
+               LOAD_DEREF               0 (parent)
+               CALL                     1
+               POP_TOP
+
+  72           LOAD_DEREF               9 (win)
+               LOAD_ATTR               13 (grab_set + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  74           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               14 (Frame)
+               PUSH_NULL
+               LOAD_DEREF               9 (win)
+               CALL                     1
+               STORE_FAST               3 (frame)
+
+  75           LOAD_FAST_BORROW         3 (frame)
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST               2 ('both')
+               LOAD_CONST               1 (True)
+               LOAD_SMALL_INT          10
+               LOAD_SMALL_INT          10
+               LOAD_CONST               3 (('fill', 'expand', 'padx', 'pady'))
+               CALL_KW                  4
+               POP_TOP
+
+  77           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               18 (Scrollbar)
+               PUSH_NULL
+               LOAD_FAST_BORROW         3 (frame)
+               CALL                     1
+               STORE_FAST               4 (scrollbar)
+
+  78           LOAD_FAST_BORROW         4 (scrollbar)
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST               4 ('right')
+               LOAD_CONST               5 ('y')
+               LOAD_CONST               6 (('side', 'fill'))
+               CALL_KW                  2
+               POP_TOP
+
+  80           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               20 (Text)
+               PUSH_NULL
+               LOAD_FAST_BORROW         3 (frame)
+               LOAD_CONST               7 ('word')
+               LOAD_FAST_BORROW         4 (scrollbar)
+               LOAD_ATTR               22 (set)
+               LOAD_CONST               8 (('wrap', 'yscrollcommand'))
+               CALL_KW                  3
+               STORE_FAST               5 (txt)
+
+  81           LOAD_FAST_BORROW         5 (txt)
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST               9 ('left')
+               LOAD_CONST               2 ('both')
+               LOAD_CONST               1 (True)
+               LOAD_CONST              10 (('side', 'fill', 'expand'))
+               CALL_KW                  3
+               POP_TOP
+
+  82           LOAD_FAST_BORROW         4 (scrollbar)
+               LOAD_ATTR               25 (config + NULL|self)
+               LOAD_FAST_BORROW         5 (txt)
+               LOAD_ATTR               26 (yview)
+               LOAD_CONST              11 (('command',))
+               CALL_KW                  1
+               POP_TOP
+
+  84           LOAD_FAST_BORROW         5 (txt)
+               LOAD_ATTR               29 (insert + NULL|self)
+               LOAD_CONST              12 ('1.0')
+               LOAD_FAST_BORROW         2 (text)
+               CALL                     2
+               POP_TOP
+
+  85           LOAD_FAST_BORROW         5 (txt)
+               LOAD_ATTR               25 (config + NULL|self)
+               LOAD_CONST              13 ('disabled')
+               LOAD_CONST              14 (('state',))
+               CALL_KW                  1
+               POP_TOP
+
+  87           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               14 (Frame)
+               PUSH_NULL
+               LOAD_DEREF               9 (win)
+               CALL                     1
+               STORE_FAST               6 (btn_frame)
+
+  88           LOAD_FAST_BORROW         6 (btn_frame)
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST              15 ('x')
+               LOAD_SMALL_INT          10
+               LOAD_CONST              26 ((0, 10))
+               LOAD_CONST              16 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+  90           LOAD_CONST              17 (<code object __annotate__ at 0x7f55aaba62e0, file "app\loader.py", line 90>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         9 (win)
+               BUILD_TUPLE              1
+               LOAD_CONST              18 (<code object on_next at 0x7f55aaa84e30, file "app\loader.py", line 90>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_FAST               7 (on_next)
+
+  93           LOAD_CONST              19 (<code object __annotate__ at 0x7f55aaba63d0, file "app\loader.py", line 93>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         0 (parent)
+               BUILD_TUPLE              1
+               LOAD_CONST              20 (<code object on_exit at 0x7f55aad629a0, file "app\loader.py", line 93>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_FAST               8 (on_exit)
+
+  97           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               30 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         6 (btn_frame)
+               LOAD_CONST              21 ('Выйти из приложения')
+               LOAD_FAST_BORROW         8 (on_exit)
+               LOAD_SMALL_INT          20
+               LOAD_CONST              22 (('text', 'command', 'width'))
+               CALL_KW                  4
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST               9 ('left')
+               LOAD_CONST              23 (('side',))
+               CALL_KW                  1
+               POP_TOP
+
+  98           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               30 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         6 (btn_frame)
+               LOAD_CONST              24 ('Далее')
+               LOAD_FAST_BORROW         7 (on_next)
+               LOAD_SMALL_INT          12
+               LOAD_CONST              22 (('text', 'command', 'width'))
+               CALL_KW                  4
+               LOAD_ATTR               17 (pack + NULL|self)
+               LOAD_CONST               4 ('right')
+               LOAD_CONST              23 (('side',))
+               CALL_KW                  1
+               POP_TOP
+
+ 100           LOAD_DEREF               9 (win)
+               LOAD_ATTR               33 (lift + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 101           LOAD_DEREF               9 (win)
+               LOAD_ATTR               35 (focus_force + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 102           LOAD_DEREF               0 (parent)
+               LOAD_ATTR               37 (wait_window + NULL|self)
+               LOAD_DEREF               9 (win)
+               CALL                     1
+               POP_TOP
+               LOAD_CONST              25 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba62e0, file "app\loader.py", line 90>:
+ 90           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object on_next at 0x7f55aaa84e30, file "app\loader.py", line 90>:
+  --           COPY_FREE_VARS           1
+
+  90           RESUME                   0
+
+  91           LOAD_DEREF               0 (win)
+               LOAD_ATTR                1 (destroy + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba63d0, file "app\loader.py", line 93>:
+ 93           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object on_exit at 0x7f55aad629a0, file "app\loader.py", line 93>:
+  --           COPY_FREE_VARS           1
+
+  93           RESUME                   0
+
+  94           LOAD_DEREF               0 (parent)
+               LOAD_ATTR                1 (destroy + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  95           LOAD_GLOBAL              3 (SystemExit + NULL)
+               LOAD_SMALL_INT           0
+               CALL                     1
+               RAISE_VARARGS            1
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84630, file "app\loader.py", line 105>:
+105           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('parent')
+              LOAD_CONST               2 ('tk.Tk')
+              LOAD_CONST               3 ('total_steps')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Tuple[tk.Toplevel, ttk.Progressbar, tk.Label]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object _create_progress_window at 0x419903a0, file "app\loader.py", line 105>:
+  --           MAKE_CELL                4 (win)
+
+ 105           RESUME                   0
+
+ 106           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR                2 (Toplevel)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (parent)
+               CALL                     1
+               STORE_DEREF              4 (win)
+
+ 107           LOAD_DEREF               4 (win)
+               LOAD_ATTR                5 (title + NULL|self)
+               LOAD_CONST               0 ('Обработка файлов')
+               CALL                     1
+               POP_TOP
+
+ 108           LOAD_DEREF               4 (win)
+               LOAD_ATTR                7 (geometry + NULL|self)
+               LOAD_CONST               1 ('520x140')
+               CALL                     1
+               POP_TOP
+
+ 109           LOAD_DEREF               4 (win)
+               LOAD_ATTR                9 (resizable + NULL|self)
+               LOAD_CONST               2 (False)
+               LOAD_CONST               2 (False)
+               CALL                     2
+               POP_TOP
+
+ 110           LOAD_DEREF               4 (win)
+               LOAD_ATTR               11 (transient + NULL|self)
+               LOAD_FAST_BORROW         0 (parent)
+               CALL                     1
+               POP_TOP
+
+ 112           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               12 (Label)
+               PUSH_NULL
+               LOAD_DEREF               4 (win)
+               LOAD_CONST               3 ('Подготовка...')
+               LOAD_CONST               4 ('w')
+               LOAD_CONST               5 ('left')
+               LOAD_CONST               6 (('text', 'anchor', 'justify'))
+               CALL_KW                  4
+               STORE_FAST               2 (lbl)
+
+ 113           LOAD_FAST_BORROW         2 (lbl)
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST               7 ('x')
+               LOAD_SMALL_INT          12
+               LOAD_CONST              14 ((12, 6))
+               LOAD_CONST               8 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+ 115           LOAD_GLOBAL             16 (ttk)
+               LOAD_ATTR               18 (Progressbar)
+               PUSH_NULL
+               LOAD_DEREF               4 (win)
+               LOAD_CONST               9 ('determinate')
+               LOAD_GLOBAL             21 (max + NULL)
+               LOAD_FAST_BORROW         1 (total_steps)
+               LOAD_SMALL_INT           1
+               CALL                     2
+               LOAD_CONST              10 (('mode', 'maximum'))
+               CALL_KW                  3
+               STORE_FAST               3 (bar)
+
+ 116           LOAD_FAST_BORROW         3 (bar)
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST               7 ('x')
+               LOAD_SMALL_INT          12
+               LOAD_CONST              15 ((0, 10))
+               LOAD_CONST               8 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+ 118           LOAD_DEREF               4 (win)
+               LOAD_ATTR               23 (lift + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 119           LOAD_DEREF               4 (win)
+               LOAD_ATTR               25 (attributes + NULL|self)
+               LOAD_CONST              11 ('-topmost')
+               LOAD_CONST              12 (True)
+               CALL                     2
+               POP_TOP
+
+ 120           LOAD_DEREF               4 (win)
+               LOAD_ATTR               27 (after + NULL|self)
+               LOAD_SMALL_INT         250
+               LOAD_FAST_BORROW         4 (win)
+               BUILD_TUPLE              1
+               LOAD_CONST              13 (<code object <lambda> at 0x7f55aaa84330, file "app\loader.py", line 120>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               CALL                     2
+               POP_TOP
+
+ 121           LOAD_DEREF               4 (win)
+               LOAD_ATTR               29 (update_idletasks + NULL|self)
+               CALL                     0
+               POP_TOP
+
+ 122           LOAD_DEREF               4 (win)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 50 (bar, lbl)
+               BUILD_TUPLE              3
+               RETURN_VALUE
+
+Disassembly of <code object <lambda> at 0x7f55aaa84330, file "app\loader.py", line 120>:
+  --           COPY_FREE_VARS           1
+
+ 120           RESUME                   0
+               LOAD_DEREF               0 (win)
+               LOAD_ATTR                1 (attributes + NULL|self)
+               LOAD_CONST               0 ('-topmost')
+               LOAD_CONST               1 (False)
+               CALL                     2
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aabd58a0, file "app\loader.py", line 125>:
+125           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('win')
+              LOAD_CONST               2 ('tk.Toplevel')
+              LOAD_CONST               3 ('bar')
+              LOAD_CONST               4 ('ttk.Progressbar')
+              LOAD_CONST               5 ('lbl')
+              LOAD_CONST               6 ('tk.Label')
+              LOAD_CONST               7 ('done')
+              LOAD_CONST               8 ('int')
+              LOAD_CONST               9 ('total')
+              LOAD_CONST               8 ('int')
+              LOAD_CONST              10 ('text')
+              LOAD_CONST              11 ('str')
+              LOAD_CONST              12 ('return')
+              LOAD_CONST              13 ('None')
+              BUILD_MAP                7
+              RETURN_VALUE
+
+Disassembly of <code object _update_progress at 0x7f55aab9c1c0, file "app\loader.py", line 125>:
+125           RESUME                   0
+
+126           LOAD_FAST_BORROW_LOAD_FAST_BORROW 49 (done, bar)
+              LOAD_CONST               0 ('value')
+              STORE_SUBSCR
+
+127           LOAD_GLOBAL              1 (int + NULL)
+              LOAD_GLOBAL              3 (round + NULL)
+              LOAD_FAST_BORROW         3 (done)
+              LOAD_GLOBAL              5 (max + NULL)
+              LOAD_FAST_BORROW         4 (total)
+              LOAD_SMALL_INT           1
+              CALL                     2
+              BINARY_OP               11 (/)
+              LOAD_SMALL_INT         100
+              BINARY_OP                5 (*)
+              CALL                     1
+              CALL                     1
+              STORE_FAST               6 (pct)
+
+128           LOAD_FAST_BORROW         2 (lbl)
+              LOAD_ATTR                7 (config + NULL|self)
+              LOAD_FAST_BORROW         6 (pct)
+              FORMAT_SIMPLE
+              LOAD_CONST               1 ('% (')
+              LOAD_FAST_BORROW         3 (done)
+              FORMAT_SIMPLE
+              LOAD_CONST               2 ('/')
+              LOAD_FAST_BORROW         4 (total)
+              FORMAT_SIMPLE
+              LOAD_CONST               3 (')\n')
+              LOAD_FAST_BORROW         5 (text)
+              FORMAT_SIMPLE
+              BUILD_STRING             7
+              LOAD_CONST               4 (('text',))
+              CALL_KW                  1
+              POP_TOP
+
+129           LOAD_FAST_BORROW         0 (win)
+              LOAD_ATTR                9 (update_idletasks + NULL|self)
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               5 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84f30, file "app\loader.py", line 132>:
+132           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('parent')
+              LOAD_CONST               2 ('tk.Tk')
+              LOAD_CONST               3 ('files')
+              LOAD_CONST               4 ('List[Path]')
+              LOAD_CONST               5 ('base_dir')
+              LOAD_CONST               6 ('Path')
+              LOAD_CONST               7 ('return')
+              LOAD_CONST               8 ('bool')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object _show_load_log_and_validate at 0x41a1a730, file "app\loader.py", line 132>:
+ 132            RESUME                   0
+
+ 133            BUILD_MAP                0
+                STORE_FAST               3 (by_type)
+
+ 134            LOAD_FAST_BORROW         1 (files)
+                GET_ITER
+        L1:     FOR_ITER                45 (to L2)
+                STORE_FAST               4 (file_path)
+
+ 135            LOAD_FAST_BORROW         3 (by_type)
+                LOAD_ATTR                1 (setdefault + NULL|self)
+                LOAD_GLOBAL              3 (_classify_file + NULL)
+                LOAD_FAST_BORROW         4 (file_path)
+                CALL                     1
+                BUILD_LIST               0
+                CALL                     2
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_FAST_BORROW         4 (file_path)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           47 (to L1)
+
+ 134    L2:     END_FOR
+                POP_ITER
+
+ 137            BUILD_LIST               0
+                LOAD_CONST              16 (('Список оборудования', 'Тех. карты ОР', 'Нормативы', 'Ручной прогноз', 'Прогноз', 'Фактические ремонты'))
+                LIST_EXTEND              1
+                STORE_FAST               5 (required_types)
+
+ 145            LOAD_FAST_BORROW         5 (required_types)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      6 (t)
+                SWAP                     2
+        L3:     BUILD_LIST               0
+                SWAP                     2
+        L4:     FOR_ITER                29 (to L7)
+                STORE_FAST_LOAD_FAST    99 (t, by_type)
+                LOAD_ATTR                7 (get + NULL|self)
+                LOAD_FAST_BORROW         6 (t)
+                CALL                     1
+                TO_BOOL
+        L5:     POP_JUMP_IF_FALSE        3 (to L6)
+                NOT_TAKEN
+                JUMP_BACKWARD           27 (to L4)
+        L6:     LOAD_FAST_BORROW         6 (t)
+                LIST_APPEND              2
+                JUMP_BACKWARD           31 (to L4)
+        L7:     END_FOR
+                POP_ITER
+        L8:     STORE_FAST               7 (missing)
+                STORE_FAST               6 (t)
+
+ 147            LOAD_CONST               1 ('Папка: ')
+                LOAD_FAST_BORROW         2 (base_dir)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                LOAD_CONST               2 ('')
+                LOAD_CONST               3 ('Найденные файлы по типам:')
+                BUILD_LIST               3
+                STORE_FAST               8 (lines)
+
+ 148            LOAD_FAST_BORROW         5 (required_types)
+                GET_ITER
+        L9:     FOR_ITER               132 (to L14)
+                STORE_FAST               9 (req)
+
+ 149            LOAD_FAST_BORROW         3 (by_type)
+                LOAD_ATTR                7 (get + NULL|self)
+                LOAD_FAST_BORROW         9 (req)
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L10)
+                NOT_TAKEN
+                POP_TOP
+                BUILD_LIST               0
+       L10:     STORE_FAST              10 (lst)
+
+ 150            LOAD_FAST_BORROW        10 (lst)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        24 (to L11)
+                NOT_TAKEN
+
+ 151            LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               4 ('✖ ')
+                LOAD_FAST_BORROW         9 (req)
+                FORMAT_SIMPLE
+                LOAD_CONST               5 (': НЕ найдено')
+                BUILD_STRING             3
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           61 (to L9)
+
+ 153   L11:     LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               6 ('✔ ')
+                LOAD_FAST_BORROW         9 (req)
+                FORMAT_SIMPLE
+                LOAD_CONST               7 (': ')
+                LOAD_GLOBAL              9 (len + NULL)
+                LOAD_FAST_BORROW        10 (lst)
+                CALL                     1
+                FORMAT_SIMPLE
+                BUILD_STRING             4
+                CALL                     1
+                POP_TOP
+
+ 154            LOAD_FAST_BORROW        10 (lst)
+                GET_ITER
+       L12:     FOR_ITER                33 (to L13)
+                STORE_FAST              11 (fp)
+
+ 155            LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               8 ('   - ')
+                LOAD_FAST_BORROW        11 (fp)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           35 (to L12)
+
+ 154   L13:     END_FOR
+                POP_ITER
+                JUMP_BACKWARD          134 (to L9)
+
+ 148   L14:     END_FOR
+                POP_ITER
+
+ 157            LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               2 ('')
+                CALL                     1
+                POP_TOP
+
+ 158            LOAD_FAST_BORROW         7 (missing)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       89 (to L17)
+                NOT_TAKEN
+
+ 159            LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST               9 ('Ошибка: отсутствуют обязательные файлы:')
+                CALL                     1
+                POP_TOP
+
+ 160            LOAD_FAST_BORROW         7 (missing)
+                GET_ITER
+       L15:     FOR_ITER                23 (to L16)
+                STORE_FAST              12 (m)
+
+ 161            LOAD_FAST_BORROW         8 (lines)
+                LOAD_ATTR                5 (append + NULL|self)
+                LOAD_CONST              10 (' - ')
+                LOAD_FAST_BORROW        12 (m)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           25 (to L15)
+
+ 160   L16:     END_FOR
+                POP_ITER
+
+ 162            LOAD_GLOBAL             12 (messagebox)
+                LOAD_ATTR               14 (showerror)
+                PUSH_NULL
+                LOAD_CONST              11 ('Проверка входных файлов')
+                LOAD_CONST              12 ('\n')
+                LOAD_ATTR               17 (join + NULL|self)
+                LOAD_FAST_BORROW         8 (lines)
+                CALL                     1
+                LOAD_FAST_BORROW         0 (parent)
+                LOAD_CONST              13 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 163            LOAD_CONST              14 (False)
+                RETURN_VALUE
+
+ 165   L17:     LOAD_GLOBAL             19 (_show_info_dialog + NULL)
+                LOAD_FAST_BORROW         0 (parent)
+                LOAD_CONST              11 ('Проверка входных файлов')
+                LOAD_CONST              12 ('\n')
+                LOAD_ATTR               17 (join + NULL|self)
+                LOAD_FAST_BORROW         8 (lines)
+                CALL                     1
+                CALL                     3
+                POP_TOP
+
+ 166            LOAD_CONST              15 (True)
+                RETURN_VALUE
+
+  --   L18:     SWAP                     2
+                POP_TOP
+
+ 145            SWAP                     2
+                STORE_FAST               6 (t)
+                RERAISE                  0
+ExceptionTable:
+  L3 to L5 -> L18 [2]
+  L6 to L8 -> L18 [2]
+
+Disassembly of <code object ProcessingResult at 0x7f55aaa85230, file "app\loader.py", line 169>:
+169           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('ProcessingResult')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT         169
+              STORE_NAME               3 (__firstlineno__)
+
+170           LOAD_CONST               1 (<code object __annotate__ at 0x7f55aaa85030, file "app\loader.py", line 170>)
+              MAKE_FUNCTION
+              LOAD_CONST               2 (<code object __init__ at 0x7f55aaa85130, file "app\loader.py", line 170>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               4 (__init__)
+              LOAD_CONST               3 (('errors_lines', 'out_path', 'summary_lines'))
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST               4 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa85030, file "app\loader.py", line 170>:
+170           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('out_path')
+              LOAD_CONST               2 ('Path')
+              LOAD_CONST               3 ('summary_lines')
+              LOAD_CONST               4 ('List[str]')
+              LOAD_CONST               5 ('errors_lines')
+              LOAD_CONST               4 ('List[str]')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('None')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object __init__ at 0x7f55aaa85130, file "app\loader.py", line 170>:
+170           RESUME                   0
+
+171           LOAD_FAST_BORROW_LOAD_FAST_BORROW 16 (out_path, self)
+              STORE_ATTR               0 (out_path)
+
+172           LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (summary_lines, self)
+              STORE_ATTR               1 (summary_lines)
+
+173           LOAD_FAST_BORROW_LOAD_FAST_BORROW 48 (errors_lines, self)
+              STORE_ATTR               2 (errors_lines)
+              LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa85330, file "app\loader.py", line 176>:
+176           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('selected')
+
+177           LOAD_CONST               2 ('List[Path]')
+
+176           LOAD_CONST               3 ('chosen_shop')
+
+178           LOAD_CONST               4 ('str')
+
+176           LOAD_CONST               5 ('base_dir')
+
+179           LOAD_CONST               6 ('Path')
+
+176           LOAD_CONST               7 ('q')
+
+180           LOAD_CONST               8 ("'queue.Queue[tuple]'")
+
+176           LOAD_CONST               9 ('return')
+
+181           LOAD_CONST              10 ('None')
+
+176           BUILD_MAP                5
+              RETURN_VALUE
+
+Disassembly of <code object _process_all_files_worker at 0x41915170, file "app\loader.py", line 176>:
+ 176            RESUME                   0
+
+ 182            LOAD_CONST               0 ('master_sheet_names')
+                BUILD_MAP                0
+                BUILD_MAP                1
+                STORE_FAST               4 (ctx)
+
+ 183            LOAD_GLOBAL              1 (Workbook + NULL)
+                CALL                     0
+                STORE_FAST               5 (master)
+
+ 184            LOAD_FAST_BORROW         5 (master)
+                LOAD_ATTR                3 (remove + NULL|self)
+                LOAD_FAST_BORROW         5 (master)
+                LOAD_ATTR                4 (active)
+                CALL                     1
+                POP_TOP
+
+ 186            BUILD_LIST               0
+                STORE_FAST               6 (summary_lines)
+
+ 187            BUILD_LIST               0
+                STORE_FAST               7 (errors_lines)
+
+ 189            LOAD_GLOBAL              7 (len + NULL)
+                LOAD_FAST_BORROW         0 (selected)
+                CALL                     1
+                STORE_FAST               8 (file_steps)
+
+ 190            LOAD_FAST_BORROW         8 (file_steps)
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                STORE_FAST               9 (total_steps)
+
+ 191            LOAD_SMALL_INT           0
+                STORE_FAST              10 (done)
+
+ 193            NOP
+
+ 195    L1:     LOAD_FAST_BORROW         0 (selected)
+                GET_ITER
+        L2:     EXTENDED_ARG             2
+                FOR_ITER               573 (to L28)
+                STORE_FAST              11 (file_path)
+
+ 196            LOAD_FAST_BORROW        10 (done)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST              10 (done)
+
+ 197            LOAD_FAST_BORROW         3 (q)
+                LOAD_ATTR                9 (put + NULL|self)
+                LOAD_CONST               1 ('progress')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 169 (done, total_steps)
+                LOAD_FAST_BORROW        11 (file_path)
+                LOAD_ATTR               10 (name)
+                BUILD_TUPLE              4
+                CALL                     1
+                POP_TOP
+
+ 199            LOAD_FAST_BORROW        11 (file_path)
+                LOAD_ATTR               12 (suffix)
+                LOAD_ATTR               15 (lower + NULL|self)
+                CALL                     0
+                STORE_FAST              12 (ext)
+
+ 200            LOAD_GLOBAL             17 (safe_sheet_title_from_filename + NULL)
+                LOAD_FAST_BORROW        11 (file_path)
+                LOAD_ATTR               10 (name)
+                CALL                     1
+                STORE_FAST              13 (sheet_title)
+
+ 202            LOAD_FAST_BORROW        12 (ext)
+                LOAD_CONST               2 ('.xls')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       33 (to L3)
+                NOT_TAKEN
+
+ 203            LOAD_FAST_BORROW         7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST_BORROW        11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               3 (': .xls не поддерживается.')
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 204            JUMP_BACKWARD          129 (to L2)
+
+ 205    L3:     LOAD_FAST_BORROW        12 (ext)
+                LOAD_CONST               4 ('.csv')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       33 (to L4)
+                NOT_TAKEN
+
+ 206            LOAD_FAST_BORROW         7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST_BORROW        11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               5 (': .csv пока не подключён.')
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 207            JUMP_BACKWARD          168 (to L2)
+
+ 209    L4:     NOP
+
+ 210    L5:     LOAD_GLOBAL             21 (load_workbook_safe + NULL)
+                LOAD_FAST_BORROW        11 (file_path)
+                CALL                     1
+                STORE_FAST              14 (wb)
+
+ 215    L6:     LOAD_FAST               14 (wb)
+                LOAD_ATTR               24 (worksheets)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST              16 (src_ws)
+
+ 217    L7:     NOP
+
+ 218    L8:     LOAD_GLOBAL             27 (run_processor_for_file + NULL)
+
+ 219            LOAD_FAST               11 (file_path)
+
+ 220            LOAD_FAST               16 (src_ws)
+
+ 221            LOAD_FAST                1 (chosen_shop)
+
+ 222            LOAD_FAST                4 (ctx)
+
+ 218            LOAD_CONST               8 (('path', 'ws', 'chosen_shop', 'ctx'))
+                CALL_KW                  4
+                UNPACK_SEQUENCE          3
+                STORE_FAST              17 (matched)
+                STORE_FAST              18 (proc_name)
+                UNPACK_SEQUENCE          2
+                STORE_FAST              19 (total_deleted)
+                STORE_FAST              20 (stats)
+
+ 225            LOAD_FAST               17 (matched)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       78 (to L9)
+                NOT_TAKEN
+
+ 226            LOAD_FAST                6 (summary_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               9 (': ')
+                LOAD_FAST               18 (proc_name)
+                FORMAT_SIMPLE
+                LOAD_CONST              10 (' → удалено ')
+                LOAD_FAST               19 (total_deleted)
+                FORMAT_SIMPLE
+                BUILD_STRING             5
+                CALL                     1
+                POP_TOP
+
+ 227            LOAD_FAST_LOAD_FAST    212 (sheet_title, ctx)
+                LOAD_CONST               0 ('master_sheet_names')
+                BINARY_OP               26 ([])
+                LOAD_FAST               18 (proc_name)
+                STORE_SUBSCR
+
+ 229            LOAD_FAST                5 (master)
+                LOAD_ATTR               29 (create_sheet + NULL|self)
+                LOAD_FAST               13 (sheet_title)
+                LOAD_CONST              11 (('title',))
+                CALL_KW                  1
+                STORE_FAST              21 (dst)
+
+ 230            LOAD_GLOBAL             31 (copy_worksheet_values + NULL)
+                LOAD_FAST               16 (src_ws)
+                LOAD_FAST               21 (dst)
+                CALL                     2
+                POP_TOP
+                JUMP_FORWARD            30 (to L10)
+
+ 232    L9:     LOAD_FAST                6 (summary_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              12 (': пропущен (не используется)')
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 234   L10:     LOAD_FAST               17 (matched)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      229 (to L27)
+       L11:     NOT_TAKEN
+       L12:     LOAD_FAST               18 (proc_name)
+                LOAD_CONST              13 ('Прогноз')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      219 (to L26)
+                NOT_TAKEN
+
+ 235            LOAD_FAST               20 (stats)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              14 ('error_no_equipment_list_loaded')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       31 (to L15)
+       L13:     NOT_TAKEN
+
+ 236   L14:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              15 (": Прогноз, но 'Список оборудования' не загружен до него.")
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 237   L15:     LOAD_FAST               20 (stats)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              16 ('error_no_tech_cards_loaded')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       31 (to L18)
+       L16:     NOT_TAKEN
+
+ 238   L17:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              17 (": Прогноз, но 'Тех. карты ОР' не загружены до него.")
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 239   L18:     LOAD_FAST               20 (stats)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              18 ('error_no_manual_forecast_loaded')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       31 (to L21)
+       L19:     NOT_TAKEN
+
+ 240   L20:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              19 (": Прогноз, но 'Ручной прогноз' не загружен до него.")
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+
+ 241   L21:     LOAD_FAST               20 (stats)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              20 ('error_no_normatives_loaded')
+                CALL                     1
+                TO_BOOL
+                POP_JUMP_IF_FALSE       34 (to L25)
+       L22:     NOT_TAKEN
+
+ 242   L23:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              21 (": Прогноз, но 'Нормативы' не загружены до него.")
+                BUILD_STRING             2
+                CALL                     1
+                POP_TOP
+       L24:     EXTENDED_ARG             2
+                JUMP_BACKWARD          567 (to L2)
+
+ 241   L25:     EXTENDED_ARG             2
+                JUMP_BACKWARD          570 (to L2)
+
+ 234   L26:     EXTENDED_ARG             2
+                JUMP_BACKWARD          573 (to L2)
+       L27:     EXTENDED_ARG             2
+                JUMP_BACKWARD          576 (to L2)
+
+ 195   L28:     END_FOR
+                POP_ITER
+
+ 248            LOAD_FAST_BORROW         2 (base_dir)
+                LOAD_CONST              23 ('Результат.xlsx')
+                BINARY_OP               11 (/)
+                STORE_FAST              22 (out_path)
+
+ 249            LOAD_FAST_BORROW         5 (master)
+                LOAD_ATTR               35 (save + NULL|self)
+                LOAD_FAST_BORROW        22 (out_path)
+                CALL                     1
+                POP_TOP
+
+ 252            LOAD_FAST_BORROW        10 (done)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST              10 (done)
+
+ 253            LOAD_FAST_BORROW         3 (q)
+                LOAD_ATTR                9 (put + NULL|self)
+                LOAD_CONST               1 ('progress')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 169 (done, total_steps)
+                LOAD_CONST              24 ('Сравнение (master_compare_report)...')
+                BUILD_TUPLE              4
+                CALL                     1
+                POP_TOP
+
+ 254   L29:     NOP
+
+ 255   L30:     LOAD_GLOBAL             37 (process_master_compare_file + NULL)
+
+ 256            LOAD_GLOBAL             39 (str + NULL)
+                LOAD_FAST_BORROW        22 (out_path)
+                CALL                     1
+
+ 257            LOAD_FAST_BORROW         4 (ctx)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST               0 ('master_sheet_names')
+                CALL                     1
+                COPY                     1
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L31)
+                NOT_TAKEN
+                POP_TOP
+                BUILD_MAP                0
+
+ 255   L31:     LOAD_CONST              25 (('sheet_names',))
+                CALL_KW                  2
+                STORE_FAST              23 (stats_cmp)
+
+ 259            LOAD_FAST_BORROW         6 (summary_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+
+ 260            LOAD_FAST_BORROW        22 (out_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              26 (': master_compare_report → OK (matched_forecast=')
+
+ 261            LOAD_FAST_BORROW        23 (stats_cmp)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              27 ('matched_forecast')
+                LOAD_SMALL_INT           0
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST              28 (', matched_manual=')
+
+ 262            LOAD_FAST_BORROW        23 (stats_cmp)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              29 ('matched_manual')
+                LOAD_SMALL_INT           0
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST              30 (')')
+
+ 260            BUILD_STRING             6
+
+ 259            CALL                     1
+                POP_TOP
+
+ 268   L32:     LOAD_FAST_BORROW        10 (done)
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                STORE_FAST              10 (done)
+
+ 269            LOAD_FAST_BORROW         3 (q)
+                LOAD_ATTR                9 (put + NULL|self)
+                LOAD_CONST               1 ('progress')
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 169 (done, total_steps)
+                LOAD_CONST              32 ('Сводная статистика (master_compare_stats)...')
+                BUILD_TUPLE              4
+                CALL                     1
+                POP_TOP
+
+ 270   L33:     NOP
+
+ 271   L34:     LOAD_GLOBAL             41 (process_master_compare_stats_file + NULL)
+                LOAD_GLOBAL             39 (str + NULL)
+                LOAD_FAST_BORROW        22 (out_path)
+                CALL                     1
+                CALL                     1
+                STORE_FAST              24 (stats_sum)
+
+ 272            LOAD_FAST_BORROW         6 (summary_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+
+ 273            LOAD_FAST_BORROW        22 (out_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              33 (': master_compare_stats → OK (repairs=')
+
+ 274            LOAD_FAST_BORROW        24 (stats_sum)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              34 ('repairs')
+                LOAD_SMALL_INT           0
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST              35 (', total_fact=')
+                LOAD_FAST_BORROW        24 (stats_sum)
+                LOAD_ATTR               33 (get + NULL|self)
+                LOAD_CONST              36 ('total_fact')
+                LOAD_SMALL_INT           0
+                CALL                     2
+                FORMAT_SIMPLE
+                LOAD_CONST              30 (')')
+
+ 273            BUILD_STRING             6
+
+ 272            CALL                     1
+                POP_TOP
+
+ 279   L35:     LOAD_FAST_BORROW         3 (q)
+                LOAD_ATTR                9 (put + NULL|self)
+                LOAD_CONST              38 ('done')
+                LOAD_GLOBAL             43 (ProcessingResult + NULL)
+                LOAD_FAST_BORROW        22 (out_path)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 103 (summary_lines, errors_lines)
+                CALL                     3
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+       L36:     LOAD_CONST               7 (None)
+                RETURN_VALUE
+
+  --   L37:     PUSH_EXC_INFO
+
+ 211            LOAD_GLOBAL             22 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       45 (to L41)
+                NOT_TAKEN
+                STORE_FAST              15 (exc)
+
+ 212   L38:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               6 (': не удалось открыть: ')
+                LOAD_FAST               15 (exc)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                CALL                     1
+                POP_TOP
+
+ 213   L39:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                EXTENDED_ARG             3
+                JUMP_BACKWARD          948 (to L2)
+
+  --   L40:     LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                RERAISE                  1
+
+ 211   L41:     RERAISE                  0
+
+  --   L42:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L43:     PUSH_EXC_INFO
+
+ 244            LOAD_GLOBAL             22 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       45 (to L47)
+                NOT_TAKEN
+                STORE_FAST              15 (exc)
+
+ 245   L44:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               11 (file_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              22 (': ошибка обработки: ')
+                LOAD_FAST               15 (exc)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                CALL                     1
+                POP_TOP
+       L45:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                EXTENDED_ARG             3
+                JUMP_BACKWARD         1006 (to L2)
+
+  --   L46:     LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                RERAISE                  1
+
+ 244   L47:     RERAISE                  0
+
+  --   L48:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L49:     PUSH_EXC_INFO
+
+ 264            LOAD_GLOBAL             22 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       44 (to L53)
+                NOT_TAKEN
+                STORE_FAST              15 (exc)
+
+ 265   L50:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               22 (out_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              31 (': master_compare_report → ошибка: ')
+                LOAD_FAST               15 (exc)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                CALL                     1
+                POP_TOP
+       L51:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 314 (to L32)
+
+  --   L52:     LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                RERAISE                  1
+
+ 264   L53:     RERAISE                  0
+
+  --   L54:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L55:     PUSH_EXC_INFO
+
+ 276            LOAD_GLOBAL             22 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       43 (to L59)
+                NOT_TAKEN
+                STORE_FAST              15 (exc)
+
+ 277   L56:     LOAD_FAST                7 (errors_lines)
+                LOAD_ATTR               19 (append + NULL|self)
+                LOAD_FAST               22 (out_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST              37 (': master_compare_stats → ошибка: ')
+                LOAD_FAST               15 (exc)
+                FORMAT_SIMPLE
+                BUILD_STRING             3
+                CALL                     1
+                POP_TOP
+       L57:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                JUMP_BACKWARD_NO_INTERRUPT 252 (to L35)
+
+  --   L58:     LOAD_CONST               7 (None)
+                STORE_FAST              15 (exc)
+                DELETE_FAST             15 (exc)
+                RERAISE                  1
+
+ 276   L59:     RERAISE                  0
+
+  --   L60:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L61:     PUSH_EXC_INFO
+
+ 281            LOAD_GLOBAL             22 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       43 (to L63)
+                NOT_TAKEN
+                POP_TOP
+
+ 282            LOAD_FAST                3 (q)
+                LOAD_ATTR                9 (put + NULL|self)
+                LOAD_CONST              39 ('fatal')
+                LOAD_GLOBAL             44 (traceback)
+                LOAD_ATTR               46 (format_exc)
+                PUSH_NULL
+                CALL                     0
+                BUILD_TUPLE              2
+                CALL                     1
+                POP_TOP
+       L62:     POP_EXCEPT
+                LOAD_CONST               7 (None)
+                RETURN_VALUE
+
+ 281   L63:     RERAISE                  0
+
+  --   L64:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L61 [0]
+  L5 to L6 -> L37 [1]
+  L6 to L7 -> L61 [0]
+  L8 to L11 -> L43 [1]
+  L12 to L13 -> L43 [1]
+  L14 to L16 -> L43 [1]
+  L17 to L19 -> L43 [1]
+  L20 to L22 -> L43 [1]
+  L23 to L24 -> L43 [1]
+  L24 to L29 -> L61 [0]
+  L30 to L32 -> L49 [0]
+  L32 to L33 -> L61 [0]
+  L34 to L35 -> L55 [0]
+  L35 to L36 -> L61 [0]
+  L37 to L38 -> L42 [2] lasti
+  L38 to L39 -> L40 [2] lasti
+  L39 to L40 -> L61 [0]
+  L40 to L42 -> L42 [2] lasti
+  L42 to L43 -> L61 [0]
+  L43 to L44 -> L48 [2] lasti
+  L44 to L45 -> L46 [2] lasti
+  L45 to L46 -> L61 [0]
+  L46 to L48 -> L48 [2] lasti
+  L48 to L49 -> L61 [0]
+  L49 to L50 -> L54 [1] lasti
+  L50 to L51 -> L52 [1] lasti
+  L51 to L52 -> L61 [0]
+  L52 to L54 -> L54 [1] lasti
+  L54 to L55 -> L61 [0]
+  L55 to L56 -> L60 [1] lasti
+  L56 to L57 -> L58 [1] lasti
+  L57 to L58 -> L61 [0]
+  L58 to L60 -> L60 [1] lasti
+  L60 to L61 -> L61 [0]
+  L61 to L62 -> L64 [1] lasti
+  L63 to L64 -> L64 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x7f55aaba66a0, file "app\loader.py", line 285>:
+285           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object main at 0x419fd150, file "app\loader.py", line 285>:
+  --           MAKE_CELL                3 (root)
+               MAKE_CELL                4 (start_btn)
+               MAKE_CELL                5 (status)
+
+ 285           RESUME                   0
+
+ 286           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR                2 (Tk)
+               PUSH_NULL
+               CALL                     0
+               STORE_DEREF              3 (root)
+
+ 287           LOAD_DEREF               3 (root)
+               LOAD_ATTR                5 (title + NULL|self)
+               LOAD_CONST               0 ('Excel Processor')
+               CALL                     1
+               POP_TOP
+
+ 288           LOAD_DEREF               3 (root)
+               LOAD_ATTR                7 (geometry + NULL|self)
+               LOAD_CONST               1 ('520x170')
+               CALL                     1
+               POP_TOP
+
+ 289           LOAD_DEREF               3 (root)
+               LOAD_ATTR                9 (resizable + NULL|self)
+               LOAD_CONST               2 (False)
+               LOAD_CONST               2 (False)
+               CALL                     2
+               POP_TOP
+
+ 291           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               10 (StringVar)
+               PUSH_NULL
+               LOAD_CONST               3 ('Нажмите «Старт»')
+               LOAD_CONST               4 (('value',))
+               CALL_KW                  1
+               STORE_DEREF              5 (status)
+
+ 292           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               12 (Label)
+               PUSH_NULL
+               LOAD_DEREF               3 (root)
+               LOAD_DEREF               5 (status)
+               LOAD_CONST               5 ('left')
+               LOAD_CONST               6 ('w')
+               LOAD_CONST               7 (('textvariable', 'justify', 'anchor'))
+               CALL_KW                  4
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST               8 ('x')
+               LOAD_SMALL_INT          12
+               LOAD_CONST              20 ((12, 6))
+               LOAD_CONST               9 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+ 294           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               16 (Frame)
+               PUSH_NULL
+               LOAD_DEREF               3 (root)
+               CALL                     1
+               STORE_FAST               0 (btn_frame)
+
+ 295           LOAD_FAST_BORROW         0 (btn_frame)
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST               8 ('x')
+               LOAD_SMALL_INT          12
+               LOAD_CONST              21 ((0, 12))
+               LOAD_CONST               9 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+ 297           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               18 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (btn_frame)
+               LOAD_CONST              10 ('Старт')
+               LOAD_SMALL_INT          12
+               LOAD_CONST              11 (('text', 'width'))
+               CALL_KW                  3
+               STORE_DEREF              4 (start_btn)
+
+ 298           LOAD_DEREF               4 (start_btn)
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST               5 ('left')
+               LOAD_CONST              12 (('side',))
+               CALL_KW                  1
+               POP_TOP
+
+ 300           LOAD_GLOBAL              0 (tk)
+               LOAD_ATTR               18 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (btn_frame)
+               LOAD_CONST              13 ('Выход')
+               LOAD_SMALL_INT          12
+               LOAD_DEREF               3 (root)
+               LOAD_ATTR               20 (destroy)
+               LOAD_CONST              14 (('text', 'width', 'command'))
+               CALL_KW                  4
+               STORE_FAST               1 (exit_btn)
+
+ 301           LOAD_FAST_BORROW         1 (exit_btn)
+               LOAD_ATTR               15 (pack + NULL|self)
+               LOAD_CONST              15 ('right')
+               LOAD_CONST              12 (('side',))
+               CALL_KW                  1
+               POP_TOP
+
+ 303           LOAD_CONST              16 (<code object __annotate__ at 0x7f55aaba6790, file "app\loader.py", line 303>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         3 (root)
+               LOAD_FAST_BORROW         4 (start_btn)
+               LOAD_FAST_BORROW         5 (status)
+               BUILD_TUPLE              3
+               LOAD_CONST              17 (<code object start_flow at 0x4198a500, file "app\loader.py", line 303>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_FAST               2 (start_flow)
+
+ 402           LOAD_DEREF               4 (start_btn)
+               LOAD_ATTR               23 (config + NULL|self)
+               LOAD_FAST_BORROW         2 (start_flow)
+               LOAD_CONST              18 (('command',))
+               CALL_KW                  1
+               POP_TOP
+
+ 404           LOAD_DEREF               3 (root)
+               LOAD_ATTR               25 (mainloop + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST              19 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6790, file "app\loader.py", line 303>:
+303           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object start_flow at 0x4198a500, file "app\loader.py", line 303>:
+  --            COPY_FREE_VARS           3
+                MAKE_CELL                6 (finished)
+                MAKE_CELL                7 (poll)
+                MAKE_CELL                8 (progress_bar)
+                MAKE_CELL                9 (progress_lbl)
+                MAKE_CELL               10 (progress_win)
+                MAKE_CELL               11 (q)
+
+ 303            RESUME                   0
+
+ 304            NOP
+
+ 305    L1:     LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR                1 (config + NULL|self)
+                LOAD_CONST               0 ('disabled')
+                LOAD_CONST               1 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 306            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST               2 ('Инициализация...')
+                CALL                     1
+                POP_TOP
+
+ 308            LOAD_GLOBAL              5 (_app_base_dir + NULL)
+                CALL                     0
+                STORE_FAST               0 (base_dir)
+
+ 309            LOAD_GLOBAL              7 (sorted + NULL)
+
+ 310            LOAD_FAST_BORROW         0 (base_dir)
+                LOAD_ATTR                9 (iterdir + NULL|self)
+                CALL                     0
+                GET_ITER
+
+ 309            LOAD_FAST_AND_CLEAR      1 (p)
+                SWAP                     2
+        L2:     BUILD_LIST               0
+                SWAP                     2
+
+ 310    L3:     FOR_ITER               101 (to L10)
+                STORE_FAST               1 (p)
+
+ 311            LOAD_FAST_BORROW         1 (p)
+                LOAD_ATTR               11 (is_file + NULL|self)
+                CALL                     0
+                TO_BOOL
+
+ 310    L4:     POP_JUMP_IF_TRUE         3 (to L5)
+                NOT_TAKEN
+                JUMP_BACKWARD           27 (to L3)
+
+ 312    L5:     LOAD_FAST_BORROW         1 (p)
+                LOAD_ATTR               12 (suffix)
+                LOAD_ATTR               15 (lower + NULL|self)
+                CALL                     0
+                LOAD_GLOBAL             16 (SUPPORTED_EXT)
+                CONTAINS_OP              0 (in)
+
+ 310    L6:     POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD           64 (to L3)
+
+ 313    L7:     LOAD_FAST_BORROW         1 (p)
+                LOAD_ATTR               18 (name)
+                LOAD_ATTR               21 (startswith + NULL|self)
+                LOAD_CONST              22 (('~$', '~-'))
+                CALL                     1
+                TO_BOOL
+
+ 310    L8:     POP_JUMP_IF_FALSE        3 (to L9)
+                NOT_TAKEN
+                JUMP_BACKWARD           99 (to L3)
+        L9:     LOAD_FAST_BORROW         1 (p)
+                LIST_APPEND              2
+                JUMP_BACKWARD          103 (to L3)
+       L10:     END_FOR
+                POP_ITER
+
+ 309   L11:     SWAP                     2
+                STORE_FAST               1 (p)
+                CALL                     1
+                STORE_FAST               2 (all_files)
+
+ 316            LOAD_FAST_BORROW         2 (all_files)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        67 (to L15)
+       L12:     NOT_TAKEN
+
+ 317   L13:     LOAD_GLOBAL             22 (messagebox)
+                LOAD_ATTR               24 (showinfo)
+                PUSH_NULL
+                LOAD_CONST               3 ('Загрузка')
+                LOAD_CONST               4 ('В папке ')
+                LOAD_FAST_BORROW         0 (base_dir)
+                FORMAT_SIMPLE
+                LOAD_CONST               5 (' не найдено файлов Excel/CSV.')
+                BUILD_STRING             3
+                LOAD_DEREF              12 (root)
+                LOAD_CONST               6 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 318            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR                1 (config + NULL|self)
+                LOAD_CONST               7 ('normal')
+                LOAD_CONST               1 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 319            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST               8 ('Нажмите «Старт»')
+                CALL                     1
+                POP_TOP
+
+ 320   L14:     LOAD_CONST               9 (None)
+                RETURN_VALUE
+
+ 322   L15:     LOAD_GLOBAL             27 (_show_load_log_and_validate + NULL)
+                LOAD_DEREF              12 (root)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 32 (all_files, base_dir)
+                CALL                     3
+                TO_BOOL
+                POP_JUMP_IF_TRUE        38 (to L17)
+                NOT_TAKEN
+
+ 323            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR                1 (config + NULL|self)
+                LOAD_CONST               7 ('normal')
+                LOAD_CONST               1 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 324            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST               8 ('Нажмите «Старт»')
+                CALL                     1
+                POP_TOP
+
+ 325   L16:     LOAD_CONST               9 (None)
+                RETURN_VALUE
+
+ 327   L17:     LOAD_GLOBAL             29 (choose_one_shop_gui + NULL)
+                LOAD_DEREF              12 (root)
+                LOAD_GLOBAL             31 (list + NULL)
+                LOAD_GLOBAL             32 (SHOP_TO_SECTIONS)
+                LOAD_ATTR               34 (keys)
+                PUSH_NULL
+                CALL                     0
+                CALL                     1
+                CALL                     2
+                STORE_FAST               3 (chosen_shop)
+
+ 328            LOAD_FAST_BORROW         3 (chosen_shop)
+                POP_JUMP_IF_NOT_NONE    63 (to L19)
+                NOT_TAKEN
+
+ 329            LOAD_GLOBAL             22 (messagebox)
+                LOAD_ATTR               24 (showinfo)
+                PUSH_NULL
+                LOAD_CONST              10 ('Отмена')
+                LOAD_CONST              11 ('Обработка отменена пользователем.')
+                LOAD_DEREF              12 (root)
+                LOAD_CONST               6 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 330            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR                1 (config + NULL|self)
+                LOAD_CONST               7 ('normal')
+                LOAD_CONST               1 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 331            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST               8 ('Нажмите «Старт»')
+                CALL                     1
+                POP_TOP
+
+ 332   L18:     LOAD_CONST               9 (None)
+                RETURN_VALUE
+
+ 334   L19:     LOAD_GLOBAL              7 (sorted + NULL)
+                LOAD_FAST_BORROW         2 (all_files)
+                LOAD_GLOBAL             36 (_order_key)
+                LOAD_CONST              12 (('key',))
+                CALL_KW                  2
+                STORE_FAST               4 (selected)
+
+ 336            LOAD_GLOBAL             39 (len + NULL)
+                LOAD_FAST_BORROW         4 (selected)
+                CALL                     1
+                LOAD_SMALL_INT           2
+                BINARY_OP                0 (+)
+                STORE_FAST               5 (total_steps)
+
+ 337            LOAD_GLOBAL             41 (_create_progress_window + NULL)
+                LOAD_DEREF              12 (root)
+                LOAD_FAST_BORROW         5 (total_steps)
+                CALL                     2
+                UNPACK_SEQUENCE          3
+                STORE_DEREF             10 (progress_win)
+                STORE_DEREF              8 (progress_bar)
+                STORE_DEREF              9 (progress_lbl)
+
+ 339            LOAD_GLOBAL             42 (queue)
+                LOAD_ATTR               44 (Queue)
+                PUSH_NULL
+                CALL                     0
+                STORE_DEREF             11 (q)
+
+ 340            LOAD_CONST              13 ('v')
+                LOAD_CONST              14 (False)
+                BUILD_MAP                1
+                STORE_DEREF              6 (finished)
+
+ 342            LOAD_GLOBAL             46 (threading)
+                LOAD_ATTR               48 (Thread)
+                PUSH_NULL
+
+ 343            LOAD_GLOBAL             50 (_process_all_files_worker)
+
+ 344            LOAD_FAST_BORROW_LOAD_FAST_BORROW 67 (selected, chosen_shop)
+                LOAD_FAST_BORROW         0 (base_dir)
+                LOAD_DEREF              11 (q)
+                BUILD_TUPLE              4
+
+ 345            LOAD_CONST              15 (True)
+
+ 342            LOAD_CONST              16 (('target', 'args', 'daemon'))
+                CALL_KW                  3
+
+ 346            LOAD_ATTR               53 (start + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 348            LOAD_CONST              17 (<code object __annotate__ at 0x7f55aaba6970, file "app\loader.py", line 348>)
+                MAKE_FUNCTION
+                LOAD_FAST_BORROW         6 (finished)
+                LOAD_FAST_BORROW         7 (poll)
+                LOAD_FAST_BORROW         8 (progress_bar)
+                LOAD_FAST_BORROW         9 (progress_lbl)
+                LOAD_FAST_BORROW        10 (progress_win)
+                LOAD_FAST_BORROW        11 (q)
+                LOAD_FAST_BORROW        12 (root)
+                LOAD_FAST_BORROW        13 (start_btn)
+                LOAD_FAST_BORROW        14 (status)
+                BUILD_TUPLE              9
+                LOAD_CONST              18 (<code object poll at 0x419743b0, file "app\loader.py", line 348>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                SET_FUNCTION_ATTRIBUTE  16 (annotate)
+                STORE_DEREF              7 (poll)
+
+ 394            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST              19 ('Обработка запущена...')
+                CALL                     1
+                POP_TOP
+
+ 395            LOAD_DEREF              12 (root)
+                LOAD_ATTR               55 (after + NULL|self)
+                LOAD_SMALL_INT          80
+                LOAD_DEREF               7 (poll)
+                CALL                     2
+                POP_TOP
+       L20:     LOAD_CONST               9 (None)
+                RETURN_VALUE
+
+  --   L21:     SWAP                     2
+                POP_TOP
+
+ 309            SWAP                     2
+                STORE_FAST               1 (p)
+                RERAISE                  0
+
+  --   L22:     PUSH_EXC_INFO
+
+ 397            LOAD_GLOBAL             56 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE       84 (to L24)
+                NOT_TAKEN
+                POP_TOP
+
+ 398            LOAD_GLOBAL             22 (messagebox)
+                LOAD_ATTR               58 (showerror)
+                PUSH_NULL
+                LOAD_CONST              20 ('FATAL')
+                LOAD_GLOBAL             60 (traceback)
+                LOAD_ATTR               62 (format_exc)
+                PUSH_NULL
+                CALL                     0
+                LOAD_DEREF              12 (root)
+                LOAD_CONST               6 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 399            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR                1 (config + NULL|self)
+                LOAD_CONST               7 ('normal')
+                LOAD_CONST               1 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 400            LOAD_DEREF              14 (status)
+                LOAD_ATTR                3 (set + NULL|self)
+                LOAD_CONST              21 ('Ошибка. Нажмите «Старт»')
+                CALL                     1
+                POP_TOP
+       L23:     POP_EXCEPT
+                LOAD_CONST               9 (None)
+                RETURN_VALUE
+
+ 397   L24:     RERAISE                  0
+
+  --   L25:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L1 to L2 -> L22 [0]
+  L2 to L4 -> L21 [4]
+  L5 to L6 -> L21 [4]
+  L7 to L8 -> L21 [4]
+  L9 to L11 -> L21 [4]
+  L11 to L12 -> L22 [0]
+  L13 to L14 -> L22 [0]
+  L15 to L16 -> L22 [0]
+  L17 to L18 -> L22 [0]
+  L19 to L20 -> L22 [0]
+  L21 to L22 -> L22 [0]
+  L22 to L23 -> L25 [1] lasti
+  L24 to L25 -> L25 [1] lasti
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6970, file "app\loader.py", line 348>:
+348           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object poll at 0x419743b0, file "app\loader.py", line 348>:
+  --            COPY_FREE_VARS           9
+
+ 348            RESUME                   0
+
+ 349            NOP
+
+ 350    L1:     NOP
+
+ 351            LOAD_DEREF              11 (q)
+                LOAD_ATTR                1 (get_nowait + NULL|self)
+                CALL                     0
+                STORE_FAST               0 (msg)
+
+ 352            LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               1 (kind)
+
+ 354            LOAD_FAST_BORROW         1 (kind)
+                LOAD_CONST               1 ('progress')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       44 (to L2)
+                NOT_TAKEN
+
+ 355            LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           1
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           2
+                BINARY_OP               26 ([])
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           3
+                BINARY_OP               26 ([])
+                STORE_FAST_STORE_FAST   67 (text, total)
+                STORE_FAST               2 (done)
+
+ 356            LOAD_GLOBAL              3 (_update_progress + NULL)
+                LOAD_DEREF              10 (progress_win)
+                LOAD_DEREF               8 (progress_bar)
+                LOAD_DEREF               9 (progress_lbl)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 35 (done, total)
+                LOAD_FAST_BORROW         4 (text)
+                CALL                     6
+                POP_TOP
+                JUMP_BACKWARD           76 (to L1)
+
+ 358    L2:     LOAD_FAST_BORROW         1 (kind)
+                LOAD_CONST               2 ('done')
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE      245 (to L13)
+                NOT_TAKEN
+
+ 359            LOAD_CONST               0 (True)
+                LOAD_DEREF               6 (finished)
+                LOAD_CONST               3 ('v')
+                STORE_SUBSCR
+
+ 360    L3:     NOP
+
+ 361    L4:     LOAD_DEREF              10 (progress_win)
+                LOAD_ATTR                5 (destroy + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 365    L5:     LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           1
+                BINARY_OP               26 ([])
+                STORE_FAST               5 (res)
+
+ 366            LOAD_CONST               4 ('Готово.\n\nРезультат: ')
+                LOAD_FAST_BORROW         5 (res)
+                LOAD_ATTR                8 (out_path)
+                LOAD_ATTR               10 (name)
+                FORMAT_SIMPLE
+                LOAD_CONST               5 ('\n\n')
+                BUILD_STRING             3
+                STORE_FAST               4 (text)
+
+ 367            LOAD_FAST_BORROW         5 (res)
+                LOAD_ATTR               12 (summary_lines)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       49 (to L8)
+        L6:     NOT_TAKEN
+
+ 368    L7:     LOAD_FAST_BORROW         4 (text)
+                LOAD_CONST               6 ('Отчёт:\n- ')
+                LOAD_CONST               7 ('\n- ')
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         5 (res)
+                LOAD_ATTR               12 (summary_lines)
+                CALL                     1
+                BINARY_OP                0 (+)
+                LOAD_CONST               5 ('\n\n')
+                BINARY_OP                0 (+)
+                BINARY_OP               13 (+=)
+                STORE_FAST               4 (text)
+
+ 369    L8:     LOAD_FAST_BORROW         5 (res)
+                LOAD_ATTR               16 (errors_lines)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L11)
+        L9:     NOT_TAKEN
+
+ 370   L10:     LOAD_FAST_BORROW         4 (text)
+                LOAD_CONST               8 ('Ошибки:\n- ')
+                LOAD_CONST               7 ('\n- ')
+                LOAD_ATTR               15 (join + NULL|self)
+                LOAD_FAST_BORROW         5 (res)
+                LOAD_ATTR               16 (errors_lines)
+                CALL                     1
+                BINARY_OP                0 (+)
+                BINARY_OP               13 (+=)
+                STORE_FAST               4 (text)
+
+ 372   L11:     LOAD_GLOBAL             18 (messagebox)
+                LOAD_ATTR               20 (showinfo)
+                PUSH_NULL
+                LOAD_CONST               9 ('Результат')
+                LOAD_FAST_BORROW         4 (text)
+                LOAD_DEREF              12 (root)
+                LOAD_CONST              10 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 373            LOAD_DEREF              14 (status)
+                LOAD_ATTR               23 (set + NULL|self)
+                LOAD_CONST              11 ('Готово. Нажмите «Старт» для повторного запуска.')
+                CALL                     1
+                POP_TOP
+
+ 374            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR               25 (config + NULL|self)
+                LOAD_CONST              12 ('normal')
+                LOAD_CONST              13 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 375   L12:     LOAD_CONST              14 (None)
+                RETURN_VALUE
+
+ 377   L13:     LOAD_FAST_BORROW         1 (kind)
+                LOAD_CONST              15 ('fatal')
+                COMPARE_OP              88 (bool(==))
+       L14:     POP_JUMP_IF_TRUE         4 (to L15)
+                NOT_TAKEN
+                EXTENDED_ARG             1
+                JUMP_BACKWARD          337 (to L1)
+
+ 378   L15:     LOAD_CONST               0 (True)
+                LOAD_DEREF               6 (finished)
+                LOAD_CONST               3 ('v')
+                STORE_SUBSCR
+
+ 379   L16:     NOP
+
+ 380   L17:     LOAD_DEREF              10 (progress_win)
+                LOAD_ATTR                5 (destroy + NULL|self)
+                CALL                     0
+                POP_TOP
+
+ 383   L18:     LOAD_GLOBAL             18 (messagebox)
+                LOAD_ATTR               26 (showerror)
+                PUSH_NULL
+                LOAD_CONST              16 ('Ошибка')
+                LOAD_FAST_BORROW         0 (msg)
+                LOAD_SMALL_INT           1
+                BINARY_OP               26 ([])
+                LOAD_DEREF              12 (root)
+                LOAD_CONST              10 (('parent',))
+                CALL_KW                  3
+                POP_TOP
+
+ 384            LOAD_DEREF              14 (status)
+                LOAD_ATTR               23 (set + NULL|self)
+                LOAD_CONST              17 ('Ошибка. Нажмите «Старт» для повторного запуска.')
+                CALL                     1
+                POP_TOP
+
+ 385            LOAD_DEREF              13 (start_btn)
+                LOAD_ATTR               25 (config + NULL|self)
+                LOAD_CONST              12 ('normal')
+                LOAD_CONST              13 (('state',))
+                CALL_KW                  1
+                POP_TOP
+
+ 386   L19:     LOAD_CONST              14 (None)
+                RETURN_VALUE
+
+  --   L20:     PUSH_EXC_INFO
+
+ 362            LOAD_GLOBAL              6 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L22)
+                NOT_TAKEN
+                POP_TOP
+
+ 363   L21:     POP_EXCEPT
+                EXTENDED_ARG             1
+                JUMP_BACKWARD_NO_INTERRUPT 337 (to L5)
+
+ 362   L22:     RERAISE                  0
+
+  --   L23:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L24:     PUSH_EXC_INFO
+
+ 381            LOAD_GLOBAL              6 (Exception)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L26)
+                NOT_TAKEN
+                POP_TOP
+
+ 382   L25:     POP_EXCEPT
+                JUMP_BACKWARD_NO_INTERRUPT 100 (to L18)
+
+ 381   L26:     RERAISE                  0
+
+  --   L27:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L28:     PUSH_EXC_INFO
+
+ 388            LOAD_GLOBAL             28 (queue)
+                LOAD_ATTR               30 (Empty)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        4 (to L30)
+                NOT_TAKEN
+                POP_TOP
+
+ 389   L29:     POP_EXCEPT
+                JUMP_FORWARD             4 (to L32)
+
+ 388   L30:     RERAISE                  0
+
+  --   L31:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+
+ 391   L32:     LOAD_DEREF               6 (finished)
+                LOAD_CONST               3 ('v')
+                BINARY_OP               26 ([])
+                TO_BOOL
+                POP_JUMP_IF_TRUE        21 (to L33)
+                NOT_TAKEN
+
+ 392            LOAD_DEREF              12 (root)
+                LOAD_ATTR               33 (after + NULL|self)
+                LOAD_SMALL_INT          80
+                LOAD_DEREF               7 (poll)
+                CALL                     2
+                POP_TOP
+                LOAD_CONST              14 (None)
+                RETURN_VALUE
+
+ 391   L33:     LOAD_CONST              14 (None)
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L3 -> L28 [0]
+  L4 to L5 -> L20 [0]
+  L5 to L6 -> L28 [0]
+  L7 to L9 -> L28 [0]
+  L10 to L12 -> L28 [0]
+  L13 to L14 -> L28 [0]
+  L15 to L16 -> L28 [0]
+  L17 to L18 -> L24 [0]
+  L18 to L19 -> L28 [0]
+  L20 to L21 -> L23 [1] lasti
+  L21 to L22 -> L28 [0]
+  L22 to L23 -> L23 [1] lasti
+  L23 to L24 -> L28 [0]
+  L24 to L25 -> L27 [1] lasti
+  L25 to L26 -> L28 [0]
+  L26 to L27 -> L27 [1] lasti
+  L27 to L28 -> L28 [0]
+  L28 to L29 -> L31 [1] lasti
+  L30 to L31 -> L31 [1] lasti

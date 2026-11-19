@@ -1,0 +1,478 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('List',))
+              IMPORT_NAME              2 (typing)
+              IMPORT_FROM              3 (List)
+              STORE_NAME               3 (List)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Path',))
+              IMPORT_NAME              4 (pathlib)
+              IMPORT_FROM              5 (Path)
+              STORE_NAME               5 (Path)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('load_workbook',))
+              IMPORT_NAME              6 (openpyxl)
+              IMPORT_FROM              7 (load_workbook)
+              STORE_NAME               7 (load_workbook)
+              POP_TOP
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('Worksheet',))
+              IMPORT_NAME              8 (openpyxl.worksheet.worksheet)
+              IMPORT_FROM              9 (Worksheet)
+              STORE_NAME               9 (Worksheet)
+              POP_TOP
+
+  9           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('normalize_text',))
+              IMPORT_NAME             10 (app.text_utils)
+              IMPORT_FROM             11 (normalize_text)
+              STORE_NAME              11 (normalize_text)
+              POP_TOP
+
+ 11           LOAD_CONST               7 (<code object __annotate__ at 0x7f55aaa84630, file "app\excel_utils.py", line 11>)
+              MAKE_FUNCTION
+              LOAD_CONST               8 (<code object get_row_values at 0x7f55aacf75d0, file "app\excel_utils.py", line 11>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              12 (get_row_values)
+
+ 19           LOAD_CONST              18 ((80,))
+              LOAD_CONST               9 (<code object __annotate__ at 0x7f55aad3a030, file "app\excel_utils.py", line 19>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 (<code object find_header_row at 0x419ff8b0, file "app\excel_utils.py", line 19>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              13 (find_header_row)
+
+ 37           LOAD_CONST              11 (<code object __annotate__ at 0x7f55aaa84330, file "app\excel_utils.py", line 37>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 (<code object find_col_index_by_header at 0x7f55aac14990, file "app\excel_utils.py", line 37>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              14 (find_col_index_by_header)
+
+ 48           LOAD_CONST              13 (<code object __annotate__ at 0x7f55aaa84730, file "app\excel_utils.py", line 48>)
+              MAKE_FUNCTION
+              LOAD_CONST              14 (<code object copy_worksheet_values at 0x7f55aac24bb0, file "app\excel_utils.py", line 48>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              15 (copy_worksheet_values)
+
+ 53           LOAD_CONST              15 (<code object __annotate__ at 0x7f55aaba6100, file "app\excel_utils.py", line 53>)
+              MAKE_FUNCTION
+              LOAD_CONST              16 (<code object load_workbook_safe at 0x7f55aacf7430, file "app\excel_utils.py", line 53>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              16 (load_workbook_safe)
+              LOAD_CONST              17 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84630, file "app\excel_utils.py", line 11>:
+ 11           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('row')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('max_col')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               6 ('return')
+              LOAD_CONST               7 ('List[str]')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object get_row_values at 0x7f55aacf75d0, file "app\excel_utils.py", line 11>:
+ 11           RESUME                   0
+
+ 12           BUILD_LIST               0
+              STORE_FAST               3 (vals)
+
+ 13           LOAD_GLOBAL              1 (range + NULL)
+              LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         2 (max_col)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              CALL                     2
+              GET_ITER
+      L1:     FOR_ITER                72 (to L4)
+              STORE_FAST               4 (c)
+
+ 14           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR                3 (cell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 20 (row, c)
+              LOAD_CONST               1 (('row', 'column'))
+              CALL_KW                  2
+              LOAD_ATTR                4 (value)
+              STORE_FAST               5 (v)
+
+ 15           LOAD_FAST                3 (vals)
+              LOAD_ATTR                7 (append + NULL|self)
+              LOAD_GLOBAL              9 (normalize_text + NULL)
+              LOAD_FAST_BORROW         5 (v)
+              POP_JUMP_IF_NOT_NONE     3 (to L2)
+              NOT_TAKEN
+              LOAD_CONST               2 ('')
+              JUMP_FORWARD            10 (to L3)
+      L2:     LOAD_GLOBAL             11 (str + NULL)
+              LOAD_FAST_BORROW         5 (v)
+              CALL                     1
+      L3:     CALL                     1
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           74 (to L1)
+
+ 13   L4:     END_FOR
+              POP_ITER
+
+ 16           LOAD_FAST_BORROW         3 (vals)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aad3a030, file "app\excel_utils.py", line 19>:
+ 19           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('required_headers')
+              LOAD_CONST               4 ('List[str]')
+              LOAD_CONST               5 ('scan_rows')
+              LOAD_CONST               6 ('int')
+              LOAD_CONST               7 ('return')
+              LOAD_CONST               6 ('int')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object find_header_row at 0x419ff8b0, file "app\excel_utils.py", line 19>:
+  19           RESUME                   0
+
+  21           LOAD_FAST_BORROW         1 (required_headers)
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      3 (h)
+               SWAP                     2
+       L1:     BUILD_SET                0
+               SWAP                     2
+       L2:     FOR_ITER                14 (to L3)
+               STORE_FAST               3 (h)
+               LOAD_GLOBAL              1 (normalize_text + NULL)
+               LOAD_FAST_BORROW         3 (h)
+               CALL                     1
+               SET_ADD                  2
+               JUMP_BACKWARD           16 (to L2)
+       L3:     END_FOR
+               POP_ITER
+       L4:     STORE_FAST               4 (required)
+               STORE_FAST               3 (h)
+
+  22           LOAD_GLOBAL              3 (min + NULL)
+               LOAD_FAST_BORROW         0 (ws)
+               LOAD_ATTR                4 (max_row)
+               LOAD_FAST_BORROW         2 (scan_rows)
+               CALL                     2
+               STORE_FAST               5 (max_row)
+
+  23           LOAD_GLOBAL              3 (min + NULL)
+               LOAD_FAST_BORROW         0 (ws)
+               LOAD_ATTR                6 (max_column)
+               LOAD_SMALL_INT         200
+               CALL                     2
+               STORE_FAST               6 (max_col)
+
+  25           LOAD_GLOBAL              9 (range + NULL)
+               LOAD_SMALL_INT           1
+               LOAD_FAST_BORROW         5 (max_row)
+               LOAD_SMALL_INT           1
+               BINARY_OP                0 (+)
+               CALL                     2
+               GET_ITER
+       L5:     FOR_ITER                51 (to L7)
+               STORE_FAST               7 (r)
+
+  26           LOAD_GLOBAL             11 (set + NULL)
+               LOAD_GLOBAL             13 (get_row_values + NULL)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 7 (ws, r)
+               LOAD_FAST_BORROW         6 (max_col)
+               CALL                     3
+               CALL                     1
+               STORE_FAST               8 (row_vals)
+
+  27           LOAD_FAST_BORROW         4 (required)
+               LOAD_ATTR               15 (issubset + NULL|self)
+               LOAD_FAST_BORROW         8 (row_vals)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L6)
+               NOT_TAKEN
+               JUMP_BACKWARD           49 (to L5)
+
+  28   L6:     LOAD_FAST_BORROW         7 (r)
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+  25   L7:     END_FOR
+               POP_ITER
+
+  30           LOAD_GLOBAL             17 (KeyError + NULL)
+
+  31           LOAD_CONST               1 ('Не удалось автоматически найти строку заголовков. Проверь, что в листе есть колонки: ')
+
+  33           LOAD_CONST               2 (', ')
+               LOAD_ATTR               19 (join + NULL|self)
+               LOAD_FAST_BORROW         1 (required_headers)
+               CALL                     1
+
+  31           BINARY_OP                0 (+)
+
+  30           CALL                     1
+               RAISE_VARARGS            1
+
+  --   L8:     SWAP                     2
+               POP_TOP
+
+  21           SWAP                     2
+               STORE_FAST               3 (h)
+               RERAISE                  0
+ExceptionTable:
+  L1 to L4 -> L8 [2]
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84330, file "app\excel_utils.py", line 37>:
+ 37           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('header_row')
+              LOAD_CONST               4 ('int')
+              LOAD_CONST               5 ('header_name')
+              LOAD_CONST               6 ('str')
+              LOAD_CONST               7 ('return')
+              LOAD_CONST               4 ('int')
+              BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object find_col_index_by_header at 0x7f55aac14990, file "app\excel_utils.py", line 37>:
+ 37           RESUME                   0
+
+ 39           LOAD_GLOBAL              1 (normalize_text + NULL)
+              LOAD_FAST_BORROW         2 (header_name)
+              CALL                     1
+              STORE_FAST               3 (wanted)
+
+ 40           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR                2 (max_column)
+              STORE_FAST               4 (max_col)
+
+ 41           LOAD_GLOBAL              5 (range + NULL)
+              LOAD_SMALL_INT           1
+              LOAD_FAST_BORROW         4 (max_col)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              CALL                     2
+              GET_ITER
+      L1:     FOR_ITER                66 (to L5)
+              STORE_FAST               5 (col)
+
+ 42           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR                7 (cell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 21 (header_row, col)
+              LOAD_CONST               1 (('row', 'column'))
+              CALL_KW                  2
+              LOAD_ATTR                8 (value)
+              STORE_FAST               6 (v)
+
+ 43           LOAD_GLOBAL              1 (normalize_text + NULL)
+              LOAD_FAST_BORROW         6 (v)
+              POP_JUMP_IF_NOT_NONE     3 (to L2)
+              NOT_TAKEN
+              LOAD_CONST               2 ('')
+              JUMP_FORWARD            10 (to L3)
+      L2:     LOAD_GLOBAL             11 (str + NULL)
+              LOAD_FAST_BORROW         6 (v)
+              CALL                     1
+      L3:     CALL                     1
+              LOAD_FAST_BORROW         3 (wanted)
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_TRUE         3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD           64 (to L1)
+
+ 44   L4:     LOAD_FAST_BORROW         5 (col)
+              SWAP                     2
+              POP_TOP
+              RETURN_VALUE
+
+ 41   L5:     END_FOR
+              POP_ITER
+
+ 45           LOAD_GLOBAL             13 (KeyError + NULL)
+              LOAD_CONST               3 ("Не найден столбец: '")
+              LOAD_FAST_BORROW         2 (header_name)
+              FORMAT_SIMPLE
+              LOAD_CONST               4 ("' (строка заголовков ")
+              LOAD_FAST_BORROW         1 (header_row)
+              FORMAT_SIMPLE
+              LOAD_CONST               5 (')')
+              BUILD_STRING             5
+              CALL                     1
+              RAISE_VARARGS            1
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84730, file "app\excel_utils.py", line 48>:
+ 48           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('src_ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('dst_ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               4 ('return')
+              LOAD_CONST               5 ('None')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object copy_worksheet_values at 0x7f55aac24bb0, file "app\excel_utils.py", line 48>:
+  48           RESUME                   0
+
+  49           LOAD_FAST_BORROW         0 (src_ws)
+               LOAD_ATTR                1 (iter_rows + NULL|self)
+               LOAD_CONST               0 (False)
+               LOAD_CONST               1 (('values_only',))
+               CALL_KW                  1
+               GET_ITER
+       L1:     FOR_ITER                45 (to L6)
+               STORE_FAST               2 (row)
+
+  50           LOAD_FAST                1 (dst_ws)
+               LOAD_ATTR                3 (append + NULL|self)
+               LOAD_FAST_BORROW         2 (row)
+               GET_ITER
+               LOAD_FAST_AND_CLEAR      3 (cell)
+               SWAP                     2
+       L2:     BUILD_LIST               0
+               SWAP                     2
+       L3:     FOR_ITER                14 (to L4)
+               STORE_FAST_LOAD_FAST    51 (cell, cell)
+               LOAD_ATTR                4 (value)
+               LIST_APPEND              2
+               JUMP_BACKWARD           16 (to L3)
+       L4:     END_FOR
+               POP_ITER
+       L5:     SWAP                     2
+               STORE_FAST               3 (cell)
+               CALL                     1
+               POP_TOP
+               JUMP_BACKWARD           47 (to L1)
+
+  49   L6:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (None)
+               RETURN_VALUE
+
+  --   L7:     SWAP                     2
+               POP_TOP
+
+  50           SWAP                     2
+               STORE_FAST               3 (cell)
+               RERAISE                  0
+ExceptionTable:
+  L2 to L5 -> L7 [5]
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6100, file "app\excel_utils.py", line 53>:
+ 53           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path')
+              LOAD_CONST               2 ('Path')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object load_workbook_safe at 0x7f55aacf7430, file "app\excel_utils.py", line 53>:
+ 53           RESUME                   0
+
+ 54           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (suffix)
+              LOAD_ATTR                3 (lower + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (ext)
+
+ 55           LOAD_FAST_BORROW         1 (ext)
+              LOAD_CONST               8 (('.xlsx', '.xlsm'))
+              CONTAINS_OP              0 (in)
+              POP_JUMP_IF_FALSE       14 (to L1)
+              NOT_TAKEN
+
+ 56           LOAD_GLOBAL              5 (load_workbook + NULL)
+              LOAD_FAST_BORROW         0 (path)
+              LOAD_CONST               1 (False)
+              LOAD_CONST               2 (('data_only',))
+              CALL_KW                  2
+              RETURN_VALUE
+
+ 57   L1:     LOAD_FAST_BORROW         1 (ext)
+              LOAD_CONST               3 ('.xls')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L2)
+              NOT_TAKEN
+
+ 58           LOAD_GLOBAL              7 (ValueError + NULL)
+              LOAD_CONST               4 ('.xls (старый формат) не поддерживается openpyxl. Нужна конвертация в .xlsx.')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 59   L2:     LOAD_FAST_BORROW         1 (ext)
+              LOAD_CONST               5 ('.csv')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       12 (to L3)
+              NOT_TAKEN
+
+ 60           LOAD_GLOBAL              7 (ValueError + NULL)
+              LOAD_CONST               6 ('.csv в этой версии не подключён (могу добавить импорт).')
+              CALL                     1
+              RAISE_VARARGS            1
+
+ 61   L3:     LOAD_GLOBAL              7 (ValueError + NULL)
+              LOAD_CONST               7 ('Неподдерживаемый формат: ')
+              LOAD_FAST_BORROW         1 (ext)
+              FORMAT_SIMPLE
+              BUILD_STRING             2
+              CALL                     1
+              RAISE_VARARGS            1

@@ -1,0 +1,24 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('main',))
+              IMPORT_NAME              0 (app.loader)
+              IMPORT_FROM              1 (main)
+              STORE_NAME               1 (main)
+              POP_TOP
+
+  3           LOAD_NAME                2 (__name__)
+              LOAD_CONST               2 ('__main__')
+              COMPARE_OP              88 (bool(==))
+              POP_JUMP_IF_FALSE       10 (to L1)
+              NOT_TAKEN
+
+  4           LOAD_NAME                1 (main)
+              PUSH_NULL
+              CALL                     0
+              POP_TOP
+              LOAD_CONST               3 (None)
+              RETURN_VALUE
+
+  3   L1:     LOAD_CONST               3 (None)
+              RETURN_VALUE

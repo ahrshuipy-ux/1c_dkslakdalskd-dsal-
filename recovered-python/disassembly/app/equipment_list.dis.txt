@@ -1,0 +1,491 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('Tuple', 'Dict', 'List'))
+              IMPORT_NAME              2 (typing)
+              IMPORT_FROM              3 (Tuple)
+              STORE_NAME               3 (Tuple)
+              IMPORT_FROM              4 (Dict)
+              STORE_NAME               4 (Dict)
+              IMPORT_FROM              5 (List)
+              STORE_NAME               5 (List)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('datetime',))
+              IMPORT_NAME              6 (datetime)
+              IMPORT_FROM              6 (datetime)
+              STORE_NAME               6 (datetime)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Worksheet',))
+              IMPORT_NAME              7 (openpyxl.worksheet.worksheet)
+              IMPORT_FROM              8 (Worksheet)
+              STORE_NAME               8 (Worksheet)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('COL_EQ_DATE', 'COL_EQ_CODE5', 'COL_EQ_CODE6'))
+              IMPORT_NAME              9 (app.settings)
+              IMPORT_FROM             10 (COL_EQ_DATE)
+              STORE_NAME              10 (COL_EQ_DATE)
+              IMPORT_FROM             11 (COL_EQ_CODE5)
+              STORE_NAME              11 (COL_EQ_CODE5)
+              IMPORT_FROM             12 (COL_EQ_CODE6)
+              STORE_NAME              12 (COL_EQ_CODE6)
+              POP_TOP
+
+ 14           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('find_header_row', 'find_col_index_by_header'))
+              IMPORT_NAME             13 (app.excel_utils)
+              IMPORT_FROM             14 (find_header_row)
+              STORE_NAME              14 (find_header_row)
+              IMPORT_FROM             15 (find_col_index_by_header)
+              STORE_NAME              15 (find_col_index_by_header)
+              POP_TOP
+
+ 17           LOAD_CONST               7 (<code object normalize_to_date at 0x419447f0, file "app\equipment_list.py", line 17>)
+              MAKE_FUNCTION
+              STORE_NAME              16 (normalize_to_date)
+
+ 41           LOAD_CONST               8 (<code object to_int_compact at 0x7f55aabc1080, file "app\equipment_list.py", line 41>)
+              MAKE_FUNCTION
+              STORE_NAME              17 (to_int_compact)
+
+ 61           LOAD_CONST               9 (<code object __annotate__ at 0x7f55aadf24c0, file "app\equipment_list.py", line 61>)
+              MAKE_FUNCTION
+              LOAD_CONST              10 (<code object process_equipment_list at 0x4198ff90, file "app\equipment_list.py", line 61>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              18 (process_equipment_list)
+              LOAD_CONST              11 (None)
+              RETURN_VALUE
+
+Disassembly of <code object normalize_to_date at 0x419447f0, file "app\equipment_list.py", line 17>:
+  17            RESUME                   0
+
+  19            LOAD_FAST_BORROW         0 (value)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+  20            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  22    L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         0 (value)
+                LOAD_GLOBAL              2 (datetime)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L2)
+                NOT_TAKEN
+
+  23            LOAD_FAST_BORROW         0 (value)
+                LOAD_ATTR                5 (date + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+  25    L2:     LOAD_GLOBAL              7 (str + NULL)
+                LOAD_FAST_BORROW         0 (value)
+                CALL                     1
+                LOAD_ATTR                9 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (s)
+
+  26            LOAD_FAST_BORROW         1 (s)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+
+  27            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  29    L3:     LOAD_FAST_BORROW         1 (s)
+                LOAD_ATTR               11 (split + NULL|self)
+                CALL                     0
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               1 (s)
+
+  31            LOAD_CONST               2 (('%d.%m.%Y', '%Y-%m-%d', '%d/%m/%Y'))
+                STORE_FAST               2 (formats)
+
+  32            LOAD_FAST_BORROW         2 (formats)
+                GET_ITER
+        L4:     FOR_ITER                40 (to L7)
+                STORE_FAST               3 (fmt)
+
+  33            NOP
+
+  34    L5:     LOAD_GLOBAL              2 (datetime)
+                LOAD_ATTR               12 (strptime)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (s, fmt)
+                CALL                     2
+                LOAD_ATTR                5 (date + NULL|self)
+                CALL                     0
+        L6:     SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+  32    L7:     END_FOR
+                POP_ITER
+
+  38            LOAD_CONST               1 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+  35            LOAD_GLOBAL             14 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+  36    L9:     POP_EXCEPT
+                JUMP_BACKWARD           60 (to L4)
+
+  35   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L8 [1]
+  L8 to L9 -> L11 [2] lasti
+  L10 to L11 -> L11 [2] lasti
+
+Disassembly of <code object to_int_compact at 0x7f55aabc1080, file "app\equipment_list.py", line 41>:
+  41           RESUME                   0
+
+  43           LOAD_FAST_BORROW         0 (value)
+               POP_JUMP_IF_NOT_NONE     3 (to L1)
+               NOT_TAKEN
+
+  44           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  46   L1:     LOAD_GLOBAL              1 (str + NULL)
+               LOAD_FAST_BORROW         0 (value)
+               CALL                     1
+               LOAD_ATTR                3 (strip + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (s)
+
+  47           LOAD_FAST_BORROW         1 (s)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+
+  48           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  50   L2:     LOAD_FAST_BORROW         1 (s)
+               LOAD_ATTR                5 (replace + NULL|self)
+               LOAD_CONST               1 (' ')
+               LOAD_CONST               2 ('')
+               CALL                     2
+               STORE_FAST               1 (s)
+
+  51           LOAD_CONST               2 ('')
+               LOAD_ATTR                7 (join + NULL|self)
+               LOAD_CONST               3 (<code object <genexpr> at 0x7f55aabee170, file "app\equipment_list.py", line 51>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         1 (s)
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               STORE_FAST               2 (digits)
+
+  52           LOAD_FAST_BORROW         2 (digits)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L3)
+               NOT_TAKEN
+
+  53           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  55   L3:     NOP
+
+  56   L4:     LOAD_GLOBAL              9 (int + NULL)
+               LOAD_FAST_BORROW         2 (digits)
+               CALL                     1
+       L5:     RETURN_VALUE
+
+  --   L6:     PUSH_EXC_INFO
+
+  57           LOAD_GLOBAL             10 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L8)
+               NOT_TAKEN
+               POP_TOP
+
+  58   L7:     POP_EXCEPT
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  57   L8:     RERAISE                  0
+
+  --   L9:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L4 to L5 -> L6 [0]
+  L6 to L7 -> L9 [1] lasti
+  L8 to L9 -> L9 [1] lasti
+
+Disassembly of <code object <genexpr> at 0x7f55aabee170, file "app\equipment_list.py", line 51>:
+  51           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                30 (to L5)
+               STORE_FAST_LOAD_FAST    17 (ch, ch)
+               LOAD_ATTR                1 (isdigit + NULL|self)
+               CALL                     0
+               TO_BOOL
+       L3:     POP_JUMP_IF_TRUE         3 (to L4)
+               NOT_TAKEN
+               JUMP_BACKWARD           26 (to L2)
+       L4:     LOAD_FAST_BORROW         1 (ch)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           32 (to L2)
+       L5:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L6:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L3 -> L6 [0] lasti
+  L4 to L6 -> L6 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x7f55aadf24c0, file "app\equipment_list.py", line 61>:
+ 61           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Tuple[int, Dict[str, int]]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object process_equipment_list at 0x4198ff90, file "app\equipment_list.py", line 61>:
+ 61           RESUME                   0
+
+ 64           LOAD_CONST               0 ('deleted_empty_date')
+              LOAD_SMALL_INT           0
+
+ 65           LOAD_CONST               1 ('dates_normalized')
+              LOAD_SMALL_INT           0
+
+ 66           LOAD_CONST               2 ('code5_converted')
+              LOAD_SMALL_INT           0
+
+ 67           LOAD_CONST               3 ('code6_converted')
+              LOAD_SMALL_INT           0
+
+ 63           BUILD_MAP                4
+              STORE_FAST               1 (stats)
+
+ 70           LOAD_GLOBAL              1 (find_header_row + NULL)
+              LOAD_FAST_BORROW         0 (ws)
+              LOAD_GLOBAL              2 (COL_EQ_DATE)
+              LOAD_GLOBAL              4 (COL_EQ_CODE5)
+              LOAD_GLOBAL              6 (COL_EQ_CODE6)
+              BUILD_LIST               3
+              LOAD_SMALL_INT         120
+              LOAD_CONST               4 (('scan_rows',))
+              CALL_KW                  3
+              STORE_FAST               2 (header_row)
+
+ 71           LOAD_GLOBAL              9 (find_col_index_by_header + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+              LOAD_GLOBAL              2 (COL_EQ_DATE)
+              CALL                     3
+              STORE_FAST               3 (col3)
+
+ 72           LOAD_GLOBAL              9 (find_col_index_by_header + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+              LOAD_GLOBAL              4 (COL_EQ_CODE5)
+              CALL                     3
+              STORE_FAST               4 (col5)
+
+ 73           LOAD_GLOBAL              9 (find_col_index_by_header + NULL)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+              LOAD_GLOBAL              6 (COL_EQ_CODE6)
+              CALL                     3
+              STORE_FAST               5 (col6)
+
+ 75           BUILD_LIST               0
+              STORE_FAST               6 (rows_to_delete)
+
+ 77           LOAD_GLOBAL             11 (range + NULL)
+              LOAD_FAST_BORROW         2 (header_row)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR               12 (max_row)
+              LOAD_SMALL_INT           1
+              BINARY_OP                0 (+)
+              CALL                     2
+              GET_ITER
+      L1:     EXTENDED_ARG             1
+              FOR_ITER               257 (to L5)
+              STORE_FAST               7 (row)
+
+ 78           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR               15 (cell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 115 (row, col3)
+              CALL                     2
+              STORE_FAST               8 (c3)
+
+ 79           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR               15 (cell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 116 (row, col5)
+              CALL                     2
+              STORE_FAST               9 (c5)
+
+ 80           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR               15 (cell + NULL|self)
+              LOAD_FAST_BORROW_LOAD_FAST_BORROW 117 (row, col6)
+              CALL                     2
+              STORE_FAST              10 (c6)
+
+ 82           LOAD_GLOBAL             17 (normalize_to_date + NULL)
+              LOAD_FAST_BORROW         8 (c3)
+              LOAD_ATTR               18 (value)
+              CALL                     1
+              STORE_FAST              11 (d)
+
+ 83           LOAD_FAST_BORROW        11 (d)
+              TO_BOOL
+              POP_JUMP_IF_TRUE        41 (to L2)
+              NOT_TAKEN
+
+ 84           LOAD_FAST_BORROW         6 (rows_to_delete)
+              LOAD_ATTR               21 (append + NULL|self)
+              LOAD_FAST_BORROW         7 (row)
+              CALL                     1
+              POP_TOP
+
+ 85           LOAD_FAST_BORROW         1 (stats)
+              LOAD_CONST               0 ('deleted_empty_date')
+              COPY                     2
+              COPY                     2
+              BINARY_OP               26 ([])
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     3
+              SWAP                     2
+              STORE_SUBSCR
+
+ 86           JUMP_BACKWARD          124 (to L1)
+
+ 88   L2:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 184 (d, c3)
+              STORE_ATTR               9 (value)
+
+ 89           LOAD_FAST_BORROW         1 (stats)
+              LOAD_CONST               1 ('dates_normalized')
+              COPY                     2
+              COPY                     2
+              BINARY_OP               26 ([])
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     3
+              SWAP                     2
+              STORE_SUBSCR
+
+ 91           LOAD_GLOBAL             23 (to_int_compact + NULL)
+              LOAD_FAST_BORROW         9 (c5)
+              LOAD_ATTR               18 (value)
+              CALL                     1
+              STORE_FAST              12 (v5)
+
+ 92           LOAD_FAST_BORROW        12 (v5)
+              POP_JUMP_IF_NONE        28 (to L3)
+              NOT_TAKEN
+
+ 93           LOAD_FAST_BORROW_LOAD_FAST_BORROW 201 (v5, c5)
+              STORE_ATTR               9 (value)
+
+ 94           LOAD_FAST_BORROW         1 (stats)
+              LOAD_CONST               2 ('code5_converted')
+              COPY                     2
+              COPY                     2
+              BINARY_OP               26 ([])
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     3
+              SWAP                     2
+              STORE_SUBSCR
+
+ 96   L3:     LOAD_GLOBAL             23 (to_int_compact + NULL)
+              LOAD_FAST_BORROW        10 (c6)
+              LOAD_ATTR               18 (value)
+              CALL                     1
+              STORE_FAST              13 (v6)
+
+ 97           LOAD_FAST_BORROW        13 (v6)
+              POP_JUMP_IF_NOT_NONE     3 (to L4)
+              NOT_TAKEN
+              JUMP_BACKWARD          230 (to L1)
+
+ 98   L4:     LOAD_FAST_BORROW_LOAD_FAST_BORROW 218 (v6, c6)
+              STORE_ATTR               9 (value)
+
+ 99           LOAD_FAST_BORROW         1 (stats)
+              LOAD_CONST               3 ('code6_converted')
+              COPY                     2
+              COPY                     2
+              BINARY_OP               26 ([])
+              LOAD_SMALL_INT           1
+              BINARY_OP               13 (+=)
+              SWAP                     3
+              SWAP                     2
+              STORE_SUBSCR
+              EXTENDED_ARG             1
+              JUMP_BACKWARD          260 (to L1)
+
+ 77   L5:     END_FOR
+              POP_ITER
+
+101           LOAD_GLOBAL             25 (reversed + NULL)
+              LOAD_FAST_BORROW         6 (rows_to_delete)
+              CALL                     1
+              GET_ITER
+      L6:     FOR_ITER                20 (to L7)
+              STORE_FAST              14 (r)
+
+102           LOAD_FAST_BORROW         0 (ws)
+              LOAD_ATTR               27 (delete_rows + NULL|self)
+              LOAD_FAST_BORROW        14 (r)
+              CALL                     1
+              POP_TOP
+              JUMP_BACKWARD           22 (to L6)
+
+101   L7:     END_FOR
+              POP_ITER
+
+104           LOAD_GLOBAL             29 (len + NULL)
+              LOAD_FAST_BORROW         6 (rows_to_delete)
+              CALL                     1
+              LOAD_FAST_BORROW         1 (stats)
+              BUILD_TUPLE              2
+              RETURN_VALUE

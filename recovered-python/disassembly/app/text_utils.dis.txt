@@ -1,0 +1,632 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              2 (re)
+              STORE_NAME               2 (re)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Path',))
+              IMPORT_NAME              3 (pathlib)
+              IMPORT_FROM              4 (Path)
+              STORE_NAME               4 (Path)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('List',))
+              IMPORT_NAME              5 (typing)
+              IMPORT_FROM              6 (List)
+              STORE_NAME               6 (List)
+              POP_TOP
+
+  7           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('NORMATIVE_KEYWORDS',))
+              IMPORT_NAME              7 (app.settings)
+              IMPORT_FROM              8 (NORMATIVE_KEYWORDS)
+              STORE_NAME               8 (NORMATIVE_KEYWORDS)
+              POP_TOP
+
+ 10           LOAD_CONST               6 (<code object __annotate__ at 0x7f55aaba6a60, file "app\text_utils.py", line 10>)
+              MAKE_FUNCTION
+              LOAD_CONST               7 (<code object normalize_text at 0x7f55aabece70, file "app\text_utils.py", line 10>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               9 (normalize_text)
+
+ 16           LOAD_CONST               8 (<code object __annotate__ at 0x7f55aaba6100, file "app\text_utils.py", line 16>)
+              MAKE_FUNCTION
+              LOAD_CONST               9 (<code object safe_sheet_title_from_filename at 0x7f55aac26b50, file "app\text_utils.py", line 16>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              10 (safe_sheet_title_from_filename)
+
+ 25           LOAD_CONST              10 (<code object __annotate__ at 0x7f55aaba64c0, file "app\text_utils.py", line 25>)
+              MAKE_FUNCTION
+              LOAD_CONST              11 (<code object is_normatives_file at 0x7f55aac7e5b0, file "app\text_utils.py", line 25>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              11 (is_normatives_file)
+
+ 30           LOAD_CONST              12 (<code object __annotate__ at 0x7f55aaba7870, file "app\text_utils.py", line 30>)
+              MAKE_FUNCTION
+              LOAD_CONST              13 (<code object clean_user_tokens at 0x419903a0, file "app\text_utils.py", line 30>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              12 (clean_user_tokens)
+
+ 51           LOAD_CONST              14 (<code object __annotate__ at 0x7f55aaba6e20, file "app\text_utils.py", line 51>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 (<code object is_manual_forecast_file at 0x7f55aabee170, file "app\text_utils.py", line 51>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              13 (is_manual_forecast_file)
+
+ 55           LOAD_CONST              16 (<code object __annotate__ at 0x7f55aaba62e0, file "app\text_utils.py", line 55>)
+              MAKE_FUNCTION
+              LOAD_CONST              17 (<code object is_tech_cards_or_file at 0x7f55aacf7430, file "app\text_utils.py", line 55>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              14 (is_tech_cards_or_file)
+
+ 59           LOAD_CONST              18 (<code object __annotate__ at 0x7f55aaba65b0, file "app\text_utils.py", line 59>)
+              MAKE_FUNCTION
+              LOAD_CONST              19 (<code object is_factual_repairs_file at 0x7f55aabedcb0, file "app\text_utils.py", line 59>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              15 (is_factual_repairs_file)
+
+ 63           LOAD_CONST              20 (<code object __annotate__ at 0x7f55aaba66a0, file "app\text_utils.py", line 63>)
+              MAKE_FUNCTION
+              LOAD_CONST              21 (<code object is_equipment_list_file at 0x7f55aabed920, file "app\text_utils.py", line 63>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              16 (is_equipment_list_file)
+
+ 67           LOAD_CONST              22 (<code object __annotate__ at 0x7f55aaba6790, file "app\text_utils.py", line 67>)
+              MAKE_FUNCTION
+              LOAD_CONST              23 (<code object is_forecast_file at 0x7f55aabed590, file "app\text_utils.py", line 67>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              17 (is_forecast_file)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6a60, file "app\text_utils.py", line 10>:
+ 10           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('s')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object normalize_text at 0x7f55aabece70, file "app\text_utils.py", line 10>:
+ 10           RESUME                   0
+
+ 12           LOAD_GLOBAL              0 (re)
+              LOAD_ATTR                2 (sub)
+              PUSH_NULL
+              LOAD_CONST               0 ('\\s+')
+              LOAD_CONST               1 (' ')
+              LOAD_FAST_BORROW         0 (s)
+              CALL                     3
+              STORE_FAST               0 (s)
+
+ 13           LOAD_FAST_BORROW         0 (s)
+              LOAD_ATTR                5 (casefold + NULL|self)
+              CALL                     0
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6100, file "app\text_utils.py", line 16>:
+ 16           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('filename')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               2 ('str')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object safe_sheet_title_from_filename at 0x7f55aac26b50, file "app\text_utils.py", line 16>:
+ 16           RESUME                   0
+
+ 18           LOAD_GLOBAL              1 (Path + NULL)
+              LOAD_FAST_BORROW         0 (filename)
+              CALL                     1
+              LOAD_ATTR                2 (stem)
+              STORE_FAST               1 (base)
+
+ 19           LOAD_GLOBAL              4 (re)
+              LOAD_ATTR                6 (sub)
+              PUSH_NULL
+              LOAD_CONST               0 ('[:\\\\/?*\\[\\]]')
+              LOAD_CONST               1 ('_')
+              LOAD_FAST_BORROW         1 (base)
+              CALL                     3
+              LOAD_ATTR                9 (strip + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (base)
+
+ 20           LOAD_FAST_BORROW         1 (base)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L1)
+              NOT_TAKEN
+
+ 21           LOAD_CONST               2 ('Sheet')
+              STORE_FAST               1 (base)
+
+ 22   L1:     LOAD_FAST_BORROW         1 (base)
+              LOAD_CONST               3 (slice(None, 31, None))
+              BINARY_OP               26 ([])
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba64c0, file "app\text_utils.py", line 25>:
+ 25           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('path')
+              LOAD_CONST               2 ('Path')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('bool')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object is_normatives_file at 0x7f55aac7e5b0, file "app\text_utils.py", line 25>:
+  --           MAKE_CELL                1 (name)
+
+  25           RESUME                   0
+
+  26           LOAD_FAST_BORROW         0 (path)
+               LOAD_ATTR                0 (stem)
+               LOAD_ATTR                3 (casefold + NULL|self)
+               CALL                     0
+               STORE_DEREF              1 (name)
+
+  27           LOAD_GLOBAL              4 (any)
+               COPY                     1
+               LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+               IS_OP                    0 (is)
+               POP_JUMP_IF_FALSE       35 (to L4)
+               NOT_TAKEN
+               POP_TOP
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <genexpr> at 0x7f55aad3a030, file "app\text_utils.py", line 27>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_GLOBAL              6 (NORMATIVE_KEYWORDS)
+               GET_ITER
+               CALL                     0
+       L1:     FOR_ITER                12 (to L3)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+               JUMP_BACKWARD           11 (to L1)
+       L2:     POP_ITER
+               LOAD_CONST               1 (True)
+               RETURN_VALUE
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               2 (False)
+               RETURN_VALUE
+       L4:     PUSH_NULL
+               LOAD_FAST_BORROW         1 (name)
+               BUILD_TUPLE              1
+               LOAD_CONST               0 (<code object <genexpr> at 0x7f55aad3a030, file "app\text_utils.py", line 27>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               LOAD_GLOBAL              6 (NORMATIVE_KEYWORDS)
+               GET_ITER
+               CALL                     0
+               CALL                     1
+               RETURN_VALUE
+
+Disassembly of <code object <genexpr> at 0x7f55aad3a030, file "app\text_utils.py", line 27>:
+  --           COPY_FREE_VARS           1
+
+  27           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                 9 (to L3)
+               STORE_FAST_LOAD_FAST    17 (k, k)
+               LOAD_DEREF               2 (name)
+               CONTAINS_OP              0 (in)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           11 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object __annotate__ at 0x7f55aaba7870, file "app\text_utils.py", line 30>:
+ 30           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('raw')
+              LOAD_CONST               2 ('str')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('List[str]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object clean_user_tokens at 0x419903a0, file "app\text_utils.py", line 30>:
+  30            RESUME                   0
+
+  32            LOAD_FAST_BORROW         0 (raw)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L1)
+                NOT_TAKEN
+
+  33            BUILD_LIST               0
+                RETURN_VALUE
+
+  34    L1:     LOAD_FAST_BORROW         0 (raw)
+                LOAD_ATTR                1 (split + NULL|self)
+                LOAD_CONST               0 (',')
+                CALL                     1
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      1 (p)
+                SWAP                     2
+        L2:     BUILD_LIST               0
+                SWAP                     2
+        L3:     FOR_ITER                18 (to L4)
+                STORE_FAST_LOAD_FAST    17 (p, p)
+                LOAD_ATTR                3 (strip + NULL|self)
+                CALL                     0
+                LIST_APPEND              2
+                JUMP_BACKWARD           20 (to L3)
+        L4:     END_FOR
+                POP_ITER
+        L5:     STORE_FAST               2 (parts)
+                STORE_FAST               1 (p)
+
+  35            BUILD_LIST               0
+                STORE_FAST               3 (cleaned)
+
+  36            LOAD_FAST_BORROW         2 (parts)
+                GET_ITER
+        L6:     FOR_ITER               139 (to L8)
+                STORE_FAST               1 (p)
+
+  37            LOAD_FAST_BORROW         1 (p)
+                LOAD_ATTR                3 (strip + NULL|self)
+                LOAD_CONST               1 (' \t\r\n"\'`“”‘’()[]{}<>')
+                CALL                     1
+                STORE_FAST               1 (p)
+
+  38            LOAD_GLOBAL              4 (re)
+                LOAD_ATTR                6 (sub)
+                PUSH_NULL
+                LOAD_CONST               2 ('[^\\w\\s\\-А-Яа-яЁё]')
+                LOAD_CONST               3 (' ')
+                LOAD_FAST_BORROW         1 (p)
+                LOAD_GLOBAL              4 (re)
+                LOAD_ATTR                8 (UNICODE)
+                LOAD_CONST               4 (('flags',))
+                CALL_KW                  4
+                STORE_FAST               1 (p)
+
+  39            LOAD_GLOBAL              4 (re)
+                LOAD_ATTR                6 (sub)
+                PUSH_NULL
+                LOAD_CONST               5 ('\\s+')
+                LOAD_CONST               3 (' ')
+                LOAD_FAST_BORROW         1 (p)
+                CALL                     3
+                LOAD_ATTR                3 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (p)
+
+  40            LOAD_FAST_BORROW         1 (p)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L7)
+                NOT_TAKEN
+                JUMP_BACKWARD          108 (to L6)
+
+  41    L7:     LOAD_FAST_BORROW         3 (cleaned)
+                LOAD_ATTR               11 (append + NULL|self)
+                LOAD_FAST_BORROW         1 (p)
+                LOAD_ATTR               13 (casefold + NULL|self)
+                CALL                     0
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD          141 (to L6)
+
+  36    L8:     END_FOR
+                POP_ITER
+
+  43            BUILD_LIST               0
+                STORE_FAST               4 (out)
+
+  44            LOAD_GLOBAL             15 (set + NULL)
+                CALL                     0
+                STORE_FAST               5 (seen)
+
+  45            LOAD_FAST_BORROW         3 (cleaned)
+                GET_ITER
+        L9:     FOR_ITER                45 (to L11)
+                STORE_FAST               6 (t)
+
+  46            LOAD_FAST_BORROW_LOAD_FAST_BORROW 101 (t, seen)
+                CONTAINS_OP              1 (not in)
+                POP_JUMP_IF_TRUE         3 (to L10)
+                NOT_TAKEN
+                JUMP_BACKWARD           11 (to L9)
+
+  47   L10:     LOAD_FAST_BORROW         5 (seen)
+                LOAD_ATTR               17 (add + NULL|self)
+                LOAD_FAST_BORROW         6 (t)
+                CALL                     1
+                POP_TOP
+
+  48            LOAD_FAST_BORROW         4 (out)
+                LOAD_ATTR               11 (append + NULL|self)
+                LOAD_FAST_BORROW         6 (t)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           47 (to L9)
+
+  45   L11:     END_FOR
+                POP_ITER
+
+  49            LOAD_FAST_BORROW         4 (out)
+                RETURN_VALUE
+
+  --   L12:     SWAP                     2
+                POP_TOP
+
+  34            SWAP                     2
+                STORE_FAST               1 (p)
+                RERAISE                  0
+ExceptionTable:
+  L2 to L5 -> L12 [2]
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6e20, file "app\text_utils.py", line 51>:
+ 51           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object is_manual_forecast_file at 0x7f55aabee170, file "app\text_utils.py", line 51>:
+ 51           RESUME                   0
+
+ 52           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (stem)
+              LOAD_ATTR                3 (casefold + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (name)
+
+ 53           LOAD_CONST               0 ('ручной')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('прогноз')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+      L1:     RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba62e0, file "app\text_utils.py", line 55>:
+ 55           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object is_tech_cards_or_file at 0x7f55aacf7430, file "app\text_utils.py", line 55>:
+ 55           RESUME                   0
+
+ 56           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (stem)
+              LOAD_ATTR                3 (casefold + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (name)
+
+ 57           LOAD_CONST               0 ('технолог')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       27 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('карт')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       14 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               2 ('ор')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_TRUE        32 (to L2)
+              NOT_TAKEN
+      L1:     POP_TOP
+              LOAD_CONST               3 ('тех')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE       19 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('карт')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L2)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               2 ('ор')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+      L2:     RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba65b0, file "app\text_utils.py", line 59>:
+ 59           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object is_factual_repairs_file at 0x7f55aabedcb0, file "app\text_utils.py", line 59>:
+ 59           RESUME                   0
+
+ 60           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (stem)
+              LOAD_ATTR                3 (casefold + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (name)
+
+ 61           LOAD_CONST               0 ('фактичес')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('ремонт')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+      L1:     RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba66a0, file "app\text_utils.py", line 63>:
+ 63           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object is_equipment_list_file at 0x7f55aabed920, file "app\text_utils.py", line 63>:
+ 63           RESUME                   0
+
+ 64           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (stem)
+              LOAD_ATTR                3 (casefold + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (name)
+
+ 65           LOAD_CONST               0 ('список')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('оборуд')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+      L1:     RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6790, file "app\text_utils.py", line 67>:
+ 67           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('bool')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object is_forecast_file at 0x7f55aabed590, file "app\text_utils.py", line 67>:
+ 67           RESUME                   0
+
+ 69           LOAD_FAST_BORROW         0 (path)
+              LOAD_ATTR                0 (stem)
+              LOAD_ATTR                3 (casefold + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (name)
+
+ 70           LOAD_CONST               0 ('прогноз')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              0 (in)
+              COPY                     1
+              TO_BOOL
+              POP_JUMP_IF_FALSE        6 (to L1)
+              NOT_TAKEN
+              POP_TOP
+              LOAD_CONST               1 ('ручн')
+              LOAD_FAST_BORROW         1 (name)
+              CONTAINS_OP              1 (not in)
+      L1:     RETURN_VALUE

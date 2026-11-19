@@ -1,0 +1,550 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('dataclass',))
+              IMPORT_NAME              2 (dataclasses)
+              IMPORT_FROM              3 (dataclass)
+              STORE_NAME               3 (dataclass)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('Callable', 'Dict', 'Tuple', 'Any', 'Optional'))
+              IMPORT_NAME              4 (typing)
+              IMPORT_FROM              5 (Callable)
+              STORE_NAME               5 (Callable)
+              IMPORT_FROM              6 (Dict)
+              STORE_NAME               6 (Dict)
+              IMPORT_FROM              7 (Tuple)
+              STORE_NAME               7 (Tuple)
+              IMPORT_FROM              8 (Any)
+              STORE_NAME               8 (Any)
+              IMPORT_FROM              9 (Optional)
+              STORE_NAME               9 (Optional)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Worksheet',))
+              IMPORT_NAME             10 (openpyxl.worksheet.worksheet)
+              IMPORT_FROM             11 (Worksheet)
+              STORE_NAME              11 (Worksheet)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('is_normatives_file', 'is_manual_forecast_file', 'is_tech_cards_or_file', 'is_factual_repairs_file', 'is_equipment_list_file', 'is_forecast_file'))
+              IMPORT_NAME             12 (app.text_utils)
+              IMPORT_FROM             13 (is_normatives_file)
+              STORE_NAME              13 (is_normatives_file)
+              IMPORT_FROM             14 (is_manual_forecast_file)
+              STORE_NAME              14 (is_manual_forecast_file)
+              IMPORT_FROM             15 (is_tech_cards_or_file)
+              STORE_NAME              15 (is_tech_cards_or_file)
+              IMPORT_FROM             16 (is_factual_repairs_file)
+              STORE_NAME              16 (is_factual_repairs_file)
+              IMPORT_FROM             17 (is_equipment_list_file)
+              STORE_NAME              17 (is_equipment_list_file)
+              IMPORT_FROM             18 (is_forecast_file)
+              STORE_NAME              18 (is_forecast_file)
+              POP_TOP
+
+ 17           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('process_normatives_sheet',))
+              IMPORT_NAME             19 (app.normatives)
+              IMPORT_FROM             20 (process_normatives_sheet)
+              STORE_NAME              20 (process_normatives_sheet)
+              POP_TOP
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               7 (('process_manual_forecast',))
+              IMPORT_NAME             21 (app.manual_forecast)
+              IMPORT_FROM             22 (process_manual_forecast)
+              STORE_NAME              22 (process_manual_forecast)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           0
+              LOAD_CONST               8 (('process_tech_cards_or',))
+              IMPORT_NAME             23 (app.tech_cards_or)
+              IMPORT_FROM             24 (process_tech_cards_or)
+              STORE_NAME              24 (process_tech_cards_or)
+              POP_TOP
+
+ 20           LOAD_SMALL_INT           0
+              LOAD_CONST               9 (('process_factual_repairs',))
+              IMPORT_NAME             25 (app.factual_repairs)
+              IMPORT_FROM             26 (process_factual_repairs)
+              STORE_NAME              26 (process_factual_repairs)
+              POP_TOP
+
+ 21           LOAD_SMALL_INT           0
+              LOAD_CONST              10 (('process_equipment_list',))
+              IMPORT_NAME             27 (app.equipment_list)
+              IMPORT_FROM             28 (process_equipment_list)
+              STORE_NAME              28 (process_equipment_list)
+              POP_TOP
+
+ 22           LOAD_SMALL_INT           0
+              LOAD_CONST              11 (('process_forecast',))
+              IMPORT_NAME             29 (app.forecast)
+              IMPORT_FROM             30 (process_forecast)
+              STORE_NAME              30 (process_forecast)
+              POP_TOP
+
+ 25           LOAD_NAME                7 (Tuple)
+              LOAD_NAME               31 (int)
+              LOAD_NAME                6 (Dict)
+              LOAD_NAME               32 (str)
+              LOAD_NAME               31 (int)
+              BUILD_TUPLE              2
+              BINARY_OP               26 ([])
+              BUILD_TUPLE              2
+              BINARY_OP               26 ([])
+              STORE_NAME              33 (ProcessResult)
+
+ 26           LOAD_NAME                5 (Callable)
+              LOAD_NAME                8 (Any)
+              BUILD_LIST               1
+              LOAD_NAME               34 (bool)
+              BUILD_TUPLE              2
+              BINARY_OP               26 ([])
+              STORE_NAME              35 (Detector)
+
+ 29           LOAD_NAME                3 (dataclass)
+              PUSH_NULL
+              LOAD_CONST              12 (True)
+              LOAD_CONST              13 (('frozen',))
+              CALL_KW                  1
+
+ 30           LOAD_BUILD_CLASS
+              PUSH_NULL
+              LOAD_CONST              14 (<code object Processor at 0x7f55aad62340, file "app\processors.py", line 29>)
+              MAKE_FUNCTION
+              LOAD_CONST              15 ('Processor')
+              CALL                     2
+
+ 29           CALL                     0
+
+ 30           STORE_NAME              36 (Processor)
+
+ 38           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               13 (is_normatives_file)
+              LOAD_NAME               20 (process_normatives_sheet)
+              LOAD_CONST              12 (True)
+              LOAD_CONST              16 ('Нормативы')
+              CALL                     4
+
+ 39           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               14 (is_manual_forecast_file)
+              LOAD_NAME               22 (process_manual_forecast)
+              LOAD_CONST              12 (True)
+              LOAD_CONST              17 ('Ручной прогноз')
+              CALL                     4
+
+ 40           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               15 (is_tech_cards_or_file)
+              LOAD_NAME               24 (process_tech_cards_or)
+              LOAD_CONST              18 (False)
+              LOAD_CONST              19 ('Тех. карты ОР')
+              CALL                     4
+
+ 41           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               16 (is_factual_repairs_file)
+              LOAD_NAME               26 (process_factual_repairs)
+              LOAD_CONST              18 (False)
+              LOAD_CONST              20 ('Фактические ремонты')
+              CALL                     4
+
+ 42           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               17 (is_equipment_list_file)
+              LOAD_NAME               28 (process_equipment_list)
+              LOAD_CONST              18 (False)
+              LOAD_CONST              21 ('Список оборудования')
+              CALL                     4
+
+ 43           LOAD_NAME               36 (Processor)
+              PUSH_NULL
+              LOAD_NAME               18 (is_forecast_file)
+              LOAD_NAME               30 (process_forecast)
+              LOAD_CONST              12 (True)
+              LOAD_CONST              22 ('Прогноз')
+              CALL                     4
+
+ 37           BUILD_LIST               6
+              STORE_NAME              37 (PROCESSORS)
+
+ 47           LOAD_CONST              26 ((None,))
+              LOAD_CONST              24 (<code object __annotate__ at 0x7f55aaa84d30, file "app\processors.py", line 47>)
+              MAKE_FUNCTION
+              LOAD_CONST              25 (<code object run_processor_for_file at 0x41973560, file "app\processors.py", line 47>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+              STORE_NAME              38 (run_processor_for_file)
+              LOAD_CONST              23 (None)
+              RETURN_VALUE
+
+Disassembly of <code object Processor at 0x7f55aad62340, file "app\processors.py", line 29>:
+ 29           RESUME                   0
+              LOAD_NAME                0 (__name__)
+              STORE_NAME               1 (__module__)
+              LOAD_CONST               0 ('Processor')
+              STORE_NAME               2 (__qualname__)
+              LOAD_SMALL_INT          29
+              STORE_NAME               3 (__firstlineno__)
+              SETUP_ANNOTATIONS
+
+ 31           LOAD_CONST               1 ('Detector')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               2 ('detector')
+              STORE_SUBSCR
+
+ 32           LOAD_CONST               3 ('Callable[..., ProcessResult]')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               4 ('runner')
+              STORE_SUBSCR
+
+ 33           LOAD_CONST               5 ('bool')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               6 ('needs_shop')
+              STORE_SUBSCR
+
+ 34           LOAD_CONST               7 ('str')
+              LOAD_NAME                4 (__annotations__)
+              LOAD_CONST               8 ('name')
+              STORE_SUBSCR
+              LOAD_CONST               9 (())
+              STORE_NAME               5 (__static_attributes__)
+              LOAD_CONST              10 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84d30, file "app\processors.py", line 47>:
+ 47           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+
+ 49           LOAD_CONST               2 ('Worksheet')
+
+ 47           LOAD_CONST               3 ('chosen_shop')
+
+ 50           LOAD_CONST               4 ('str')
+
+ 47           LOAD_CONST               5 ('ctx')
+
+ 51           LOAD_CONST               6 ('Optional[Dict[str, Any]]')
+
+ 47           LOAD_CONST               7 ('return')
+
+ 52           LOAD_CONST               8 ('Tuple[bool, str, ProcessResult]')
+
+ 47           BUILD_MAP                4
+              RETURN_VALUE
+
+Disassembly of <code object run_processor_for_file at 0x41973560, file "app\processors.py", line 47>:
+ 47            RESUME                   0
+
+ 54            LOAD_FAST_BORROW         3 (ctx)
+               POP_JUMP_IF_NOT_NONE     3 (to L1)
+               NOT_TAKEN
+
+ 55            BUILD_MAP                0
+               STORE_FAST               3 (ctx)
+
+ 57    L1:     LOAD_GLOBAL              0 (PROCESSORS)
+               GET_ITER
+       L2:     EXTENDED_ARG             2
+               FOR_ITER               550 (to L14)
+               STORE_FAST               4 (p)
+
+ 58            LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                3 (detector + NULL|self)
+               LOAD_FAST_BORROW         0 (path)
+               CALL                     1
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L3)
+               NOT_TAKEN
+
+ 59            JUMP_BACKWARD           29 (to L2)
+
+ 61    L3:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_CONST               1 ('Нормативы')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L4)
+               NOT_TAKEN
+
+ 62            LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (ws, chosen_shop)
+               CALL                     2
+               STORE_FAST               5 (res)
+
+ 63            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (ws, ctx)
+               LOAD_CONST               2 ('ws_normatives')
+               STORE_SUBSCR
+
+ 64            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         5 (res)
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 66    L4:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_CONST               4 ('Ручной прогноз')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L5)
+               NOT_TAKEN
+
+ 67            LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (ws, chosen_shop)
+               CALL                     2
+               STORE_FAST               5 (res)
+
+ 68            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (ws, ctx)
+               LOAD_CONST               5 ('ws_manual_forecast')
+               STORE_SUBSCR
+
+ 69            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         5 (res)
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 71    L5:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_CONST               6 ('Список оборудования')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L6)
+               NOT_TAKEN
+
+ 72            LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW         1 (ws)
+               CALL                     1
+               STORE_FAST               5 (res)
+
+ 73            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (ws, ctx)
+               LOAD_CONST               7 ('ws_equipment')
+               STORE_SUBSCR
+
+ 74            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         5 (res)
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 76    L6:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_CONST               8 ('Тех. карты ОР')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE       39 (to L7)
+               NOT_TAKEN
+
+ 77            LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW         1 (ws)
+               CALL                     1
+               STORE_FAST               5 (res)
+
+ 78            LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (ws, ctx)
+               LOAD_CONST               9 ('ws_tech_cards')
+               STORE_SUBSCR
+
+ 79            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         5 (res)
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 81    L7:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_CONST              10 ('Прогноз')
+               COMPARE_OP              88 (bool(==))
+               POP_JUMP_IF_FALSE      206 (to L12)
+               NOT_TAKEN
+
+ 82            LOAD_FAST_BORROW         3 (ctx)
+               LOAD_ATTR                9 (get + NULL|self)
+               LOAD_CONST               7 ('ws_equipment')
+               CALL                     1
+               STORE_FAST               6 (ws_equipment)
+
+ 83            LOAD_FAST_BORROW         3 (ctx)
+               LOAD_ATTR                9 (get + NULL|self)
+               LOAD_CONST               9 ('ws_tech_cards')
+               CALL                     1
+               STORE_FAST               7 (ws_tech_cards)
+
+ 84            LOAD_FAST_BORROW         3 (ctx)
+               LOAD_ATTR                9 (get + NULL|self)
+               LOAD_CONST               5 ('ws_manual_forecast')
+               CALL                     1
+               STORE_FAST               8 (ws_manual_forecast)
+
+ 85            LOAD_FAST_BORROW         3 (ctx)
+               LOAD_ATTR                9 (get + NULL|self)
+               LOAD_CONST               2 ('ws_normatives')
+               CALL                     1
+               STORE_FAST               9 (ws_normatives)
+
+ 87            LOAD_FAST_BORROW         6 (ws_equipment)
+               POP_JUMP_IF_NOT_NONE    22 (to L8)
+               NOT_TAKEN
+
+ 88            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              11 ('error_no_equipment_list_loaded')
+               LOAD_SMALL_INT           1
+               BUILD_MAP                1
+               BUILD_TUPLE              2
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 90    L8:     LOAD_FAST_BORROW         7 (ws_tech_cards)
+               POP_JUMP_IF_NOT_NONE    22 (to L9)
+               NOT_TAKEN
+
+ 91            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              12 ('error_no_tech_cards_loaded')
+               LOAD_SMALL_INT           1
+               BUILD_MAP                1
+               BUILD_TUPLE              2
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 93    L9:     LOAD_FAST_BORROW         8 (ws_manual_forecast)
+               POP_JUMP_IF_NOT_NONE    22 (to L10)
+               NOT_TAKEN
+
+ 94            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              13 ('error_no_manual_forecast_loaded')
+               LOAD_SMALL_INT           1
+               BUILD_MAP                1
+               BUILD_TUPLE              2
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 96   L10:     LOAD_FAST_BORROW         9 (ws_normatives)
+               POP_JUMP_IF_NOT_NONE    22 (to L11)
+               NOT_TAKEN
+
+ 97            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_SMALL_INT           0
+               LOAD_CONST              14 ('error_no_normatives_loaded')
+               LOAD_SMALL_INT           1
+               BUILD_MAP                1
+               BUILD_TUPLE              2
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 99   L11:     LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+
+100            LOAD_FAST_BORROW         1 (ws)
+
+101            LOAD_FAST_BORROW         2 (chosen_shop)
+
+102            LOAD_FAST_BORROW         6 (ws_equipment)
+
+103            LOAD_FAST_BORROW         7 (ws_tech_cards)
+
+104            LOAD_FAST_BORROW         8 (ws_manual_forecast)
+
+105            LOAD_FAST_BORROW         9 (ws_normatives)
+
+ 99            CALL                     6
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+108   L12:     LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR               10 (needs_shop)
+               TO_BOOL
+               POP_JUMP_IF_FALSE       33 (to L13)
+               NOT_TAKEN
+
+109            LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW_LOAD_FAST_BORROW 18 (ws, chosen_shop)
+               CALL                     2
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+110   L13:     LOAD_CONST               3 (True)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                4 (name)
+               LOAD_FAST_BORROW         4 (p)
+               LOAD_ATTR                7 (runner + NULL|self)
+               LOAD_FAST_BORROW         1 (ws)
+               CALL                     1
+               BUILD_TUPLE              3
+               SWAP                     2
+               POP_TOP
+               RETURN_VALUE
+
+ 57   L14:     END_FOR
+               POP_ITER
+
+112            LOAD_CONST              15 (False)
+               LOAD_CONST              16 ('Без обработки')
+               LOAD_SMALL_INT           0
+               BUILD_MAP                0
+               BUILD_TUPLE              2
+               BUILD_TUPLE              3
+               RETURN_VALUE
