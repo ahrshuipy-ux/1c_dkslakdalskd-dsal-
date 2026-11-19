@@ -1,0 +1,401 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (None)
+              IMPORT_NAME              2 (tkinter)
+              STORE_NAME               3 (tk)
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('messagebox',))
+              IMPORT_NAME              2 (tkinter)
+              IMPORT_FROM              4 (messagebox)
+              STORE_NAME               4 (messagebox)
+              POP_TOP
+
+  5           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('List', 'Optional'))
+              IMPORT_NAME              5 (typing)
+              IMPORT_FROM              6 (List)
+              STORE_NAME               6 (List)
+              IMPORT_FROM              7 (Optional)
+              STORE_NAME               7 (Optional)
+              POP_TOP
+
+  8           LOAD_CONST               5 (<code object __annotate__ at 0x7f55aaa84d30, file "app\gui.py", line 8>)
+              MAKE_FUNCTION
+              LOAD_CONST               6 (<code object choose_one_shop_gui at 0x41915d00, file "app\gui.py", line 8>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME               8 (choose_one_shop_gui)
+              LOAD_CONST               2 (None)
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaa84d30, file "app\gui.py", line 8>:
+  8           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('parent')
+              LOAD_CONST               2 ('tk.Tk')
+              LOAD_CONST               3 ('shop_names')
+              LOAD_CONST               4 ('List[str]')
+              LOAD_CONST               5 ('return')
+              LOAD_CONST               6 ('Optional[str]')
+              BUILD_MAP                3
+              RETURN_VALUE
+
+Disassembly of <code object choose_one_shop_gui at 0x41915d00, file "app\gui.py", line 8>:
+  --           MAKE_CELL                1 (shop_names)
+               MAKE_CELL                8 (listbox)
+               MAKE_CELL                9 (selected)
+               MAKE_CELL               10 (win)
+
+   8           RESUME                   0
+
+   9           LOAD_DEREF               1 (shop_names)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        28 (to L1)
+               NOT_TAKEN
+
+  10           LOAD_GLOBAL              0 (messagebox)
+               LOAD_ATTR                2 (showerror)
+               PUSH_NULL
+               LOAD_CONST               0 ('Цех')
+               LOAD_CONST               1 ('Список цехов пуст.')
+               LOAD_FAST_BORROW         0 (parent)
+               LOAD_CONST               2 (('parent',))
+               CALL_KW                  3
+               POP_TOP
+
+  11           LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  13   L1:     LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR                6 (Toplevel)
+               PUSH_NULL
+               LOAD_FAST_BORROW         0 (parent)
+               CALL                     1
+               STORE_DEREF             10 (win)
+
+  14           LOAD_DEREF              10 (win)
+               LOAD_ATTR                9 (title + NULL|self)
+               LOAD_CONST               4 ('Выбор цеха')
+               CALL                     1
+               POP_TOP
+
+  15           LOAD_DEREF              10 (win)
+               LOAD_ATTR               11 (geometry + NULL|self)
+               LOAD_CONST               5 ('520x420')
+               CALL                     1
+               POP_TOP
+
+  16           LOAD_DEREF              10 (win)
+               LOAD_ATTR               13 (resizable + NULL|self)
+               LOAD_CONST               6 (True)
+               LOAD_CONST               6 (True)
+               CALL                     2
+               POP_TOP
+
+  18           LOAD_DEREF              10 (win)
+               LOAD_ATTR               15 (transient + NULL|self)
+               LOAD_FAST_BORROW         0 (parent)
+               CALL                     1
+               POP_TOP
+
+  19           LOAD_DEREF              10 (win)
+               LOAD_ATTR               17 (grab_set + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  21           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               18 (Label)
+               PUSH_NULL
+
+  22           LOAD_DEREF              10 (win)
+
+  23           LOAD_CONST               7 ('Выберите предприятие.\nДанные будут отфильтрованы по цехам выбранного предприятия.')
+
+  24           LOAD_CONST               8 ('left')
+
+  25           LOAD_CONST               9 ('w')
+
+  21           LOAD_CONST              10 (('text', 'justify', 'anchor'))
+               CALL_KW                  4
+
+  26           LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              11 ('x')
+               LOAD_SMALL_INT          10
+               LOAD_SMALL_INT          10
+               LOAD_CONST              12 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+  28           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               22 (Frame)
+               PUSH_NULL
+               LOAD_DEREF              10 (win)
+               CALL                     1
+               STORE_FAST               2 (frame)
+
+  29           LOAD_FAST_BORROW         2 (frame)
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              13 ('both')
+               LOAD_CONST               6 (True)
+               LOAD_SMALL_INT          10
+               LOAD_SMALL_INT          10
+               LOAD_CONST              14 (('fill', 'expand', 'padx', 'pady'))
+               CALL_KW                  4
+               POP_TOP
+
+  31           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               24 (Scrollbar)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (frame)
+               CALL                     1
+               STORE_FAST               3 (scrollbar)
+
+  32           LOAD_FAST_BORROW         3 (scrollbar)
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              15 ('right')
+               LOAD_CONST              16 ('y')
+               LOAD_CONST              17 (('side', 'fill'))
+               CALL_KW                  2
+               POP_TOP
+
+  34           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               26 (Listbox)
+               PUSH_NULL
+               LOAD_FAST_BORROW         2 (frame)
+               LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               28 (SINGLE)
+               LOAD_FAST_BORROW         3 (scrollbar)
+               LOAD_ATTR               30 (set)
+               LOAD_CONST              18 (('selectmode', 'yscrollcommand'))
+               CALL_KW                  3
+               STORE_DEREF              8 (listbox)
+
+  35           LOAD_DEREF               1 (shop_names)
+               GET_ITER
+       L2:     FOR_ITER                35 (to L3)
+               STORE_FAST               4 (shop)
+
+  36           LOAD_DEREF               8 (listbox)
+               LOAD_ATTR               33 (insert + NULL|self)
+               LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               34 (END)
+               LOAD_FAST_BORROW         4 (shop)
+               CALL                     2
+               POP_TOP
+               JUMP_BACKWARD           37 (to L2)
+
+  35   L3:     END_FOR
+               POP_ITER
+
+  38           LOAD_DEREF               8 (listbox)
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST               8 ('left')
+               LOAD_CONST              13 ('both')
+               LOAD_CONST               6 (True)
+               LOAD_CONST              19 (('side', 'fill', 'expand'))
+               CALL_KW                  3
+               POP_TOP
+
+  39           LOAD_FAST_BORROW         3 (scrollbar)
+               LOAD_ATTR               37 (config + NULL|self)
+               LOAD_DEREF               8 (listbox)
+               LOAD_ATTR               38 (yview)
+               LOAD_CONST              20 (('command',))
+               CALL_KW                  1
+               POP_TOP
+
+  41           LOAD_CONST              21 ('value')
+               LOAD_CONST               3 (None)
+               BUILD_MAP                1
+               STORE_DEREF              9 (selected)
+
+  43           LOAD_CONST              22 (<code object __annotate__ at 0x7f55aaba6e20, file "app\gui.py", line 43>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW         8 (listbox)
+               LOAD_FAST_BORROW         9 (selected)
+               LOAD_FAST_BORROW         1 (shop_names)
+               LOAD_FAST_BORROW        10 (win)
+               BUILD_TUPLE              4
+               LOAD_CONST              23 (<code object on_ok at 0x7f55aac7e5b0, file "app\gui.py", line 43>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_FAST               5 (on_ok)
+
+  51           LOAD_CONST              24 (<code object __annotate__ at 0x7f55aaba7870, file "app\gui.py", line 51>)
+               MAKE_FUNCTION
+               LOAD_FAST_BORROW        10 (win)
+               BUILD_TUPLE              1
+               LOAD_CONST              25 (<code object on_cancel at 0x7f55aaa84c30, file "app\gui.py", line 51>)
+               MAKE_FUNCTION
+               SET_FUNCTION_ATTRIBUTE   8 (closure)
+               SET_FUNCTION_ATTRIBUTE  16 (annotate)
+               STORE_FAST               6 (on_cancel)
+
+  54           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               22 (Frame)
+               PUSH_NULL
+               LOAD_DEREF              10 (win)
+               CALL                     1
+               STORE_FAST               7 (btn_frame)
+
+  55           LOAD_FAST_BORROW         7 (btn_frame)
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              11 ('x')
+               LOAD_SMALL_INT          10
+               LOAD_SMALL_INT          10
+               LOAD_CONST              12 (('fill', 'padx', 'pady'))
+               CALL_KW                  3
+               POP_TOP
+
+  57           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               40 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         7 (btn_frame)
+               LOAD_CONST              26 ('Далее')
+               LOAD_FAST_BORROW         5 (on_ok)
+               LOAD_SMALL_INT          12
+               LOAD_CONST              27 (('text', 'command', 'width'))
+               CALL_KW                  4
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              15 ('right')
+               LOAD_SMALL_INT           5
+               LOAD_CONST              28 (('side', 'padx'))
+               CALL_KW                  2
+               POP_TOP
+
+  58           LOAD_GLOBAL              4 (tk)
+               LOAD_ATTR               40 (Button)
+               PUSH_NULL
+               LOAD_FAST_BORROW         7 (btn_frame)
+               LOAD_CONST              29 ('Отмена')
+               LOAD_FAST_BORROW         6 (on_cancel)
+               LOAD_SMALL_INT          12
+               LOAD_CONST              27 (('text', 'command', 'width'))
+               CALL_KW                  4
+               LOAD_ATTR               21 (pack + NULL|self)
+               LOAD_CONST              15 ('right')
+               LOAD_SMALL_INT           5
+               LOAD_CONST              28 (('side', 'padx'))
+               CALL_KW                  2
+               POP_TOP
+
+  60           LOAD_DEREF              10 (win)
+               LOAD_ATTR               43 (lift + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  61           LOAD_DEREF              10 (win)
+               LOAD_ATTR               45 (focus_force + NULL|self)
+               CALL                     0
+               POP_TOP
+
+  63           LOAD_FAST_BORROW         0 (parent)
+               LOAD_ATTR               47 (wait_window + NULL|self)
+               LOAD_DEREF              10 (win)
+               CALL                     1
+               POP_TOP
+
+  64           LOAD_DEREF               9 (selected)
+               LOAD_CONST              21 ('value')
+               BINARY_OP               26 ([])
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba6e20, file "app\gui.py", line 43>:
+ 43           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object on_ok at 0x7f55aac7e5b0, file "app\gui.py", line 43>:
+  --           COPY_FREE_VARS           4
+
+  43           RESUME                   0
+
+  44           LOAD_DEREF               1 (listbox)
+               LOAD_ATTR                1 (curselection + NULL|self)
+               CALL                     0
+               STORE_FAST               0 (sel)
+
+  45           LOAD_FAST_BORROW         0 (sel)
+               TO_BOOL
+               POP_JUMP_IF_TRUE        28 (to L1)
+               NOT_TAKEN
+
+  46           LOAD_GLOBAL              2 (messagebox)
+               LOAD_ATTR                4 (showwarning)
+               PUSH_NULL
+               LOAD_CONST               0 ('Цех')
+               LOAD_CONST               1 ('Не выбран цех.')
+               LOAD_DEREF               4 (win)
+               LOAD_CONST               2 (('parent',))
+               CALL_KW                  3
+               POP_TOP
+
+  47           LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+  48   L1:     LOAD_DEREF               3 (shop_names)
+               LOAD_FAST_BORROW         0 (sel)
+               LOAD_SMALL_INT           0
+               BINARY_OP               26 ([])
+               BINARY_OP               26 ([])
+               LOAD_DEREF               2 (selected)
+               LOAD_CONST               4 ('value')
+               STORE_SUBSCR
+
+  49           LOAD_DEREF               4 (win)
+               LOAD_ATTR                7 (destroy + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               3 (None)
+               RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba7870, file "app\gui.py", line 51>:
+ 51           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('return')
+              LOAD_CONST               2 ('None')
+              BUILD_MAP                1
+              RETURN_VALUE
+
+Disassembly of <code object on_cancel at 0x7f55aaa84c30, file "app\gui.py", line 51>:
+  --           COPY_FREE_VARS           1
+
+  51           RESUME                   0
+
+  52           LOAD_DEREF               0 (win)
+               LOAD_ATTR                1 (destroy + NULL|self)
+               CALL                     0
+               POP_TOP
+               LOAD_CONST               0 (None)
+               RETURN_VALUE

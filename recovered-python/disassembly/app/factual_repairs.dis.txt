@@ -1,0 +1,786 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           LOAD_SMALL_INT           0
+              LOAD_CONST               2 (('Tuple', 'Dict', 'List'))
+              IMPORT_NAME              2 (typing)
+              IMPORT_FROM              3 (Tuple)
+              STORE_NAME               3 (Tuple)
+              IMPORT_FROM              4 (Dict)
+              STORE_NAME               4 (Dict)
+              IMPORT_FROM              5 (List)
+              STORE_NAME               5 (List)
+              POP_TOP
+
+  4           LOAD_SMALL_INT           0
+              LOAD_CONST               3 (('datetime',))
+              IMPORT_NAME              6 (datetime)
+              IMPORT_FROM              6 (datetime)
+              STORE_NAME               6 (datetime)
+              POP_TOP
+
+  6           LOAD_SMALL_INT           0
+              LOAD_CONST               4 (('Worksheet',))
+              IMPORT_NAME              7 (openpyxl.worksheet.worksheet)
+              IMPORT_FROM              8 (Worksheet)
+              STORE_NAME               8 (Worksheet)
+              POP_TOP
+
+  8           LOAD_SMALL_INT           0
+              LOAD_CONST               5 (('DELETE_OBJECT_WORDS', 'DROP_REPAIR_SUBSTRINGS', 'COL_FR_OBJECT', 'COL_FR_REPAIR', 'COL_FR_DATE', 'COL_FR_DATE_SRC', 'COL_FR_VALUE'))
+              IMPORT_NAME              9 (app.settings)
+              IMPORT_FROM             10 (DELETE_OBJECT_WORDS)
+              STORE_NAME              10 (DELETE_OBJECT_WORDS)
+              IMPORT_FROM             11 (DROP_REPAIR_SUBSTRINGS)
+              STORE_NAME              11 (DROP_REPAIR_SUBSTRINGS)
+              IMPORT_FROM             12 (COL_FR_OBJECT)
+              STORE_NAME              12 (COL_FR_OBJECT)
+              IMPORT_FROM             13 (COL_FR_REPAIR)
+              STORE_NAME              13 (COL_FR_REPAIR)
+              IMPORT_FROM             14 (COL_FR_DATE)
+              STORE_NAME              14 (COL_FR_DATE)
+              IMPORT_FROM             15 (COL_FR_DATE_SRC)
+              STORE_NAME              15 (COL_FR_DATE_SRC)
+              IMPORT_FROM             16 (COL_FR_VALUE)
+              STORE_NAME              16 (COL_FR_VALUE)
+              POP_TOP
+
+ 18           LOAD_SMALL_INT           0
+              LOAD_CONST               6 (('normalize_text',))
+              IMPORT_NAME             17 (app.text_utils)
+              IMPORT_FROM             18 (normalize_text)
+              STORE_NAME              18 (normalize_text)
+              POP_TOP
+
+ 19           LOAD_SMALL_INT           0
+              LOAD_CONST               7 (('find_header_row', 'find_col_index_by_header'))
+              IMPORT_NAME             19 (app.excel_utils)
+              IMPORT_FROM             20 (find_header_row)
+              STORE_NAME              20 (find_header_row)
+              IMPORT_FROM             21 (find_col_index_by_header)
+              STORE_NAME              21 (find_col_index_by_header)
+              POP_TOP
+
+ 21           LOAD_CONST               8 (<code object normalize_to_date at 0x419447f0, file "app\factual_repairs.py", line 21>)
+              MAKE_FUNCTION
+              STORE_NAME              22 (normalize_to_date)
+
+ 45           LOAD_CONST               9 (<code object to_int at 0x7f55aad0fcb0, file "app\factual_repairs.py", line 45>)
+              MAKE_FUNCTION
+              STORE_NAME              23 (to_int)
+
+ 58           LOAD_CONST              10 (<code object trim_spaces_excel_like at 0x7f55aac248d0, file "app\factual_repairs.py", line 58>)
+              MAKE_FUNCTION
+              STORE_NAME              24 (trim_spaces_excel_like)
+
+ 68           LOAD_CONST              11 (<code object __annotate__ at 0x7f55aaba61f0, file "app\factual_repairs.py", line 68>)
+              MAKE_FUNCTION
+              LOAD_CONST              12 (<code object process_factual_repairs at 0x4193b700, file "app\factual_repairs.py", line 68>)
+              MAKE_FUNCTION
+              SET_FUNCTION_ATTRIBUTE  16 (annotate)
+              STORE_NAME              25 (process_factual_repairs)
+              LOAD_CONST              13 (None)
+              RETURN_VALUE
+
+Disassembly of <code object normalize_to_date at 0x419447f0, file "app\factual_repairs.py", line 21>:
+  21            RESUME                   0
+
+  22            LOAD_FAST_BORROW         0 (value)
+                POP_JUMP_IF_NOT_NONE     3 (to L1)
+                NOT_TAKEN
+
+  23            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  25    L1:     LOAD_GLOBAL              1 (isinstance + NULL)
+                LOAD_FAST_BORROW         0 (value)
+                LOAD_GLOBAL              2 (datetime)
+                CALL                     2
+                TO_BOOL
+                POP_JUMP_IF_FALSE       17 (to L2)
+                NOT_TAKEN
+
+  26            LOAD_FAST_BORROW         0 (value)
+                LOAD_ATTR                5 (date + NULL|self)
+                CALL                     0
+                RETURN_VALUE
+
+  28    L2:     LOAD_GLOBAL              7 (str + NULL)
+                LOAD_FAST_BORROW         0 (value)
+                CALL                     1
+                LOAD_ATTR                9 (strip + NULL|self)
+                CALL                     0
+                STORE_FAST               1 (s)
+
+  29            LOAD_FAST_BORROW         1 (s)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L3)
+                NOT_TAKEN
+
+  30            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  32    L3:     LOAD_FAST_BORROW         1 (s)
+                LOAD_ATTR               11 (split + NULL|self)
+                CALL                     0
+                LOAD_SMALL_INT           0
+                BINARY_OP               26 ([])
+                STORE_FAST               1 (s)
+
+  34            LOAD_CONST               1 (('%d.%m.%Y', '%Y-%m-%d', '%d/%m/%Y'))
+                STORE_FAST               2 (formats)
+
+  36            LOAD_FAST_BORROW         2 (formats)
+                GET_ITER
+        L4:     FOR_ITER                40 (to L7)
+                STORE_FAST               3 (fmt)
+
+  37            NOP
+
+  38    L5:     LOAD_GLOBAL              2 (datetime)
+                LOAD_ATTR               12 (strptime)
+                PUSH_NULL
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 19 (s, fmt)
+                CALL                     2
+                LOAD_ATTR                5 (date + NULL|self)
+                CALL                     0
+        L6:     SWAP                     2
+                POP_TOP
+                RETURN_VALUE
+
+  36    L7:     END_FOR
+                POP_ITER
+
+  42            LOAD_CONST               0 (None)
+                RETURN_VALUE
+
+  --    L8:     PUSH_EXC_INFO
+
+  39            LOAD_GLOBAL             14 (ValueError)
+                CHECK_EXC_MATCH
+                POP_JUMP_IF_FALSE        5 (to L10)
+                NOT_TAKEN
+                POP_TOP
+
+  40    L9:     POP_EXCEPT
+                JUMP_BACKWARD           60 (to L4)
+
+  39   L10:     RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+ExceptionTable:
+  L5 to L6 -> L8 [1]
+  L8 to L9 -> L11 [2] lasti
+  L10 to L11 -> L11 [2] lasti
+
+Disassembly of <code object to_int at 0x7f55aad0fcb0, file "app\factual_repairs.py", line 45>:
+  45           RESUME                   0
+
+  46           LOAD_FAST_BORROW         0 (value)
+               POP_JUMP_IF_NOT_NONE     3 (to L1)
+               NOT_TAKEN
+
+  47           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  49   L1:     LOAD_GLOBAL              1 (str + NULL)
+               LOAD_FAST_BORROW         0 (value)
+               CALL                     1
+               LOAD_ATTR                3 (strip + NULL|self)
+               CALL                     0
+               STORE_FAST               1 (s)
+
+  50           LOAD_FAST_BORROW         1 (s)
+               TO_BOOL
+               POP_JUMP_IF_TRUE         3 (to L2)
+               NOT_TAKEN
+
+  51           LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  53   L2:     NOP
+
+  54   L3:     LOAD_GLOBAL              5 (int + NULL)
+               LOAD_FAST_BORROW         1 (s)
+               CALL                     1
+       L4:     RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+  55           LOAD_GLOBAL              6 (ValueError)
+               CHECK_EXC_MATCH
+               POP_JUMP_IF_FALSE        5 (to L7)
+               NOT_TAKEN
+               POP_TOP
+
+  56   L6:     POP_EXCEPT
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  55   L7:     RERAISE                  0
+
+  --   L8:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+ExceptionTable:
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L8 [1] lasti
+  L7 to L8 -> L8 [1] lasti
+
+Disassembly of <code object trim_spaces_excel_like at 0x7f55aac248d0, file "app\factual_repairs.py", line 58>:
+ 58           RESUME                   0
+
+ 59           LOAD_FAST_BORROW         0 (value)
+              POP_JUMP_IF_NOT_NONE     3 (to L1)
+              NOT_TAKEN
+
+ 60           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 62   L1:     LOAD_GLOBAL              1 (str + NULL)
+              LOAD_FAST_BORROW         0 (value)
+              CALL                     1
+              LOAD_ATTR                3 (strip + NULL|self)
+              CALL                     0
+              STORE_FAST               1 (s)
+
+ 63           LOAD_FAST_BORROW         1 (s)
+              TO_BOOL
+              POP_JUMP_IF_TRUE         3 (to L2)
+              NOT_TAKEN
+
+ 64           LOAD_CONST               0 (None)
+              RETURN_VALUE
+
+ 66   L2:     LOAD_CONST               1 (' ')
+              LOAD_ATTR                5 (join + NULL|self)
+              LOAD_FAST_BORROW         1 (s)
+              LOAD_ATTR                7 (split + NULL|self)
+              CALL                     0
+              CALL                     1
+              RETURN_VALUE
+
+Disassembly of <code object __annotate__ at 0x7f55aaba61f0, file "app\factual_repairs.py", line 68>:
+ 68           RESUME                   0
+              LOAD_FAST_BORROW         0 (format)
+              LOAD_SMALL_INT           2
+              COMPARE_OP             132 (>)
+              POP_JUMP_IF_FALSE        3 (to L1)
+              NOT_TAKEN
+              LOAD_COMMON_CONSTANT     1 (NotImplementedError)
+              RAISE_VARARGS            1
+      L1:     LOAD_CONST               1 ('ws')
+              LOAD_CONST               2 ('Worksheet')
+              LOAD_CONST               3 ('return')
+              LOAD_CONST               4 ('Tuple[int, Dict[str, int]]')
+              BUILD_MAP                2
+              RETURN_VALUE
+
+Disassembly of <code object process_factual_repairs at 0x4193b700, file "app\factual_repairs.py", line 68>:
+  --            MAKE_CELL               23 (txt1)
+                MAKE_CELL               24 (txt2)
+
+  68            RESUME                   0
+
+  70            LOAD_CONST               0 ('deleted_by_object')
+                LOAD_SMALL_INT           0
+
+  71            LOAD_CONST               1 ('deleted_by_repair')
+                LOAD_SMALL_INT           0
+
+  72            LOAD_CONST               2 ('dates_normalized')
+                LOAD_SMALL_INT           0
+
+  73            LOAD_CONST               3 ('dates_filled')
+                LOAD_SMALL_INT           0
+
+  74            LOAD_CONST               4 ('numbers_converted')
+                LOAD_SMALL_INT           0
+
+  69            BUILD_MAP                5
+                STORE_FAST               1 (stats)
+
+  77            LOAD_GLOBAL              1 (find_header_row + NULL)
+
+  78            LOAD_FAST_BORROW         0 (ws)
+
+  79            LOAD_GLOBAL              2 (COL_FR_OBJECT)
+                LOAD_GLOBAL              4 (COL_FR_REPAIR)
+                LOAD_GLOBAL              6 (COL_FR_DATE)
+                LOAD_GLOBAL              8 (COL_FR_DATE_SRC)
+                LOAD_GLOBAL             10 (COL_FR_VALUE)
+                BUILD_LIST               5
+
+  77            CALL                     2
+                STORE_FAST               2 (header_row)
+
+  82            LOAD_GLOBAL             13 (find_col_index_by_header + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+                LOAD_GLOBAL              2 (COL_FR_OBJECT)
+                CALL                     3
+                STORE_FAST               3 (col1)
+
+  83            LOAD_GLOBAL             13 (find_col_index_by_header + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+                LOAD_GLOBAL              4 (COL_FR_REPAIR)
+                CALL                     3
+                STORE_FAST               4 (col2)
+
+  84            LOAD_GLOBAL             13 (find_col_index_by_header + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+                LOAD_GLOBAL              6 (COL_FR_DATE)
+                CALL                     3
+                STORE_FAST               5 (col3)
+
+  85            LOAD_GLOBAL             13 (find_col_index_by_header + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+                LOAD_GLOBAL              8 (COL_FR_DATE_SRC)
+                CALL                     3
+                STORE_FAST               6 (col4)
+
+  86            LOAD_GLOBAL             13 (find_col_index_by_header + NULL)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 2 (ws, header_row)
+                LOAD_GLOBAL             10 (COL_FR_VALUE)
+                CALL                     3
+                STORE_FAST               7 (col6)
+
+  88            LOAD_GLOBAL             14 (DELETE_OBJECT_WORDS)
+                GET_ITER
+                LOAD_FAST_AND_CLEAR      8 (w)
+                SWAP                     2
+        L1:     BUILD_SET                0
+                SWAP                     2
+        L2:     FOR_ITER                47 (to L5)
+                STORE_FAST               8 (w)
+                LOAD_GLOBAL             17 (str + NULL)
+                LOAD_FAST_BORROW         8 (w)
+                CALL                     1
+                LOAD_ATTR               19 (strip + NULL|self)
+                CALL                     0
+                TO_BOOL
+        L3:     POP_JUMP_IF_TRUE         3 (to L4)
+                NOT_TAKEN
+                JUMP_BACKWARD           36 (to L2)
+        L4:     LOAD_GLOBAL             21 (normalize_text + NULL)
+                LOAD_FAST_BORROW         8 (w)
+                CALL                     1
+                SET_ADD                  2
+                JUMP_BACKWARD           49 (to L2)
+        L5:     END_FOR
+                POP_ITER
+        L6:     STORE_FAST               9 (delete_tokens)
+                STORE_FAST               8 (w)
+
+  89            LOAD_GLOBAL             23 (tuple + NULL)
+                LOAD_GLOBAL             24 (DROP_REPAIR_SUBSTRINGS)
+                CALL                     1
+                STORE_FAST              10 (drop_repairs)
+
+  91            BUILD_LIST               0
+                STORE_FAST              11 (rows_to_delete)
+
+  93            LOAD_GLOBAL             27 (range + NULL)
+                LOAD_FAST_BORROW         2 (header_row)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               28 (max_row)
+                LOAD_SMALL_INT           1
+                BINARY_OP                0 (+)
+                CALL                     2
+                GET_ITER
+        L7:     EXTENDED_ARG             2
+                FOR_ITER               629 (to L29)
+                STORE_FAST              12 (row)
+
+  95            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               31 (cell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 195 (row, col1)
+                CALL                     2
+                STORE_FAST              13 (cell1)
+
+  96            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               31 (cell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 196 (row, col2)
+                CALL                     2
+                STORE_FAST              14 (cell2)
+
+  97            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               31 (cell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 197 (row, col3)
+                CALL                     2
+                STORE_FAST              15 (cell3)
+
+  98            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               31 (cell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 198 (row, col4)
+                CALL                     2
+                STORE_FAST              16 (cell4)
+
+  99            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               31 (cell + NULL|self)
+                LOAD_FAST_BORROW_LOAD_FAST_BORROW 199 (row, col6)
+                CALL                     2
+                STORE_FAST              17 (cell6)
+
+ 101            LOAD_GLOBAL             33 (normalize_to_date + NULL)
+                LOAD_FAST_BORROW        15 (cell3)
+                LOAD_ATTR               34 (value)
+                CALL                     1
+                STORE_FAST              18 (d3)
+
+ 102            LOAD_FAST_BORROW        18 (d3)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       29 (to L8)
+                NOT_TAKEN
+
+ 103            LOAD_FAST_BORROW        18 (d3)
+                LOAD_FAST_BORROW        15 (cell3)
+                STORE_ATTR              17 (value)
+
+ 104            LOAD_FAST_BORROW         1 (stats)
+                LOAD_CONST               2 ('dates_normalized')
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+
+ 106    L8:     LOAD_GLOBAL             33 (normalize_to_date + NULL)
+                LOAD_FAST_BORROW        16 (cell4)
+                LOAD_ATTR               34 (value)
+                CALL                     1
+                STORE_FAST              19 (d4)
+
+ 107            LOAD_FAST_BORROW        19 (d4)
+                TO_BOOL
+                POP_JUMP_IF_FALSE        8 (to L9)
+                NOT_TAKEN
+
+ 108            LOAD_FAST_BORROW        19 (d4)
+                LOAD_FAST_BORROW        16 (cell4)
+                STORE_ATTR              17 (value)
+
+ 110    L9:     LOAD_FAST_BORROW        15 (cell3)
+                LOAD_ATTR               34 (value)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        57 (to L10)
+                NOT_TAKEN
+                LOAD_FAST_BORROW        16 (cell4)
+                LOAD_ATTR               34 (value)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       39 (to L10)
+                NOT_TAKEN
+
+ 111            LOAD_FAST_BORROW        16 (cell4)
+                LOAD_ATTR               34 (value)
+                LOAD_FAST_BORROW        15 (cell3)
+                STORE_ATTR              17 (value)
+
+ 112            LOAD_FAST_BORROW         1 (stats)
+                LOAD_CONST               3 ('dates_filled')
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+
+ 114   L10:     LOAD_GLOBAL             37 (trim_spaces_excel_like + NULL)
+                LOAD_FAST_BORROW        13 (cell1)
+                LOAD_ATTR               34 (value)
+                CALL                     1
+                STORE_FAST              20 (clean1)
+
+ 115            LOAD_FAST_BORROW        20 (clean1)
+                LOAD_FAST_BORROW        13 (cell1)
+                STORE_ATTR              17 (value)
+
+ 117            LOAD_GLOBAL             21 (normalize_text + NULL)
+                LOAD_FAST_BORROW        20 (clean1)
+                POP_JUMP_IF_NOT_NONE     3 (to L11)
+                NOT_TAKEN
+                LOAD_CONST               5 ('')
+                JUMP_FORWARD             1 (to L12)
+       L11:     LOAD_FAST               20 (clean1)
+       L12:     CALL                     1
+                STORE_DEREF             23 (txt1)
+
+ 118            LOAD_DEREF              23 (txt1)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       65 (to L18)
+                NOT_TAKEN
+                LOAD_GLOBAL             38 (any)
+                COPY                     1
+                LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       31 (to L16)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST_BORROW        23 (txt1)
+                BUILD_TUPLE              1
+                LOAD_CONST               6 (<code object <genexpr> at 0x7f55aaa84a30, file "app\factual_repairs.py", line 118>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_FAST_BORROW         9 (delete_tokens)
+                GET_ITER
+                CALL                     0
+       L13:     FOR_ITER                12 (to L15)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L14)
+                NOT_TAKEN
+                JUMP_BACKWARD           11 (to L13)
+       L14:     POP_ITER
+                LOAD_CONST               7 (True)
+                JUMP_FORWARD            20 (to L17)
+       L15:     END_FOR
+                POP_ITER
+                LOAD_CONST               8 (False)
+                JUMP_FORWARD            16 (to L17)
+       L16:     PUSH_NULL
+                LOAD_FAST_BORROW        23 (txt1)
+                BUILD_TUPLE              1
+                LOAD_CONST               6 (<code object <genexpr> at 0x7f55aaa84a30, file "app\factual_repairs.py", line 118>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_FAST_BORROW         9 (delete_tokens)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+       L17:     TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L19)
+                NOT_TAKEN
+
+ 119   L18:     LOAD_FAST_BORROW         1 (stats)
+                LOAD_CONST               0 ('deleted_by_object')
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+
+ 120            LOAD_FAST_BORROW        11 (rows_to_delete)
+                LOAD_ATTR               41 (append + NULL|self)
+                LOAD_FAST_BORROW        12 (row)
+                CALL                     1
+                POP_TOP
+
+ 121            EXTENDED_ARG             1
+                JUMP_BACKWARD          414 (to L7)
+
+ 123   L19:     LOAD_GLOBAL             21 (normalize_text + NULL)
+                LOAD_FAST_BORROW        14 (cell2)
+                LOAD_ATTR               34 (value)
+                POP_JUMP_IF_NOT_NONE     3 (to L20)
+                NOT_TAKEN
+                LOAD_CONST               5 ('')
+                JUMP_FORWARD            20 (to L21)
+       L20:     LOAD_GLOBAL             17 (str + NULL)
+                LOAD_FAST_BORROW        14 (cell2)
+                LOAD_ATTR               34 (value)
+                CALL                     1
+       L21:     CALL                     1
+                STORE_DEREF             24 (txt2)
+
+ 124            LOAD_DEREF              24 (txt2)
+                TO_BOOL
+                POP_JUMP_IF_FALSE      106 (to L27)
+                NOT_TAKEN
+                LOAD_GLOBAL             38 (any)
+                COPY                     1
+                LOAD_COMMON_CONSTANT     4 (<built-in function any>)
+                IS_OP                    0 (is)
+                POP_JUMP_IF_FALSE       31 (to L25)
+                NOT_TAKEN
+                POP_TOP
+                LOAD_FAST_BORROW        24 (txt2)
+                BUILD_TUPLE              1
+                LOAD_CONST               9 (<code object <genexpr> at 0x7f55aaa84b30, file "app\factual_repairs.py", line 124>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_FAST_BORROW        10 (drop_repairs)
+                GET_ITER
+                CALL                     0
+       L22:     FOR_ITER                12 (to L24)
+                TO_BOOL
+                POP_JUMP_IF_TRUE         3 (to L23)
+                NOT_TAKEN
+                JUMP_BACKWARD           11 (to L22)
+       L23:     POP_ITER
+                LOAD_CONST               7 (True)
+                JUMP_FORWARD            20 (to L26)
+       L24:     END_FOR
+                POP_ITER
+                LOAD_CONST               8 (False)
+                JUMP_FORWARD            16 (to L26)
+       L25:     PUSH_NULL
+                LOAD_FAST_BORROW        24 (txt2)
+                BUILD_TUPLE              1
+                LOAD_CONST               9 (<code object <genexpr> at 0x7f55aaa84b30, file "app\factual_repairs.py", line 124>)
+                MAKE_FUNCTION
+                SET_FUNCTION_ATTRIBUTE   8 (closure)
+                LOAD_FAST_BORROW        10 (drop_repairs)
+                GET_ITER
+                CALL                     0
+                CALL                     1
+       L26:     TO_BOOL
+                POP_JUMP_IF_FALSE       42 (to L27)
+                NOT_TAKEN
+
+ 125            LOAD_FAST_BORROW         1 (stats)
+                LOAD_CONST               1 ('deleted_by_repair')
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+
+ 126            LOAD_FAST_BORROW        11 (rows_to_delete)
+                LOAD_ATTR               41 (append + NULL|self)
+                LOAD_FAST_BORROW        12 (row)
+                CALL                     1
+                POP_TOP
+
+ 127            EXTENDED_ARG             2
+                JUMP_BACKWARD          573 (to L7)
+
+ 129   L27:     LOAD_GLOBAL             43 (to_int + NULL)
+                LOAD_FAST_BORROW        17 (cell6)
+                LOAD_ATTR               34 (value)
+                CALL                     1
+                STORE_FAST              21 (num)
+
+ 130            LOAD_FAST_BORROW        21 (num)
+                POP_JUMP_IF_NOT_NONE     4 (to L28)
+                NOT_TAKEN
+                EXTENDED_ARG             2
+                JUMP_BACKWARD          601 (to L7)
+
+ 131   L28:     LOAD_FAST_BORROW        21 (num)
+                LOAD_FAST_BORROW        17 (cell6)
+                STORE_ATTR              17 (value)
+
+ 132            LOAD_FAST_BORROW         1 (stats)
+                LOAD_CONST               4 ('numbers_converted')
+                COPY                     2
+                COPY                     2
+                BINARY_OP               26 ([])
+                LOAD_SMALL_INT           1
+                BINARY_OP               13 (+=)
+                SWAP                     3
+                SWAP                     2
+                STORE_SUBSCR
+                EXTENDED_ARG             2
+                JUMP_BACKWARD          632 (to L7)
+
+  93   L29:     END_FOR
+                POP_ITER
+
+ 134            LOAD_GLOBAL             45 (reversed + NULL)
+                LOAD_FAST_BORROW        11 (rows_to_delete)
+                CALL                     1
+                GET_ITER
+       L30:     FOR_ITER                20 (to L31)
+                STORE_FAST              22 (r)
+
+ 135            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               47 (delete_rows + NULL|self)
+                LOAD_FAST_BORROW        22 (r)
+                CALL                     1
+                POP_TOP
+                JUMP_BACKWARD           22 (to L30)
+
+ 134   L31:     END_FOR
+                POP_ITER
+
+ 137            LOAD_FAST_BORROW         0 (ws)
+                LOAD_ATTR               49 (delete_cols + NULL|self)
+                LOAD_FAST_BORROW         6 (col4)
+                CALL                     1
+                POP_TOP
+
+ 139            LOAD_GLOBAL             51 (len + NULL)
+                LOAD_FAST_BORROW        11 (rows_to_delete)
+                CALL                     1
+                LOAD_FAST_BORROW         1 (stats)
+                BUILD_TUPLE              2
+                RETURN_VALUE
+
+  --   L32:     SWAP                     2
+                POP_TOP
+
+  88            SWAP                     2
+                STORE_FAST               8 (w)
+                RERAISE                  0
+ExceptionTable:
+  L1 to L3 -> L32 [2]
+  L4 to L6 -> L32 [2]
+
+Disassembly of <code object <genexpr> at 0x7f55aaa84a30, file "app\factual_repairs.py", line 118>:
+  --           COPY_FREE_VARS           1
+
+ 118           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                 9 (to L3)
+               STORE_FAST_LOAD_FAST    17 (tok, tok)
+               LOAD_DEREF               2 (txt1)
+               CONTAINS_OP              0 (in)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           11 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti
+
+Disassembly of <code object <genexpr> at 0x7f55aaa84b30, file "app\factual_repairs.py", line 124>:
+  --           COPY_FREE_VARS           1
+
+ 124           RETURN_GENERATOR
+               POP_TOP
+       L1:     RESUME                   0
+               LOAD_FAST                0 (.0)
+       L2:     FOR_ITER                 9 (to L3)
+               STORE_FAST_LOAD_FAST    17 (s, s)
+               LOAD_DEREF               2 (txt2)
+               CONTAINS_OP              0 (in)
+               YIELD_VALUE              0
+               RESUME                   5
+               POP_TOP
+               JUMP_BACKWARD           11 (to L2)
+       L3:     END_FOR
+               POP_ITER
+               LOAD_CONST               0 (None)
+               RETURN_VALUE
+
+  --   L4:     CALL_INTRINSIC_1         3 (INTRINSIC_STOPITERATION_ERROR)
+               RERAISE                  1
+ExceptionTable:
+  L1 to L4 -> L4 [0] lasti

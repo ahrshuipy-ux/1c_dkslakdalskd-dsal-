@@ -1,0 +1,17 @@
+module	original_filename	type
+main	main.py	entry
+app	app\__init__.py	package
+app.equipment_list	app\equipment_list.py	module
+app.excel_utils	app\excel_utils.py	module
+app.factual_repairs	app\factual_repairs.py	module
+app.forecast	app\forecast.py	module
+app.gui	app\gui.py	module
+app.loader	app\loader.py	module
+app.manual_forecast	app\manual_forecast.py	module
+app.master_compare_report	app\master_compare_report.py	module
+app.master_compare_stats_report	app\master_compare_stats_report.py	module
+app.normatives	app\normatives.py	module
+app.processors	app\processors.py	module
+app.settings	app\settings.py	module
+app.tech_cards_or	app\tech_cards_or.py	module
+app.text_utils	app\text_utils.py	module

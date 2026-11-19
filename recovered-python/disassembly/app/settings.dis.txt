@@ -1,0 +1,263 @@
+  0           RESUME                   0
+
+  1           LOAD_SMALL_INT           0
+              LOAD_CONST               1 (('annotations',))
+              IMPORT_NAME              0 (__future__)
+              IMPORT_FROM              1 (annotations)
+              STORE_NAME               1 (annotations)
+              POP_TOP
+
+  3           BUILD_SET                0
+              LOAD_CONST              64 (frozenset({'.xlsm', '.csv', '.xlsx', '.xls'}))
+              SET_UPDATE               1
+              STORE_NAME               2 (SUPPORTED_EXT)
+
+  4           LOAD_CONST              65 (('норматив', 'нормативы'))
+              STORE_NAME               3 (NORMATIVE_KEYWORDS)
+
+  7           LOAD_CONST               2 ('АМК')
+
+  8           LOAD_CONST               3 ('Цех фракционирования')
+
+  9           LOAD_CONST               4 ('УМБХ')
+
+  7           BUILD_LIST               2
+
+ 11           LOAD_CONST               5 ('АСК')
+              BUILD_LIST               0
+              LOAD_CONST              66 (('ЦПС', 'МЭЦ', 'УГ'))
+              LIST_EXTEND              1
+
+ 17           LOAD_CONST               6 ('ЭПИ')
+              BUILD_LIST               0
+              LOAD_CONST              67 (('ЦПНЖ с. винтеризации', 'ЦПНЖ Секция переэтерефикации 2600', 'ЦПНЖ Секция дезодорации 800'))
+              LIST_EXTEND              1
+
+  6           BUILD_MAP                3
+              STORE_NAME               4 (SHOP_TO_SECTIONS)
+
+ 25           BUILD_LIST               0
+              LOAD_CONST              68 (('кипиа', 'освещение', 'кабель', 'щит', 'пневмопривод', 'пневматика', 'шкаф', 'электрощитовая', 'система вентиляции', 'система освещение', 'пультовая', 'трубопровод', 'труба', 'расходометр', 'водоснабжение', 'металлоконструкции', 'энергослужба', 'система сточных', 'система пожарных', 'расходомер', 'станция оператора', 'сток', 'ЩР', 'энергообеспечение', 'энергооборудование'))
+              LIST_EXTEND              1
+              STORE_NAME               5 (DELETE_OBJECT_WORDS)
+
+ 53           LOAD_CONST               7 ('Объект ремонта.Подразделение останова')
+              STORE_NAME               6 (COL_STOP_DIV)
+
+ 54           LOAD_CONST               8 ('Объект ремонта')
+              STORE_NAME               7 (COL_OBJECT)
+
+ 55           LOAD_CONST               9 ('Вид ремонта')
+              STORE_NAME               8 (COL_REPAIR_TYPE)
+
+ 57           LOAD_CONST              69 (('техническое обслуживание', 'осмотр'))
+              STORE_NAME               9 (DROP_REPAIR_SUBSTRINGS)
+
+ 59           LOAD_CONST              10 ('План ремонтов.Объект ремонтных работ')
+              STORE_NAME              10 (COL_MF_OBJECT)
+
+ 60           LOAD_CONST              11 ('План ремонтов.Вид ремонтных работ')
+              STORE_NAME              11 (COL_MF_REPAIR)
+
+ 61           LOAD_CONST              12 ('План ремонтов.Дата начала ремонтных работ')
+              STORE_NAME              12 (COL_MF_DATE)
+
+ 62           LOAD_CONST              13 ('План ремонтов.Дата окончания ремонтных работ')
+              STORE_NAME              13 (COL_MF_DATE_SOURCE)
+
+ 63           LOAD_CONST              14 ('План ремонтов.Объект ремонтных работ.Подразделение останова')
+              STORE_NAME              14 (COL_MF_SECTION)
+
+ 64           LOAD_CONST              15 ('План ремонтов.Объект ремонтных работ.Типовой ОР.Код')
+              STORE_NAME              15 (COL_MF_VALUE)
+
+ 66           LOAD_CONST              16 ('Эф типовой объект ремонта')
+              STORE_NAME              16 (COL_TKOR_NAME)
+
+ 67           LOAD_CONST              17 ('Эф вид ремонта')
+              STORE_NAME              17 (COL_TKOR_REPAIR)
+
+ 68           LOAD_CONST              18 ('Технологические карты ремонтов.ТКР на вид оборудования.Список операций.Операция')
+              STORE_NAME              18 (COL_TKOR_ACTION)
+
+ 70           LOAD_CONST               8 ('Объект ремонта')
+              STORE_NAME              19 (COL_FR_OBJECT)
+
+ 71           LOAD_CONST              19 ('Вид ремонтных работ')
+              STORE_NAME              20 (COL_FR_REPAIR)
+
+ 72           LOAD_CONST              20 ('Дата начала')
+              STORE_NAME              21 (COL_FR_DATE)
+
+ 73           LOAD_CONST              21 ('Дата окончания')
+              STORE_NAME              22 (COL_FR_DATE_SRC)
+
+ 74           LOAD_CONST              22 ('Код')
+              STORE_NAME              23 (COL_FR_VALUE)
+
+ 77           LOAD_CONST              23 ('Объект ремонта.Дата ввода в эксплуатацию')
+              STORE_NAME              24 (COL_EQ_DATE)
+
+ 78           LOAD_CONST              24 ('Объект ремонта.Код')
+              STORE_NAME              25 (COL_EQ_CODE5)
+
+ 79           LOAD_CONST              25 ('Объект ремонта.Типовой ОР.Номенклатура.Код MDM')
+              STORE_NAME              26 (COL_EQ_CODE6)
+
+ 82           LOAD_CONST              26 ('first_install')
+              STORE_NAME              27 (COL_PR_09_DATE)
+
+ 83           LOAD_CONST              27 ('current_hours')
+              STORE_NAME              28 (COL_PR_14)
+
+ 84           LOAD_CONST              28 ('critical_hours')
+              STORE_NAME              29 (COL_PR_15)
+
+ 85           LOAD_CONST              29 ('full_days')
+              STORE_NAME              30 (COL_PR_16)
+
+ 86           LOAD_CONST              30 ('bidzip_first_install')
+              STORE_NAME              31 (COL_PR_17_DATE)
+
+ 91           LOAD_CONST              31 ('final_resourse')
+              STORE_NAME              32 (COL_PR_20)
+
+ 92           LOAD_CONST              32 ('final_resourse_in_percent')
+              STORE_NAME              33 (COL_PR_21)
+
+ 93           LOAD_CONST              33 ('resourse_in_day')
+              STORE_NAME              34 (COL_PR_22)
+
+ 94           LOAD_CONST              34 ('20%_final_resourse_days')
+              STORE_NAME              35 (COL_PR_23)
+
+ 95           LOAD_CONST              35 ('forecast')
+              STORE_NAME              36 (COL_PR_25)
+
+ 98           LOAD_CONST              36 ('dep_name')
+              STORE_NAME              37 (COL_PR_COL2_FILTER)
+
+103           LOAD_CONST               2 ('АМК')
+              LOAD_CONST              70 (('Фракционирование', 'Участок маслобакового хозяйства', 'Дегамминг', 'Дистилляция', 'Ректификация', 'Вспомогательное оборудование (Площадка хранения ацетона)', 'Вспомогательное оборудование (Градирни)', 'Вспомогательное оборудование (Чилеры)', 'Вспомогательное оборудование (Пар)'))
+
+114           LOAD_CONST               5 ('АСК')
+              LOAD_CONST              71 (('Приём и подача семян сои в производство', 'Взвешивание и удаление сора', 'Дробление и обрушивание', 'Лепесткование', 'Кондиционирование', 'Горячее обрушивание', 'Очистка оболочки', 'Экстракция', 'Подача технической воды в ТР-06', 'Экспандирование', 'Цех подготовки сырья', 'Грануляция соевой оболочки', 'Грануляция лузги', 'Маслоэкстракционный цех', 'Приём и очистка сточных вод', 'Удаление растворителя из шрота', 'Дистилляция мисцеллы', 'Гидратация масла', 'Отгрузка экстракционного масла', 'Конденсация и рекуперация растворителя', 'Нулевой сброс', 'Хранение растворителя', 'Оборотное водоснабжение и сбор конденсата экстракционной установки', 'Пароснабжение', 'Снабжение сжатым воздухом / азотом', 'Фильтрация', 'Тостирование'))
+
+143           LOAD_CONST               6 ('ЭПИ')
+              LOAD_CONST              67 (('ЦПНЖ с. винтеризации', 'ЦПНЖ Секция переэтерефикации 2600', 'ЦПНЖ Секция дезодорации 800'))
+
+101           BUILD_MAP                3
+              STORE_NAME              38 (FORECAST_SHOP_TO_COL2_ALLOWED)
+
+151           LOAD_CONST              37 ('detail_name')
+              STORE_NAME              39 (COL_PR_07)
+
+152           LOAD_CONST              38 ('bidzip_name')
+              STORE_NAME              40 (COL_PR_12)
+
+153           LOAD_CONST              39 ('detail_toir_id')
+              STORE_NAME              41 (COL_PR_08_CODE)
+
+155           LOAD_CONST              40 ('1c_name')
+              STORE_NAME              42 (COL_PR_26_EQUIP_VALUE)
+
+158           LOAD_CONST              41 ('Объект иерархии')
+              STORE_NAME              43 (COL_EQ_01_VALUE)
+
+159           LOAD_CONST              24 ('Объект ремонта.Код')
+              STORE_NAME              44 (COL_EQ_09_CODE)
+
+162           LOAD_CONST              42 ('type_repair')
+              STORE_NAME              45 (COL_PR_27_REPAIR_TYPE)
+
+163           LOAD_CONST              43 ('current_hours_from_bidzip_first_install')
+              STORE_NAME              46 (COL_PR_28)
+
+164           LOAD_CONST              44 ('fix_final_resourse_from_bidzip_first_install')
+              STORE_NAME              47 (COL_PR_29)
+
+167           LOAD_CONST              16 ('Эф типовой объект ремонта')
+              STORE_NAME              48 (COL_TC_01_EQUIP)
+
+168           LOAD_CONST              17 ('Эф вид ремонта')
+              STORE_NAME              49 (COL_TC_02_REPAIR_TYPE)
+
+169           LOAD_CONST              18 ('Технологические карты ремонтов.ТКР на вид оборудования.Список операций.Операция')
+              STORE_NAME              50 (COL_TC_06_WORK)
+
+172           LOAD_CONST              45 ('Оценка_эффективности')
+              STORE_NAME              51 (MASTER_COMPARE_SHEET_NAME)
+
+175           LOAD_CONST              46 ('Дата')
+              STORE_NAME              52 (COL_MRC_01_DATE)
+
+176           LOAD_CONST               8 ('Объект ремонта')
+              STORE_NAME              53 (COL_MRC_02_OBJECT)
+
+177           LOAD_CONST               9 ('Вид ремонта')
+              STORE_NAME              54 (COL_MRC_03_REPAIR)
+
+179           LOAD_CONST              47 ('Разница дней')
+              STORE_NAME              55 (COL_MRC_04_DAYS_DIFF)
+
+180           LOAD_CONST              48 ('Дата по УР')
+              STORE_NAME              56 (COL_MRC_05_PR_DATE)
+
+181           LOAD_CONST              49 ('План УР')
+              STORE_NAME              57 (COL_MRC_06_PR_REPAIR_TYPE)
+
+182           LOAD_CONST              50 ('+/- 30 дней')
+              STORE_NAME              58 (COL_MRC_07_HIT)
+
+184           LOAD_CONST              51 ('Разница дней РП')
+              STORE_NAME              59 (COL_MRC_08)
+
+185           LOAD_CONST              52 ('Дата по РП')
+              STORE_NAME              60 (COL_MRC_09)
+
+186           LOAD_CONST              53 ('Ручной прогноз')
+              STORE_NAME              61 (COL_MRC_10)
+
+187           LOAD_CONST              50 ('+/- 30 дней')
+              STORE_NAME              62 (COL_MRC_11)
+
+189           LOAD_SMALL_INT          45
+              STORE_NAME              63 (MASTER_COMPARE_DAY_WINDOW)
+
+190           LOAD_CONST              54 ('Попал')
+              STORE_NAME              64 (MASTER_COMPARE_HIT_TEXT)
+
+192           LOAD_CONST              55 ('Итоговая_статистика')
+              STORE_NAME              65 (MASTER_COMPARE_STATS_SHEET_NAME)
+
+194           LOAD_CONST              56 ('Вид ремонта (факт)')
+              STORE_NAME              66 (COL_MCS_01_REPAIR)
+
+195           LOAD_CONST              57 ('Количество')
+              STORE_NAME              67 (COL_MCS_02_FACT_CNT)
+
+197           LOAD_CONST              58 ('Ручн.прогноз (мягк)')
+              STORE_NAME              68 (COL_MCS_03_MF_SOFT_CNT)
+
+198           LOAD_CONST              59 ('Ручн.прогноз (жёстк)')
+              STORE_NAME              69 (COL_MCS_04_MF_HARD_CNT)
+
+200           LOAD_CONST              60 ('Прогноз УР (мягк)')
+              STORE_NAME              70 (COL_MCS_05_PR_SOFT_CNT)
+
+201           LOAD_CONST              61 ('Прогноз УР (жёстк)')
+              STORE_NAME              71 (COL_MCS_06_PR_HARD_CNT)
+
+203           LOAD_CONST              62 ('Ручн.прогноз (мягк):')
+              STORE_NAME              72 (COL_MCS_07_MF_SOFT_PCT)
+
+204           LOAD_CONST              59 ('Ручн.прогноз (жёстк)')
+              STORE_NAME              73 (COL_MCS_08_MF_HARD_PCT)
+
+205           LOAD_CONST              60 ('Прогноз УР (мягк)')
+              STORE_NAME              74 (COL_MCS_09_PR_SOFT_PCT)
+
+206           LOAD_CONST              61 ('Прогноз УР (жёстк)')
+              STORE_NAME              75 (COL_MCS_10_PR_HARD_PCT)
+              LOAD_CONST              63 (None)
+              RETURN_VALUE
