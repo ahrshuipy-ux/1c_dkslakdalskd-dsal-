@@ -6,7 +6,7 @@ from collections import defaultdict
 from copy import copy
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta
-from typing import Any, DefaultDict, Dict, Iterable, List, Optional, Set, Tuple
+from typing import Any, Callable, DefaultDict, Dict, Iterable, List, Optional, Set, Tuple
 
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
@@ -43,6 +43,8 @@ from app.settings import (
 )
 
 ProcessResult = Tuple[int, Dict[str, int]]
+Normative = tuple[str, str, int]
+NormativeNameIndex = dict[tuple[str, ...], list[tuple[tuple[str, ...], list[Normative]]]]
 _TOKEN_RE = re.compile(r"[0-9a-zа-яё]+", re.IGNORECASE)
 _NONWORD_RE = re.compile(r"[^0-9a-zа-яё]+", flags=re.IGNORECASE)
 _HOURS_RE = re.compile(r"(\d+)\s*час", re.IGNORECASE)
@@ -840,37 +842,57 @@ def norm_equipment_model_tokens(name: str) -> tuple[str, ...]:
     return ()
 
 
-def build_normatives_model_index(
-    norm_idx: Dict[str, List[tuple[str, str, int]]],
-) -> Dict[tuple[str, ...], List[tuple[tuple[str, ...], List[tuple[str, str, int]]]]]:
-    by_model = defaultdict(list)
+def norm_equipment_type_tokens(name: str) -> tuple[str, ...]:
+    tokens = _TOKEN_RE.findall(name.casefold().replace("ё", "е"))
+    ignored = RU_STOPWORDS | {
+        "механическая", "электрическая", "оборудование", "цех", "участок",
+        "линия", "тип", "модель", "серия",
+    }
+    for idx, pair in enumerate(zip(tokens, tokens[1:])):
+        if all(re.fullmatch(r"[а-я]{3,}", word) and word not in ignored for word in pair):
+            return tuple(tokens[idx:])
+    return ()
+
+
+def build_normatives_name_index(
+    norm_idx: dict[str, list[Normative]],
+    tokenize: Callable[[str], tuple[str, ...]],
+) -> NormativeNameIndex:
+    index = defaultdict(list)
     for name, norms in norm_idx.items():
-        tokens = norm_equipment_model_tokens(name)
+        tokens = tokenize(name)
         if tokens:
-            by_model[tokens[:2]].append((tokens, norms))
-    return dict(by_model)
+            index[tokens[:2]].append((tokens, norms))
+    return dict(index)
 
 
-def find_norms_by_model(
-    equipment_name: str,
-    by_model: Dict[tuple[str, ...], List[tuple[tuple[str, ...], List[tuple[str, str, int]]]]],
-) -> List[tuple[str, str, int]]:
-    tokens = norm_equipment_model_tokens(equipment_name)
-    best_length = 0
+def find_norms_by_name_tokens(
+    tokens: tuple[str, ...],
+    index: NormativeNameIndex,
+    *,
+    prefer_complete: bool = False,
+) -> list[Normative]:
+    best_rank = (False, 0, False)
     best_norms = []
-    for candidate, norms in by_model.get(tokens[:2], ()):
+    for candidate, norms in index.get(tokens[:2], []):
         prefix_length = 0
         for token, other in zip(tokens, candidate):
             if token != other:
                 break
             prefix_length += 1
-        if prefix_length > best_length:
-            best_length = prefix_length
+        # Prefer a general type entry over an explicitly different model.
+        rank = (
+            prefer_complete and prefix_length == min(len(tokens), len(candidate)),
+            prefix_length,
+            prefer_complete and prefix_length == len(candidate),
+        )
+        if rank > best_rank:
+            best_rank = rank
             best_norms = []
-        if prefix_length == best_length:
+        if rank == best_rank:
             best_norms.extend(norms)
 
-    # Equally similar models must agree on the period for each repair type.
+    # Equally similar names must agree on the period for each repair type.
     by_repair = defaultdict(dict)
     for name, repair, days in sorted(best_norms):
         by_repair[normalize_text(repair)].setdefault(days, (name, repair, days))
@@ -956,13 +978,18 @@ def append_rows_from_normatives(
     template_25 = ws_forecast.cell(template_row, out25)
     template_26 = ws_forecast.cell(template_row, out26)
     template_27 = ws_forecast.cell(template_row, out27)
-    norms_by_model = build_normatives_model_index(norm_idx)
+    norms_by_model = build_normatives_name_index(norm_idx, norm_equipment_model_tokens)
+    norms_by_type = build_normatives_name_index(norm_idx, norm_equipment_type_tokens)
     seen = set()
     best_by_month = {}
     for equip_raw_to_write, equip_norm, base_date, source_repair in base_rows:
         norms = norm_idx.get(equip_norm)
         if norms is None:
-            norms = find_norms_by_model(equip_norm, norms_by_model)
+            norms = find_norms_by_name_tokens(norm_equipment_model_tokens(equip_norm), norms_by_model)
+            if not norms:
+                norms = find_norms_by_name_tokens(
+                    norm_equipment_type_tokens(equip_norm), norms_by_type, prefer_complete=True,
+                )
         default_norms = get_default_norms_for_equipment(equip_norm)
         merged_norms = merge_norms_with_defaults(norms, default_norms)
         if norms:
