@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+from datetime import date
 from pathlib import Path
 import threading
 import traceback
@@ -12,7 +13,7 @@ from tkinter import messagebox, ttk
 
 from openpyxl import Workbook
 
-from app.settings import SUPPORTED_EXT, SHOP_TO_SECTIONS
+from app.settings import MASTER_COMPARE_DAY_WINDOW, SUPPORTED_EXT, SHOP_TO_SECTIONS
 from app.text_utils import (
     safe_sheet_title_from_filename,
     is_equipment_list_file,
@@ -178,6 +179,8 @@ def _process_all_files_worker(
     chosen_shop: str,
     base_dir: Path,
     q: "queue.Queue[tuple]",
+    *,
+    window_days: int = MASTER_COMPARE_DAY_WINDOW,
 ) -> None:
     ctx = {"master_sheet_names": {}}
     master = Workbook()
@@ -250,9 +253,10 @@ def _process_all_files_worker(
             stats_cmp = process_master_compare_file(
                 str(out_path),
                 sheet_names=ctx.get("master_sheet_names") or {},
+                window_days=window_days,
             )
             summary_lines.append(
-                f"{out_path.name}: master_compare_report → OK (matched_forecast="
+                f"{out_path.name}: master_compare_report → OK (± {window_days} дней, matched_forecast="
                 f"{stats_cmp.get('matched_forecast', 0)}, matched_manual="
                 f"{stats_cmp.get('matched_manual', 0)})"
             )
@@ -286,6 +290,20 @@ def main() -> None:
     status = tk.StringVar(value="Нажмите «Старт»")
     tk.Label(root, textvariable=status, justify="left", anchor="w").pack(fill="x", padx=12, pady=(12, 6))
 
+    max_window_days = (date.max - date.min).days
+    window_days_text = tk.StringVar(value="30")
+    settings_frame = ttk.Frame(root)
+    settings_frame.pack(fill="x", padx=12, pady=(0, 8))
+    ttk.Label(settings_frame, text="Допуск оценки, ± дней").pack(side="left")
+    ttk.Spinbox(
+        settings_frame,
+        from_=0,
+        to=max_window_days,
+        increment=1,
+        textvariable=window_days_text,
+        width=8,
+    ).pack(side="left", padx=(8, 0))
+
     btn_frame = tk.Frame(root)
     btn_frame.pack(fill="x", padx=12, pady=(0, 12))
 
@@ -296,6 +314,18 @@ def main() -> None:
     exit_btn.pack(side="right")
 
     def start_flow() -> None:
+        try:
+            window_days = int(window_days_text.get())
+        except ValueError:
+            window_days = -1
+        if not 0 <= window_days <= max_window_days:
+            messagebox.showwarning(
+                "Допуск оценки",
+                f"Введите целое число дней от 0 до {max_window_days}.",
+                parent=root,
+            )
+            return
+
         try:
             start_btn.config(state="disabled")
             status.set("Инициализация...")
@@ -335,6 +365,7 @@ def main() -> None:
             threading.Thread(
                 target=_process_all_files_worker,
                 args=(selected, chosen_shop, base_dir, q),
+                kwargs={"window_days": window_days},
                 daemon=True,
             ).start()
 

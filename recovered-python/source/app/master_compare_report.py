@@ -26,11 +26,9 @@ from app.settings import (
     COL_MRC_04_DAYS_DIFF,
     COL_MRC_05_PR_DATE,
     COL_MRC_06_PR_REPAIR_TYPE,
-    COL_MRC_07_HIT,
     COL_MRC_08,
     COL_MRC_09,
     COL_MRC_10,
-    COL_MRC_11,
     MASTER_COMPARE_DAY_WINDOW,
     MASTER_COMPARE_HIT_TEXT,
 )
@@ -441,7 +439,15 @@ def _ensure_fresh_sheet(wb, sheet_name: str) -> Worksheet:
     return wb.create_sheet(title=sheet_name)
 
 
-def process_master_compare_file(path: str, *, sheet_names: Optional[Dict[str, str]] = None) -> Dict[str, int]:
+def process_master_compare_file(
+    path: str,
+    *,
+    sheet_names: Optional[Dict[str, str]] = None,
+    window_days: int = MASTER_COMPARE_DAY_WINDOW,
+) -> Dict[str, int]:
+    if isinstance(window_days, bool) or not isinstance(window_days, int) or window_days < 0:
+        raise ValueError("Допуск должен быть целым неотрицательным числом дней.")
+
     stats = {
         "rows_fact_total": 0,
         "rows_fact_with_date": 0,
@@ -483,6 +489,7 @@ def process_master_compare_file(path: str, *, sheet_names: Optional[Dict[str, st
     stats["manual_index_keys"] = len(mf_idx)
 
     ws_out = _ensure_fresh_sheet(wb, MASTER_COMPARE_SHEET_NAME)
+    hit_header = f"± {window_days} дней"
     headers = [
         COL_MRC_01_DATE,
         COL_MRC_02_OBJECT,
@@ -490,20 +497,20 @@ def process_master_compare_file(path: str, *, sheet_names: Optional[Dict[str, st
         COL_MRC_04_DAYS_DIFF,
         COL_MRC_05_PR_DATE,
         COL_MRC_06_PR_REPAIR_TYPE,
-        COL_MRC_07_HIT,
+        hit_header,
         COL_MRC_08,
         COL_MRC_09,
         COL_MRC_10,
-        COL_MRC_11,
+        hit_header,
         HARD_LOGIC_LABEL,
         COL_MRC_04_DAYS_DIFF,
         COL_MRC_05_PR_DATE,
         COL_MRC_06_PR_REPAIR_TYPE,
-        COL_MRC_07_HIT,
+        hit_header,
         COL_MRC_08,
         COL_MRC_09,
         COL_MRC_10,
-        COL_MRC_11,
+        hit_header,
     ]
     for c, h in enumerate(headers, start=1):
         ws_out.cell(1, c).value = h
@@ -540,10 +547,10 @@ def process_master_compare_file(path: str, *, sheet_names: Optional[Dict[str, st
     for obj_key, fact_rows in fact_by_object.items():
         cands_pr = pr_idx.get(obj_key) or []
         cands_mf = mf_idx.get(obj_key) or []
-        soft_pr_matches.update(_build_global_pairs_forecast_soft(fact_rows, cands_pr, MASTER_COMPARE_DAY_WINDOW))
-        soft_mf_matches.update(_build_global_pairs_manual_soft(fact_rows, cands_mf, MASTER_COMPARE_DAY_WINDOW))
-        hard_pr_matches.update(_build_global_pairs_forecast_hard(fact_rows, cands_pr, MASTER_COMPARE_DAY_WINDOW))
-        hard_mf_matches.update(_build_global_pairs_manual_hard(fact_rows, cands_mf, MASTER_COMPARE_DAY_WINDOW))
+        soft_pr_matches.update(_build_global_pairs_forecast_soft(fact_rows, cands_pr, window_days))
+        soft_mf_matches.update(_build_global_pairs_manual_soft(fact_rows, cands_mf, window_days))
+        hard_pr_matches.update(_build_global_pairs_forecast_hard(fact_rows, cands_pr, window_days))
+        hard_mf_matches.update(_build_global_pairs_manual_hard(fact_rows, cands_mf, window_days))
 
     out_r = 2
     for r, d_fact, obj_fact, rep_fact, obj_key in fact_items:
