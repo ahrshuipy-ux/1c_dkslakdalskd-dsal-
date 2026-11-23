@@ -832,6 +832,51 @@ def build_normatives_index(ws_norm: Worksheet) -> Dict[str, List[tuple[str, str,
     return dict(idx)
 
 
+def norm_equipment_model_tokens(name: str) -> tuple[str, ...]:
+    tokens = _TOKEN_RE.findall(name.casefold().replace("ё", "е"))
+    for idx, (equipment_type, manufacturer) in enumerate(zip(tokens, tokens[1:])):
+        if re.fullmatch(r"[а-я]+", equipment_type) and re.fullmatch(r"[a-z]{2,}", manufacturer):
+            return tuple(tokens[idx:])
+    return ()
+
+
+def build_normatives_model_index(
+    norm_idx: Dict[str, List[tuple[str, str, int]]],
+) -> Dict[tuple[str, ...], List[tuple[tuple[str, ...], List[tuple[str, str, int]]]]]:
+    by_model = defaultdict(list)
+    for name, norms in norm_idx.items():
+        tokens = norm_equipment_model_tokens(name)
+        if tokens:
+            by_model[tokens[:2]].append((tokens, norms))
+    return dict(by_model)
+
+
+def find_norms_by_model(
+    equipment_name: str,
+    by_model: Dict[tuple[str, ...], List[tuple[tuple[str, ...], List[tuple[str, str, int]]]]],
+) -> List[tuple[str, str, int]]:
+    tokens = norm_equipment_model_tokens(equipment_name)
+    best_length = 0
+    best_norms = []
+    for candidate, norms in by_model.get(tokens[:2], ()):
+        prefix_length = 0
+        for token, other in zip(tokens, candidate):
+            if token != other:
+                break
+            prefix_length += 1
+        if prefix_length > best_length:
+            best_length = prefix_length
+            best_norms = []
+        if prefix_length == best_length:
+            best_norms.extend(norms)
+
+    # Equally similar models must agree on the period for each repair type.
+    by_repair = defaultdict(dict)
+    for name, repair, days in sorted(best_norms):
+        by_repair[normalize_text(repair)].setdefault(days, (name, repair, days))
+    return [next(iter(periods.values())) for periods in by_repair.values() if len(periods) == 1]
+
+
 def iter_dates_in_year_from_base(base: date, step_days: int, target_year: int) -> Iterable[date]:
     if step_days <= 0:
         return []
@@ -911,10 +956,13 @@ def append_rows_from_normatives(
     template_25 = ws_forecast.cell(template_row, out25)
     template_26 = ws_forecast.cell(template_row, out26)
     template_27 = ws_forecast.cell(template_row, out27)
+    norms_by_model = build_normatives_model_index(norm_idx)
     seen = set()
     best_by_month = {}
     for equip_raw_to_write, equip_norm, base_date, source_repair in base_rows:
         norms = norm_idx.get(equip_norm)
+        if norms is None:
+            norms = find_norms_by_model(equip_norm, norms_by_model)
         default_norms = get_default_norms_for_equipment(equip_norm)
         merged_norms = merge_norms_with_defaults(norms, default_norms)
         if norms:
