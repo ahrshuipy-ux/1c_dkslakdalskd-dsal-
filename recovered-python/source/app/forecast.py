@@ -1204,7 +1204,9 @@ def process_forecast(
         v14 = to_float(cell_14.value)
         v15 = to_float(cell_15.value)
         v16 = to_float(cell_16.value)
-        v22 = round_to_int(v14 / v16) if v14 is not None and v16 not in (None, 0) else None
+        daily_hours = v14 / v16 if v14 is not None and v16 not in (None, 0) else None
+        # Keep small nonzero rates usable as a divisor for the forecast.
+        v22 = round_to_int(daily_hours) or daily_hours
         cell(row_idx, out22).value = v22
         if v22 is not None:
             stats["calc_22"] += 1
