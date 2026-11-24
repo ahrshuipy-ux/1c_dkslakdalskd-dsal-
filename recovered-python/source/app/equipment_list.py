@@ -6,7 +6,7 @@ from datetime import datetime
 from openpyxl.worksheet.worksheet import Worksheet
 
 from app.settings import COL_EQ_DATE, COL_EQ_CODE5, COL_EQ_CODE6
-from app.excel_utils import find_header_row, find_col_index_by_header
+from app.excel_utils import delete_selected_rows, find_header_row, find_col_index_by_header
 
 
 def normalize_to_date(value):
@@ -89,7 +89,6 @@ def process_equipment_list(ws: Worksheet) -> Tuple[int, Dict[str, int]]:
             c6.value = v6
             stats["code6_converted"] += 1
 
-    for r in reversed(rows_to_delete):
-        ws.delete_rows(r)
+    delete_selected_rows(ws, rows_to_delete)
 
     return len(rows_to_delete), stats

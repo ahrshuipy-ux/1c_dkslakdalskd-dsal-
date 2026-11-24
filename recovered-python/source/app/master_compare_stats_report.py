@@ -39,16 +39,17 @@ def _ensure_fresh_sheet(wb, sheet_name: str) -> Worksheet:
 
 
 def _autosize_columns(ws: Worksheet, min_width: float = 8, max_width: float = 40, padding: int = 2) -> None:
+    max_column = ws.max_column
     col_max = {}
     for r in range(1, ws.max_row + 1):
-        for c in range(1, ws.max_column + 1):
+        for c in range(1, max_column + 1):
             v = ws.cell(r, c).value
             if v is None:
                 continue
             s = str(v).replace("\n", " ")
             col_max[c] = max(col_max.get(c, 0), len(s))
 
-    for c in range(1, ws.max_column + 1):
+    for c in range(1, max_column + 1):
         w = col_max.get(c, 0) + padding
         if w < min_width:
             w = min_width

@@ -11,7 +11,7 @@ from typing import Any, Callable, DefaultDict, Dict, Iterable, List, Optional, S
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.worksheet import Worksheet
 
-from app.excel_utils import find_col_index_by_header, find_header_row
+from app.excel_utils import delete_selected_rows, find_col_index_by_header, find_header_row
 from app.settings import (
     COL_EQ_01_VALUE,
     COL_EQ_09_CODE,
@@ -1151,8 +1151,7 @@ def process_forecast(
                 value = normalize_text(ws.cell(row_idx, c2).value)
                 if not value or value not in allowed_set:
                     rows_to_delete.append(row_idx)
-            for row_idx in reversed(rows_to_delete):
-                ws.delete_rows(row_idx)
+            delete_selected_rows(ws, rows_to_delete)
     stats["filtered_by_col2"] = len(rows_to_delete)
 
     out20 = ws.max_column + 1

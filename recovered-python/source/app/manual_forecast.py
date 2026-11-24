@@ -18,7 +18,7 @@ from app.settings import (
     COL_MF_VALUE,
 )
 from app.text_utils import normalize_text
-from app.excel_utils import find_header_row, find_col_index_by_header
+from app.excel_utils import delete_selected_rows, find_header_row, find_col_index_by_header
 
 
 def to_number(value):
@@ -137,8 +137,7 @@ def process_manual_forecast(ws: Worksheet, chosen_shop: str) -> Tuple[int, Dict[
             cell6.value = num
             stats["converted_to_number"] += 1
 
-    for r in reversed(rows_to_delete):
-        ws.delete_rows(r)
+    delete_selected_rows(ws, rows_to_delete)
 
     ws.delete_cols(col4)
     total_deleted = len(rows_to_delete)

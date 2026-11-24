@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from typing import List
+from typing import Iterable, List
 from pathlib import Path
 
 from openpyxl import load_workbook
+from openpyxl.worksheet.cell_range import CellRange
 from openpyxl.worksheet.worksheet import Worksheet
 
 from app.text_utils import normalize_text
@@ -41,6 +42,46 @@ def find_col_index_by_header(ws: Worksheet, header_row: int, header_name: str) -
         if normalize_text("" if v is None else str(v)) == wanted:
             return col
     raise KeyError(f"Не найден столбец: '{header_name}' (строка заголовков {header_row})")
+
+
+def delete_selected_rows(ws: Worksheet, row_numbers: Iterable[int]) -> None:
+    """Remove original row numbers while shifting each surviving cell at most once."""
+    rows = sorted(set(row_numbers))
+    if not rows:
+        return
+
+    # Trim the tail first so deleted cells there cannot affect the width of
+    # the moved ranges. A sparse sheet can expose another tail after trimming.
+    while rows:
+        last_row = ws.max_row
+        while rows and rows[-1] > last_row:
+            rows.pop()
+        last_kept = last_row
+        while rows and rows[-1] == last_kept:
+            rows.pop()
+            last_kept -= 1
+        if last_kept == last_row:
+            break
+        ws.delete_rows(last_kept + 1, last_row - last_kept)
+    if not rows:
+        return
+
+    last_column = ws.max_column
+    first_kept = rows[0] + 1
+    for offset, next_deleted in enumerate([*rows[1:], last_row + 1], start=1):
+        if first_kept < next_deleted:
+            ws.move_range(
+                CellRange(
+                    min_row=first_kept,
+                    max_row=next_deleted - 1,
+                    min_col=1,
+                    max_col=last_column,
+                ),
+                rows=-offset,
+            )
+        first_kept = next_deleted + 1
+
+    ws.delete_rows(last_row - len(rows) + 1, len(rows))
 
 
 def copy_worksheet_values(src_ws: Worksheet, dst_ws: Worksheet) -> None:

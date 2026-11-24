@@ -38,9 +38,10 @@ HARD_LOGIC_LABEL = "Жесткая логика:"
 
 def _autosize_columns(ws, *, min_width: float = 8, max_width: float = 30, padding: int = 2, scan_rows: int | None = 2000) -> None:
     max_row = ws.max_row if scan_rows is None else min(ws.max_row, scan_rows)
+    max_column = ws.max_column
     col_max_len = {}
     for r in range(1, max_row + 1):
-        for c in range(1, ws.max_column + 1):
+        for c in range(1, max_column + 1):
             val = ws.cell(r, c).value
             if val is None:
                 continue
@@ -53,7 +54,7 @@ def _autosize_columns(ws, *, min_width: float = 8, max_width: float = 30, paddin
             if length > col_max_len.get(c, 0):
                 col_max_len[c] = length
 
-    for c in range(1, ws.max_column + 1):
+    for c in range(1, max_column + 1):
         length = col_max_len.get(c, 0)
         width = length + padding
         if width < min_width:

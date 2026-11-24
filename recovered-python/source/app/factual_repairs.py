@@ -15,7 +15,7 @@ from app.settings import (
     COL_FR_VALUE,
 )
 from app.text_utils import normalize_text
-from app.excel_utils import find_header_row, find_col_index_by_header
+from app.excel_utils import delete_selected_rows, find_header_row, find_col_index_by_header
 
 
 def normalize_to_date(value):
@@ -128,8 +128,7 @@ def process_factual_repairs(ws: Worksheet) -> Tuple[int, Dict[str, int]]:
             cell6.value = num
             stats["numbers_converted"] += 1
 
-    for r in reversed(rows_to_delete):
-        ws.delete_rows(r)
+    delete_selected_rows(ws, rows_to_delete)
 
     ws.delete_cols(col4)
     return len(rows_to_delete), stats
