@@ -257,7 +257,8 @@ def _process_all_files_worker(
             )
             summary_lines.append(
                 f"{out_path.name}: master_compare_report → OK (± {window_days} дней, matched_forecast="
-                f"{stats_cmp.get('matched_forecast', 0)}, matched_manual="
+                f"{stats_cmp.get('matched_forecast', 0)}, "
+                f"по техномеру: {stats_cmp['rows_linked_by_tech_number']}, matched_manual="
                 f"{stats_cmp.get('matched_manual', 0)})"
             )
         except Exception as exc:

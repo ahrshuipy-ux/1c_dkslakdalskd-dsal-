@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime, date
+import re
 from typing import Any, Dict, List, Optional, Tuple, Set
 
 from openpyxl.utils import get_column_letter
@@ -13,6 +14,7 @@ from app.settings import (
     COL_FR_DATE,
     COL_FR_OBJECT,
     COL_FR_REPAIR,
+    COL_FR_TECH_NUMBER,
     COL_PR_25,
     COL_PR_26_EQUIP_VALUE,
     COL_PR_27_REPAIR_TYPE,
@@ -34,6 +36,8 @@ from app.settings import (
 )
 
 HARD_LOGIC_LABEL = "Жесткая логика:"
+_TECH_NUMBER = re.compile(r"[a-zа-яё0-9]+(?:[./-][a-zа-яё0-9]+)*")
+_TECH_NUMBER_LOOKALIKES = str.maketrans("авекмнорстух‐‑–—", "abekmhopctyx----")
 
 
 def _autosize_columns(ws, *, min_width: float = 8, max_width: float = 30, padding: int = 2, scan_rows: int | None = 2000) -> None:
@@ -93,6 +97,15 @@ def _object_key(v: Any) -> str:
     if v is None:
         return ""
     return " ".join(str(v).strip().casefold().split())
+
+
+def _tech_number_key(value: Any) -> str:
+    if isinstance(value, float) and value.is_integer():
+        value = int(value)
+    text = _object_key(value).strip("| ,;:").translate(_TECH_NUMBER_LOOKALIKES)
+    if _TECH_NUMBER.fullmatch(text) and any(char.isdigit() for char in text):
+        return text
+    return ""
 
 
 def _build_global_pairs_forecast_soft(
@@ -253,7 +266,11 @@ class ForecastRec:
     src_row: int
 
 
-def _build_forecast_index(ws_pr: Worksheet) -> Dict[str, List[ForecastRec]]:
+def _build_forecast_index(
+    ws_pr: Worksheet,
+    *,
+    object_names: Optional[Set[str]] = None,
+) -> Dict[str, List[ForecastRec]]:
     header_row = find_header_row(ws_pr, [COL_PR_25, COL_PR_26_EQUIP_VALUE, COL_PR_27_REPAIR_TYPE], scan_rows=120)
     c25 = find_col_index_by_header(ws_pr, header_row, COL_PR_25)
     c26 = find_col_index_by_header(ws_pr, header_row, COL_PR_26_EQUIP_VALUE)
@@ -264,6 +281,8 @@ def _build_forecast_index(ws_pr: Worksheet) -> Dict[str, List[ForecastRec]]:
         key = _object_key(equip_val)
         if not key:
             continue
+        if object_names is not None:
+            object_names.add(key)
         d = _normalize_to_date(ws_pr.cell(r, c25).value)
         if d is None:
             continue
@@ -465,6 +484,8 @@ def process_master_compare_file(
         "no_match_manual_hard": 0,
         "rows_skipped_no_object_in_forecast": 0,
         "rows_with_object_in_forecast": 0,
+        "rows_linked_by_tech_number": 0,
+        "rows_skipped_ambiguous_tech_number": 0,
     }
     wb = load_workbook(path)
     if sheet_names is None:
@@ -484,7 +505,8 @@ def process_master_compare_file(
     ws_fr = wb[sh_fr]
     ws_mf = wb[sh_mf]
 
-    pr_idx = _build_forecast_index(ws_pr)
+    forecast_names = set()
+    pr_idx = _build_forecast_index(ws_pr, object_names=forecast_names)
     stats["forecast_index_keys"] = len(pr_idx)
     mf_idx = _build_manual_index(ws_mf)
     stats["manual_index_keys"] = len(mf_idx)
@@ -520,8 +542,21 @@ def process_master_compare_file(
     c_fr_d = find_col_index_by_header(ws_fr, header_row_fr, COL_FR_DATE)
     c_fr_obj = find_col_index_by_header(ws_fr, header_row_fr, COL_FR_OBJECT)
     c_fr_rep = find_col_index_by_header(ws_fr, header_row_fr, COL_FR_REPAIR)
+    try:
+        c_fr_tech = find_col_index_by_header(ws_fr, header_row_fr, COL_FR_TECH_NUMBER)
+    except KeyError:
+        c_fr_tech = None
+
+    names_by_tech = {}
+    if c_fr_tech is not None:
+        for name in forecast_names:
+            number = _tech_number_key(name.lstrip("| ").partition(" ")[0])
+            if number:
+                names_by_tech.setdefault(number, set()).add(name)
+
     fact_items = []
-    fact_by_object = {}
+    fact_by_forecast_object = {}
+    fact_by_manual_object = {}
     for r in range(header_row_fr + 1, ws_fr.max_row + 1):
         stats["rows_fact_total"] += 1
         d_fact = _normalize_to_date(ws_fr.cell(r, c_fr_d).value)
@@ -531,30 +566,45 @@ def process_master_compare_file(
             continue
         stats["rows_fact_with_date"] += 1
         obj_key = _object_key(obj_fact)
-        if not obj_key:
+        forecast_key = obj_key
+        if c_fr_tech is not None and obj_key not in forecast_names:
+            number = _tech_number_key(ws_fr.cell(r, c_fr_tech).value)
+            candidates = names_by_tech.get(number, ())
+            if len(candidates) == 1:
+                forecast_key = next(iter(candidates))
+            elif len(candidates) > 1:
+                stats["rows_skipped_ambiguous_tech_number"] += 1
+
+        if not forecast_key:
             continue
         stats["rows_with_object"] += 1
-        if obj_key not in pr_idx:
+        if forecast_key not in pr_idx:
             stats["rows_skipped_no_object_in_forecast"] += 1
             continue
+        if forecast_key != obj_key:
+            stats["rows_linked_by_tech_number"] += 1
         stats["rows_with_object_in_forecast"] += 1
-        fact_items.append((r, d_fact, obj_fact, rep_fact, obj_key))
-        fact_by_object.setdefault(obj_key, []).append((r, d_fact, rep_fact))
+        fact_items.append((r, d_fact, obj_fact or forecast_key, rep_fact))
+        fact_row = (r, d_fact, rep_fact)
+        fact_by_forecast_object.setdefault(forecast_key, []).append(fact_row)
+        if obj_key:
+            fact_by_manual_object.setdefault(obj_key, []).append(fact_row)
 
     soft_pr_matches = {}
     soft_mf_matches = {}
     hard_pr_matches = {}
     hard_mf_matches = {}
-    for obj_key, fact_rows in fact_by_object.items():
-        cands_pr = pr_idx.get(obj_key) or []
-        cands_mf = mf_idx.get(obj_key) or []
+    for obj_key, fact_rows in fact_by_forecast_object.items():
+        cands_pr = pr_idx[obj_key]
         soft_pr_matches.update(_build_global_pairs_forecast_soft(fact_rows, cands_pr, window_days))
-        soft_mf_matches.update(_build_global_pairs_manual_soft(fact_rows, cands_mf, window_days))
         hard_pr_matches.update(_build_global_pairs_forecast_hard(fact_rows, cands_pr, window_days))
+    for obj_key, fact_rows in fact_by_manual_object.items():
+        cands_mf = mf_idx.get(obj_key, [])
+        soft_mf_matches.update(_build_global_pairs_manual_soft(fact_rows, cands_mf, window_days))
         hard_mf_matches.update(_build_global_pairs_manual_hard(fact_rows, cands_mf, window_days))
 
     out_r = 2
-    for r, d_fact, obj_fact, rep_fact, obj_key in fact_items:
+    for r, d_fact, obj_fact, rep_fact in fact_items:
         ws_out.cell(out_r, 1).value = d_fact
         ws_out.cell(out_r, 2).value = obj_fact
         ws_out.cell(out_r, 3).value = rep_fact
