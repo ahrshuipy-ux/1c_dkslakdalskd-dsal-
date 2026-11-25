@@ -67,6 +67,11 @@ def run_processor_for_file(
             ctx["ws_manual_forecast"] = ws
             return True, p.name, res
 
+        if p.name == "Фактические ремонты":
+            res = p.runner(ws)
+            ctx["ws_factual_repairs"] = ws
+            return True, p.name, res
+
         if p.name == "Список оборудования":
             res = p.runner(ws)
             ctx["ws_equipment"] = ws
@@ -99,6 +104,7 @@ def run_processor_for_file(
                 ws_tech_cards,
                 ws_manual_forecast,
                 ws_normatives,
+                ws_factual_repairs=ctx.get("ws_factual_repairs"),
             )
 
         if p.needs_shop:

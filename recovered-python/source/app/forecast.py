@@ -15,6 +15,9 @@ from app.excel_utils import delete_selected_rows, find_col_index_by_header, find
 from app.settings import (
     COL_EQ_01_VALUE,
     COL_EQ_09_CODE,
+    COL_FR_DATE,
+    COL_FR_OBJECT,
+    COL_FR_REPAIR,
     COL_MF_DATE,
     COL_OBJECT,
     COL_PR_08_CODE,
@@ -937,9 +940,32 @@ def iter_dates_in_year_from_base(base: date, step_days: int, target_year: int) -
     return result
 
 
+def _last_repairs_before_year(
+    ws: Worksheet,
+    target_year: int,
+) -> dict[tuple[str, str], date]:
+    header = find_header_row(ws, [COL_FR_OBJECT, COL_FR_REPAIR, COL_FR_DATE], scan_rows=120)
+    name_col = find_col_index_by_header(ws, header, COL_FR_OBJECT)
+    repair_col = find_col_index_by_header(ws, header, COL_FR_REPAIR)
+    date_col = find_col_index_by_header(ws, header, COL_FR_DATE)
+    cutoff = date(target_year, 1, 1)
+    last_repairs = {}
+    for row in range(header + 1, ws.max_row + 1):
+        completed = normalize_to_date(ws.cell(row, date_col).value)
+        if completed is None or completed >= cutoff:
+            continue
+        name = normalize_text(ws.cell(row, name_col).value)
+        repair = normalize_text(ws.cell(row, repair_col).value)
+        if name and repair:
+            key = (name, repair)
+            last_repairs[key] = max(completed, last_repairs.get(key, completed))
+    return last_repairs
+
+
 def append_rows_from_normatives(
     ws_forecast: Worksheet, header_row: int, out25: int, out26: int, out27: int,
     ws_manual: Worksheet, ws_norm: Worksheet, stats: Dict[str, int],
+    *, ws_factual_repairs: Optional[Worksheet] = None,
 ) -> None:
     target_year = read_target_year_from_manual(ws_manual)
     stats["manual_target_year_found"] = 1 if target_year else 0
@@ -949,29 +975,32 @@ def append_rows_from_normatives(
     stats["norm_index_objects"] = len(norm_idx)
     base_repairs_allowed = {"средний ремонт", "текущий (малый) ремонт", "капитальный ремонт"}
     existing_keys = set()
-    for row_idx in range(header_row + 1, ws_forecast.max_row + 1):
-        rep_existing = normalize_text(ws_forecast.cell(row_idx, out27).value)
-        dt_existing = normalize_to_date(ws_forecast.cell(row_idx, out25).value)
-        equip_existing_raw = ws_forecast.cell(row_idx, out26).value
-        equip_existing = normalize_text(equip_existing_raw)
-        if equip_existing and rep_existing and dt_existing is not None:
-            existing_keys.add((equip_existing, rep_existing, dt_existing))
+    equipment_names = {}
     base_rows = []
     for row_idx in range(header_row + 1, ws_forecast.max_row + 1):
-        rep = normalize_text(ws_forecast.cell(row_idx, out27).value)
-        if rep not in base_repairs_allowed:
-            continue
-        planned_date = normalize_to_date(ws_forecast.cell(row_idx, out25).value)
-        if planned_date is None:
-            continue
         equip_raw = ws_forecast.cell(row_idx, out26).value
         equip_str = "" if equip_raw is None else str(equip_raw).strip()
         if not equip_str:
             continue
-        base_rows.append((equip_str, normalize_text(equip_str), planned_date, rep))
-    stats["post_base_capital_rows"] = sum(1 for _, _, _, rep in base_rows if rep == "капитальный ремонт")
-    stats["post_base_medium_rows"] = sum(1 for _, _, _, rep in base_rows if rep == "средний ремонт")
-    stats["post_base_small_rows"] = sum(1 for _, _, _, rep in base_rows if rep == "текущий (малый) ремонт")
+        equip_norm = normalize_text(equip_str)
+        equipment_names.setdefault(equip_norm, equip_str)
+        planned_date = normalize_to_date(ws_forecast.cell(row_idx, out25).value)
+        rep = normalize_text(ws_forecast.cell(row_idx, out27).value)
+        if planned_date is not None and rep:
+            existing_keys.add((equip_norm, rep, planned_date))
+            if rep in base_repairs_allowed:
+                base_rows.append((equip_str, equip_norm, planned_date, rep, False))
+    stats["post_base_capital_rows"] = sum(1 for _, _, _, rep, _ in base_rows if rep == "капитальный ремонт")
+    stats["post_base_medium_rows"] = sum(1 for _, _, _, rep, _ in base_rows if rep == "средний ремонт")
+    stats["post_base_small_rows"] = sum(1 for _, _, _, rep, _ in base_rows if rep == "текущий (малый) ремонт")
+
+    history = _last_repairs_before_year(ws_factual_repairs, target_year) if ws_factual_repairs is not None else {}
+    base_rows.extend(
+        (equipment_names[name], name, completed, repair, True)
+        for (name, repair), completed in history.items()
+        if name in equipment_names
+    )
+    stats["post_historical_anchors_used"] = 0
     if not base_rows:
         return
     template_row = ws_forecast.max_row
@@ -982,7 +1011,7 @@ def append_rows_from_normatives(
     norms_by_type = build_normatives_name_index(norm_idx, norm_equipment_type_tokens)
     seen = set()
     best_by_month = {}
-    for equip_raw_to_write, equip_norm, base_date, source_repair in base_rows:
+    for equip_raw_to_write, equip_norm, base_date, source_repair, is_historical in base_rows:
         norms = norm_idx.get(equip_norm)
         if norms is None:
             norms = find_norms_by_name_tokens(norm_equipment_model_tokens(equip_norm), norms_by_model)
@@ -1007,7 +1036,7 @@ def append_rows_from_normatives(
         if not merged_norms:
             stats["post_skipped_no_norms"] += 1
             continue
-        if source_repair == "капитальный ремонт":
+        if source_repair == "капитальный ремонт" and not is_historical:
             norms_to_apply = merged_norms
         else:
             norms_to_apply = [
@@ -1017,8 +1046,12 @@ def append_rows_from_normatives(
             ]
         if not norms_to_apply:
             continue
+        if is_historical:
+            stats["post_historical_anchors_used"] += 1
         for _, rep_raw_to_write, step_days in norms_to_apply:
             rep_norm_key = normalize_text(rep_raw_to_write)
+            if not is_historical and (equip_norm, rep_norm_key) in history:
+                continue
             priority = REPAIR_PRIORITY.get(rep_norm_key, 0)
             for next_date in iter_dates_in_year_from_base(base_date, step_days, target_year):
                 exact_key = (equip_norm, rep_norm_key, next_date)
@@ -1061,6 +1094,7 @@ def process_forecast(
     ws: Worksheet, chosen_shop: str, ws_equipment: Worksheet,
     ws_tech_cards: Worksheet, ws_manual_forecast: Worksheet,
     ws_normatives: Worksheet,
+    *, ws_factual_repairs: Optional[Worksheet] = None,
 ) -> ProcessResult:
     stats = {
         "tables_stripped": 0,
@@ -1094,6 +1128,7 @@ def process_forecast(
         "norm_index_objects": 0,
         "post_base_capital_rows": 0,
         "post_generated_rows": 0,
+        "post_historical_anchors_used": 0,
         "post_default_norms_used": 0,
         "post_default_norm_repairs_added": 0,
         "post_skipped_no_norms": 0,
@@ -1296,6 +1331,7 @@ def process_forecast(
         ws_manual=ws_manual_forecast,
         ws_norm=ws_normatives,
         stats=stats,
+        ws_factual_repairs=ws_factual_repairs,
     )
     autosize_columns(ws)
     return stats["filtered_by_col2"], stats
